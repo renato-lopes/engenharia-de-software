@@ -1,5 +1,5 @@
 # Sistema Q&A
-Repositório do trabalho prático da disciplina Engenharia de Software - DCC603. 
+Repositório do trabalho prático da disciplina Engenharia de Software - DCC603.  
 Prof. Marco Tulio Valente
 
 ### Grupo:
