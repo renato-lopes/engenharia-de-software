@@ -11,10 +11,12 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <div class="card mt-5 animated fadeIn mr-1 ml-1">
-                <img src="https://www.qbrobotics.com/wp-content/uploads/2018/03/sample-logo.png" class="card-img-top" alt="logo">
+            <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
+                <img src="https://www.qbrobotics.com/wp-content/uploads/2018/03/sample-logo.png" class="card-img-top"
+                    alt="logo">
                 <div class="card-body">
                     <form action="#" method="post">
+                        {% csrf_token %}
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -33,23 +35,23 @@
                                             class="fa fa-key"></i></span>
                                 </div>
                                 <input class="prepend-fx form-control" type="password" id='password' name="password"
-                                    placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2"
-                                    required>
+                                    placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2" required>
                             </div>
                         </div>
+
+
+                        <div class="form-group mt-4">
+                            <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
+                                <span class="font-weight-bold">
+                                    LOGIN
+                                </span>
+                            </button>
+
+                        </div>
+                        <a href="{% url 'password_reset' %}" class="text-muted mb-3 card-link"><strong>Esqueceu
+                                a senha?</strong></a>
                     </form>
                 </div>
-
-                <div class="form-group ml-3 mr-3">
-                    <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
-                        <span class="font-weight-bold">
-                            LOGIN
-                        </span>
-                    </button>
-                    
-                </div>
-                <a href="{% url 'password_reset' %}" class="text-muted mx-auto mb-3 card-link"><strong>Esqueceu a senha?</strong></a>
-                
             </div>
             <p class="text-center">
                 <small class="text-muted">Não tem uma conta?</small>
