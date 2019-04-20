@@ -7,3 +7,9 @@ def register(request):
     }
 
     return render(request, 'users/register.html', context)
+
+def profile(request):
+    context = {
+        'title': 'Perfil'
+    }
+    return render(request, 'users/profile.html', context)
