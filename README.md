@@ -5,7 +5,7 @@ Prof. Marco Tulio Valente
 
 ### Inicialização do Projeto:
 Pra facilitar instalei o virtualenvwrapper:
-> pip install virtualenvwrapper-win (windows)
+> pip install virtualenvwrapper-win (windows)  
 > pip install virtualenvwrapper (linux)
 
 Instalei o Django
@@ -15,9 +15,9 @@ Iniciei o projeto:
 > django-admin startproject qa
 
 Iniciei os apps:
-> python manage.py startapp forum
-> python manage.py startapp users
-> python manage.py startapp posts
+> python manage.py startapp forum  
+> python manage.py startapp users  
+> python manage.py startapp posts  
 
 ### Grupo:
 - Breno Martins                   
