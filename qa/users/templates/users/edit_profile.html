@@ -1,74 +1,116 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card mt-5 animated fadeIn mr-1 ml-1">
-            <img src="https://www.qbrobotics.com/wp-content/uploads/2018/03/sample-logo.png" class="card-img-top"
-                alt="logo">
-            <div class="card-body">
-                <form action="#" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="user-pro-edit hide">
-                            <i class="fa fa-pencil open-image" aria-hidden="true"></i>
-                            <div class="edit-tool ">
-                               <span><i class="fa fa-camera-retro"></i>Camera</span>
-                               <span><i class="fa fa-file-image-o"></i>Gallary</span>
-                               <span><i class="fa fa-window-close-o"></i>Remove</span>
-                             
+<div class="container">
+    <div class="form__container">
+        <section class="form__personal">
+            <div class="sections">
+                <div class="box">1</div><span>Dados Pessoais</span>
+            </div>
+            <div class="personal--form">
+                <form class="form--name" action="">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <div id="imagePreview"
+                                style="background-image: url(http://cdn.onlinewebfonts.com/svg/img_569204.png);">
                             </div>
-                           <span><i class="fa fa-times-circle-o close"></i></span>
-                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text icon-login" id="basic-addon3"><i
-                                        class="fa fa-at"></i></span>
-                            </div>
-                            <input type="text" class="form-control " name="email" placeholder="E-mail"
-                                aria-label="E-mail" aria-describedby="basic-addon3" required>
                         </div>
                     </div>
-
-                    <div class="form-group ">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text icon-login" id="basic-addon2"><i
-                                        class="fa fa-key"></i></span>
-                            </div>
-                            <input class="prepend-fx form-control" type="password" id='password' name="password"
-                                placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2" required>
+                    <div class="row one">
+                        <div class="first">
+                            <label for="firstname">Nome</label>
+                            <input placeholder="e.g. Richard" id="firstname" type="text" />
+                        </div>
+                        <div class="last">
+                            <label for="firstname">Sobrenome</label>
+                            <input placeholder="e.g. Bovell" id="firstname" type="text" />
                         </div>
                     </div>
+                    <div class="row two">
+                        <div class="gender">
+                            <label for="gender">Gênero</label>
+                            <select id="gender">
+                                <option>Feminino</option>
+                                <option>Masculino</option>
+                                <option>Outro</option>
+                                <option>Prefiro não informar</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group ">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text icon-login" id="basic-addon4"><i
-                                        class="fa fa-key"></i></span>
-                            </div>
-                            <input class="prepend-fx form-control" type="password" id='password2' name="password2"
-                                placeholder="Confirmar Senha" aria-label="Confirmar Senha"
-                                aria-describedby="basic-addon4" required>
+
+                        <div class="date">
+                            <label for="date">Data de Nascimento</label>
+                            <input placeholder="e.g. 01/01/1999" id="date" type="text" />
                         </div>
                     </div>
-
-
-                    <div class="form-group">
-                        <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
-                            <span class="font-weight-bold">
-                                REGISTRAR-SE
-                            </span>
-                        </button>
+                    <div class="row three">
+                        <div class="address">
+                            <label for="address-one">Telefone 1</label>
+                            <input placeholder="e.g. (31) 9999-9999" id="address-one" type="text" />
+                        </div>
+                        <div class="address-two">
+                            <label for="address-two">Telefone 2</label>
+                            <input id="address-two" type="text" />
+                        </div>
                     </div>
-
+                    <div class="row two">
+                        <div class="city">
+                            <label for="city">Cidade</label>
+                            <input placeholder="e.g. Belo Horizonte" id="city" type="text" />
+                        </div>
+                        <div class="state">
+                            <label for="state">Estado / Região</label>
+                            <input placeholder="e.g. Minas Gerais" id="state" type="text" />
+                        </div>
+                    </div>
+                    <div class="row three">
+                        <div class="zip">
+                            <label for="zip">CEP</label>
+                            <input placeholder="e.g. 99999-000" id="zip" type="text" />
+                        </div>
+                        <div class="country">
+                            <label for="country">País</label>
+                            <input placeholder="e.g. BR" id="country" type="text" />
+                        </div>
+                    </div>
                 </form>
             </div>
-        </div>
-        <p class="text-center">
-            <small class="text-muted">Já tem uma conta?</small>
-            <small><a href="{% url 'login' %}">Entrar</a></small>
-        </p>
-    </div>
+        </section>
+        <section class="form__user">
+            <div class="sections">
+                <div class="box billing">2</div><span>Dados Cadastrais</span>
+            </div>
+            <div class="shipping--form">
+                <form class="form--shipping" action="">
+                    <div class="row one">
+                        <div class="username">
+                            <label for="username">Username</label>
+                            <input placeholder="" id="username" type="text" />
+                        </div>
+                    </div>
+                    <div class="row two">
+                        <div class="email">
+                            <label for="firstname">E-mail</label>
+                            <input placeholder="e.g. rb@apple.com" id="firstname" type="email" />
+                        </div>
+                    </div>
+                    <div class="row three">
+                        <div class="password">
+                            <label for="password">Senha</label>
+                            <input placeholder="" id="password" type="password" />
+                        </div>
+                        <div class="password-2">
+                            <label for="password-2">Confirmar Senha</label>
+                            <input placeholder="" id="password-2" type="password" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
 
+        <div class="form__confirmation">
+            <button class="edit-profile-btn">Confirm Information</button>
+        </div>
+    </div>
 </div>

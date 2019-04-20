@@ -299,47 +299,281 @@ img.rounded {
   display: block;
 }
 
-/*buttons*/
-.btn {
-  position: relative;
-  padding: 12px 30px;
-  margin: .3125rem 1px;
-  font-size: .75rem;
-  font-weight: 400;
-  line-height: 1.428571;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  border: 0;
-  border-radius: .2rem;
-  outline: 0;
-  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
-  will-change: box-shadow,transform;
-}
 
-.btn.btn-just-icon {
-  font-size: 20px;
-  height: 41px;
-  min-width: 41px;
-  width: 41px;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  line-height: 41px;
-}
 
-.btn.btn-just-icon fa{
-  margin-top: 0;
-  position: absolute;
+/* edit prof */
+
+.form__container {
   width: 100%;
-  transform: none;
-  left: 0;
-  top: 0;
-  height: 100%;
-  line-height: 41px;
-  font-size: 20px;
+  min-height: 300px;
+  background-color: #fff;
+  border: 1px solid #DADDE8;
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 100px;
 }
-.btn.btn-link{
+
+.personal--form {
+  color: #A4A9C5;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 55px;
+  margin-top: 10px;
+}
+.personal--form .last {
+  margin-left: 40px;
+}
+
+.personal--form .gender {
+  margin-right: 40px;
+}
+
+.personal--form .first, .personal--form .last, .personal--form .email, .personal--form .gender, .personal--form .date{
+  display: inline-block;
+}
+.personal--form .first label, .personal--form .last label, .personal--form .email label,  .personal--form .gender label,
+ .personal--form .date label{
+  margin-bottom: 10px;
+}
+.personal--form .first label, .personal--form .first input, .personal--form .last label, .personal--form .last input, 
+.shipping--form .email label, .shipping--form .email input ,  .personal--form .gender label,  .personal--form .gender select
+.personal--form .date label, .personal--form .date input {
+  display: block;
+  min-width: 250px;
+}
+
+.shipping--form .email input {
+  width: 540px;
+}
+
+.shipping--form .username input {
+  width: 540px;
+}
+
+.personal--form .gender select {
+  width: 250px;
+}
+
+.shipping--form {
+  color: #A4A9C5;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 55px;
+  margin-top: 10px;
+}
+
+.row.two, .row.three {
+  margin-top: 20px;
+}
+.personal--form .address-two, .personal--form .state, .personal--form .country, .shipping--form .password-2 {
+  margin-left: 40px;
+}
+.personal--form .address, .personal--form .address-two, .personal--form .city, .personal--form .state, 
+.personal--form .zip, .personal--form .country, .shipping--form .username, .shipping--form .password-2, .shipping--form .password {
+  display: inline-block;
+}
+.personal--form .address label, .personal--form .address-two label, .personal--form .city label, .personal--form .state label, 
+.personal--form .zip label, .personal--form .country label, .shipping--form .username label, .shipping--form .password label, 
+.shipping--form .password-2 label {
+  margin-bottom: 10px;
+}
+.personal--form .address label, .personal--form .address input, .personal--form .address-two label, .personal--form .address-two input, 
+.personal--form .city label, .personal--form .city input, .personal--form .state label, .personal--form .state input, .personal--form .zip label, 
+.personal--form .zip input, .personal--form .country label, .personal--form .country input, .shipping--form .password-2 input, .shipping--form .password-2 label,
+.shipping--form .password input, .shipping--form .password label, .shipping--form .username label, .shipping--form .username input {
+  display: block;
+  min-width: 250px;
+}
+
+.form__question {
+  padding: 10px 55px;
+  color: #646E8A;
+}
+.form__question p {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+.form__question input[type=checkbox] {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
   background-color: transparent;
-  color: #999;
+  border-radius: 3px;
+  border: 2px solid #646E8A;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form__question input[type=checkbox]:checked {
+  background-color: #18C2C0;
+}
+
+input, select {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border: 1px solid #A4A9C5;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px;
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #18C2C0;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #18C2C0;
+}
+input:focus, select:focus {
+  border-color: #18C2C0;
+}
+input::-webkit-input-placeholder, select::-webkit-input-placeholder {
+  font-weight: 500;
+  color: #646E8A;
+}
+input:-ms-input-placeholder, select:-ms-input-placeholder {
+  font-weight: 500;
+  color: #646E8A;
+}
+input::-ms-input-placeholder, select::-ms-input-placeholder {
+  font-weight: 500;
+  color: #646E8A;
+}
+input::placeholder, select::placeholder {
+  font-weight: 500;
+  color: #646E8A;
+}
+
+.form__confirmation {
+  padding: 10px 55px;
+}
+
+.edit-profile-btn {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background-color: #18C2C0;
+  border: 1px solid #DADDE8;
+  color: #fff;
+  padding: 18px;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  left: 80%;
+}
+.edit-profile-btn:hover {
+  background-color: #15aeac;
+}
+.edit-profile-btn:active {
+  background-color: #139b99;
+}
+
+.box {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+  border-radius: 50px;
+  border: 2px solid #646E8A;
+  text-align: center;
+  color: #646E8A;
+}
+.box.billing {
+  line-height: 30px;
+}
+
+section {
+  margin-top: 50px;
+}
+section:nth-child(1) {
+  margin-top: 0px;
+}
+
+.sections span {
+  color: #646E8A;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-left: 15px;
+}
+
+
+.avatar-upload {
+  position: absolute;
+  left: 70%;
+  top: 12%;
+  max-width: 205px;
+  display: inline-block;
+
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "\f040";
+  font-family: 'FontAwesome';
+  color: #757575;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
