@@ -338,17 +338,17 @@ img.rounded {
   margin-bottom: 10px;
 }
 .personal--form .first label, .personal--form .first input, .personal--form .last label, .personal--form .last input, 
-.shipping--form .email label, .shipping--form .email input ,  .personal--form .gender label,  .personal--form .gender select
+.user--form .email label, .user--form .email input ,  .personal--form .gender label,  .personal--form .gender select
 .personal--form .date label, .personal--form .date input {
   display: block;
   min-width: 250px;
 }
 
-.shipping--form .email input {
+.user--form .email input {
   width: 540px;
 }
 
-.shipping--form .username input {
+.user--form .username input {
   width: 540px;
 }
 
@@ -356,7 +356,7 @@ img.rounded {
   width: 250px;
 }
 
-.shipping--form {
+.user--form {
   color: #A4A9C5;
   font-size: 0.7rem;
   letter-spacing: 0.5px;
@@ -369,22 +369,22 @@ img.rounded {
 .row.two, .row.three {
   margin-top: 20px;
 }
-.personal--form .address-two, .personal--form .state, .personal--form .country, .shipping--form .password-2 {
+.personal--form .address-two, .personal--form .state, .personal--form .country, .user--form .password-2 {
   margin-left: 40px;
 }
 .personal--form .address, .personal--form .address-two, .personal--form .city, .personal--form .state, 
-.personal--form .zip, .personal--form .country, .shipping--form .username, .shipping--form .password-2, .shipping--form .password {
+.personal--form .zip, .personal--form .country, .user--form .username, .user--form .password-2, .user--form .password {
   display: inline-block;
 }
 .personal--form .address label, .personal--form .address-two label, .personal--form .city label, .personal--form .state label, 
-.personal--form .zip label, .personal--form .country label, .shipping--form .username label, .shipping--form .password label, 
-.shipping--form .password-2 label {
+.personal--form .zip label, .personal--form .country label, .user--form .username label, .user--form .password label, 
+.user--form .password-2 label {
   margin-bottom: 10px;
 }
 .personal--form .address label, .personal--form .address input, .personal--form .address-two label, .personal--form .address-two input, 
 .personal--form .city label, .personal--form .city input, .personal--form .state label, .personal--form .state input, .personal--form .zip label, 
-.personal--form .zip input, .personal--form .country label, .personal--form .country input, .shipping--form .password-2 input, .shipping--form .password-2 label,
-.shipping--form .password input, .shipping--form .password label, .shipping--form .username label, .shipping--form .username input {
+.personal--form .zip input, .personal--form .country label, .personal--form .country input, .user--form .password-2 input, .user--form .password-2 label,
+.user--form .password input, .user--form .password label, .user--form .username label, .user--form .username input {
   display: block;
   min-width: 250px;
 }
