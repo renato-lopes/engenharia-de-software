@@ -27,7 +27,7 @@ Iniciei os apps:
 - Gabriel Oliveira                
   - [gagaero](https://github.com/gagaero) - Engenharia
 - Pedro Maciel
-  - Engenharia
+  - [pedro-maciel](https://github.com/pedro-maciel) - Engenharia Elétrica
 - Renato Junior (Líder)           
   - [renato-junior](https://github.com/renaro-junior) - Ciência da Computação
 
