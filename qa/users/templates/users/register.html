@@ -15,7 +15,9 @@
                 <img src="https://www.qbrobotics.com/wp-content/uploads/2018/03/sample-logo.png" class="card-img-top"
                     alt="logo">
                 <div class="card-body">
-                    <form action="#" method="post">
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                    {% if confirm_message %}<p><strong>{{ confirm_message }}</strong></p>{% endif %}
+                    <form action="{% url 'users:register' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <div class="input-group mb-3">
@@ -76,7 +78,7 @@
             </div>
             <p class="text-center">
                 <small class="text-muted">Já tem uma conta?</small>
-                <small><a href="{% url 'login' %}">Entrar</a></small>
+                <small><a href="{% url 'users:login' %}">Entrar</a></small>
             </p>
         </div>
         <div class="col-md-4"></div>
