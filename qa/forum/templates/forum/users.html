@@ -1,0 +1,86 @@
+{% extends "forum/base.html" %}
+{% load static from staticfiles %} <!-- to use static files -->
+
+{% block css %} 
+   
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {%  include "forum/header.html" %}
+
+    <!-- TODO: 
+        Colocar um loop e pegar usuarios do banco  
+        Esses usuarios gerados "hardcoded" são apenas pra teste
+    -->
+    <ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
+            <li class="list-group-item media my-4 mr-5 ">
+              <img src="https://image.flaticon.com/icons/svg/145/145843.svg" class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 ">Tinky Winky </h5>
+                Superdomo Tubbytrônico
+              </div>
+            </li>
+            <li class="list-group-item media my-4 mr-5">
+              <img src="https://image.flaticon.com/icons/svg/145/145846.svg" class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0">Dipsy</h5>
+                Superdomo Tubbytrônico
+              </div>
+            </li>
+            <li class="list-group-item media my-4 mr-5">
+              <img src="https://image.flaticon.com/icons/svg/145/145847.svg" class="mr-3" alt="...">
+              <div class="media-body">
+                 <h5 class="mt-0">Laa-Laa</h5>
+                 Superdomo Tubbytrônico
+                </div>
+            </li>
+            <li class="list-group-item media my-4 mr-5">
+                    <img src="https://image.flaticon.com/icons/svg/145/145849.svg" class="mr-3" alt="...">
+                    <div class="media-body">
+                       <h5 class="mt-0">Daa Daa</h5>
+                       Superdomo Tubbytrônico
+                      </div>
+                  </li>
+          </ul>
+          <ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
+                <li class="list-group-item media my-4 mr-5">
+                  <img src="https://image.flaticon.com/icons/svg/145/145842.svg" class="mr-3" alt="...">
+                  <div class="media-body">
+                    <h5 class="mt-0">Noo Noo</h5>
+                    Superdomo Tubbytrônico
+                  </div>
+                </li>
+                <li class="list-group-item media my-4 mr-5">
+                  <img src="https://image.flaticon.com/icons/svg/145/145850.svg" class="mr-3" alt="...">
+                  <div class="media-body">
+                    <h5 class="mt-0">Sun Baby</h5>
+                    Superdomo Tubbytrônico
+                  </div>
+                </li>
+            
+                <li class="list-group-item media my-4 mr-5">
+                  <img src="https://image.flaticon.com/icons/svg/145/145844.svg" class="mr-3" alt="...">
+                  <div class="media-body">
+                    <h5 class="mt-0">Po</h5>
+                    Superdomo Tubbytrônico
+                  </div>
+                </li>
+
+                <li class="list-group-item media my-4 mr-5">
+                        <img src="https://image.flaticon.com/icons/svg/145/145845.svg" class="mr-3" alt="...">
+                        <div class="media-body">
+                          <h5 class="mt-0">Ping</h5>
+                          Superdomo Tubbytrônico
+                        </div>
+                      </li>
+              </ul>
+  
+  <footer class="blog-footer">
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+</div>
+{% endblock content %}

@@ -6,3 +6,10 @@ def index(request):
         'title': 'Homepage'
     }
     return render(request, 'forum/index.html', context)
+
+
+def users(request):
+    context = {
+        'title': 'Usuários'
+    }
+    return render(request, 'forum/users.html', context)
