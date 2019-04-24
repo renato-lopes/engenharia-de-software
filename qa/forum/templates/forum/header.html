@@ -1,10 +1,13 @@
+{% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
 <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
               <button type="button" class="btn btn-light">Faça uma pergunta</button>
           </div>
           <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="{% url 'forum:index' %}">Q&A Fórum</a>
+            <a class="blog-header-logo text-dark" href="{% url 'forum:index' %}">
+              <img src="{% static 'forum/img/logo_top.png' %}" class="card-img-top"alt="logo">
+            </a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <a class="text-muted" href="#">

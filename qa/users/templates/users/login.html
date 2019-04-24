@@ -1,4 +1,5 @@
 {% extends "forum/base.html" %}
+{% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
 {% block content %}
 <div class='container'>
     {%  include "forum/header.html" %}
@@ -12,7 +13,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
-                <img src="https://www.qbrobotics.com/wp-content/uploads/2018/03/sample-logo.png" class="card-img-top"
+                <img src="{% static 'forum/img/logo_md.png' %}" class="card-img-top"
                     alt="logo">
                 <div class="card-body">
                     <form action="#" method="post">
