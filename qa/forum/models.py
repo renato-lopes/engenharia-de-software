@@ -15,9 +15,9 @@ class Answer(models.Model):
 	user = models.ForeignKey('users.User', on_delete=models.CASCADE)
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
-class Tags(models.Model):
-	description = models.CharField(max_length=512)
+class Tag(models.Model):
+	name = models.CharField(max_length=512)
 	
-class QuestionTags(models.Model):
+class QuestionTag(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
-	tags = models.ForeignKey(Tags, on_delete=models.CASCADE)	
+	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)	
