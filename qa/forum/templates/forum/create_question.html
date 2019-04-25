@@ -1,0 +1,53 @@
+{% extends "forum/base.html" %}
+{% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
+{% block content %}
+<div class='container'>
+    {%  include "forum/header.html" %}
+    <div class="row">
+        <div class="col-md-12"></div>
+        <div class="col-md-12 text-center">
+        </div>
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"></div>
+        <div class="col-md-12">
+            <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
+                <div class="card-body">
+                    <h1> Nova Pergunta</h1>
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                    {% if confirm_message %}<p><strong>{{ confirm_message }}</strong></p>{% endif %}
+                    <form action="{% url 'forum:create_question' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                               <!--  <div class="input-group-prepend">
+                                    <span class="input-group-text icon-login" id="basic-addon1"><i
+                                            class="fa fa-user-circle"></i></span>
+                                </div> -->
+                                <input type="text" class="form-control " name="title" id="title" placeholder="Título"
+                                    aria-label="Title" aria-describedby="basic-addon1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">    
+                          <textarea class="form-control" rows="15" name="description" id="description" placeholder="Descrição da pergunta" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
+                                <span class="font-weight-bold">
+                                    ENVIAR PERGUNTA
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12"></div>
+
+    </div>
+</div>
+{% endblock content %}
