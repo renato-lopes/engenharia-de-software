@@ -101,7 +101,7 @@ main.container {
     font-size: 0.8rem;
   }
   .post__header-title {
-    font-weight: bolder;
+    font-weight: bold;
     line-height: 1.12;
     letter-spacing: -0.022em;
   }
