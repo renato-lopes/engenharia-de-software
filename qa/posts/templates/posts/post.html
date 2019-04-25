@@ -1,0 +1,128 @@
+{% extends "forum/base.html" %}
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    {%  include "forum/header.html" %}
+   
+    <main class="container row">
+            <!-- Sidebar	 -->
+            <aside class="sidebar columns medium-4 medium-push-8">
+                <div class="widget">
+                    <header class="widget__header">
+                        <span class="widget__header-title">Post Tags</span>
+                    </header>
+                    <div class="widget__tags">
+                        <a class="tag">PHP</a>
+                        <a class="tag">Development</a>
+                        <a class="tag">C++</a>
+                        <a class="tag">C#</a>
+                        <a class="tag">Javascript</a>
+                        <a class="tag">Google</a>
+                        <a class="tag">Software</a>
+                    </div>
+                </div>
+                <div class="widget">
+                    <header class="widget__header">
+                        <span class="widget__header-title">Other Questions</span>
+                        <a href="#" class="widget__header-link">See More</a>
+                    </header>
+                    <ol class="widget__list">
+                        <li>Temporibus impedit harum illo.</li>
+                        <li>Consectetur adipisicing elit. Quia sequi qui magnam.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>				
+                    </ol>
+                </div>
+            </aside>
+            
+            <!-- Content	 -->
+            <section class="content columns medium-8 medium-pull-4">
+                <article class="post">
+                    <header class="post__header">
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <a href="#" class="post__header-profile">
+                                    <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167750.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="media-object-section">
+                                <a class="post__header-profile-name">Dumb Student</a>
+                                <time class="post__header-time">6 hours ago</time>					
+                            </div>									
+                        </div>									
+                        <h3 class="post__header-title">There are no stupid questions - or are there? </h3>
+                    </header>
+                    <div class="post__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus leo augue, vitae condimentum ante dapibus sed. 
+                            Vestibulum ac eros vitae arcu accumsan fringilla et vel mauris. Etiam venenatis, massa et placerat tincidunt, libero sem tristique nisl,
+                            in lobortis libero velit vitae arcu. Aenean condimentum nunc vel nibh dictum, eu faucibus orci elementum.
+                            Maecenas sodales eleifend nisi, eget finibus velit vulputate et. Curabitur vitae lectus felis. 
+                        </p>
+                    </div>
+                    <footer class="post__footer">
+                        <div class="post__footer-likes"></div>				
+                        <div class="post__footer-responses"></div>				
+                    </footer>
+                </article>
+
+                    <article class="post mt-5">
+                        <header class="post__header">
+                            <div class="media-object">
+                                <div class="media-object-section">
+                                    <a href="#" class="post__header-profile">
+                                        <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167752.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-object-section">
+                                    <a class="post__header-profile-name">Master of Wizard</a>
+                                    <time class="post__header-time">2 hours ago</time>					
+                                </div>									
+                            </div>									
+                            
+                        </header>
+                        <div class="post__content">
+                            <p>
+                                Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo. Vehicula non. 
+                                Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Delegadis gente finis,
+                                bibendum egestas augue arcu ut est. Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+                            </p>
+                        </div>
+                        <footer class="post__footer">
+                            <div class="post__footer-likes"></div>				
+                            <div class="post__footer-responses"></div>				
+                        </footer>
+                    </article>
+                    
+                    <hr class="mt-5 mb-5">
+
+                    <form class="answer-form mt-5">
+                            <div class="message">
+                              <textarea name="message" id="message" placeholder="Sua Resposta"></textarea>
+                            </div>
+                            <div class="submit">
+                              <p class="user-message">
+                                  <small id="emailHelp" class="form-text text-muted ">
+                                        Obrigado por contribuir com uma resposta ao Fórum!<br>
+                                        Por favor, não deixe de responder à pergunta. Forneça detalhes e compartilhe sua pesquisa!
+                                    </small>
+                                </p>
+                              <input type="submit" value="Responder" class="button" />
+                            </div>
+                    </form>
+                </section>
+
+        </main>
+</div>
+
+{% block js %}
+{% endblock %}
+
+{% endblock %}

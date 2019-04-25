@@ -19,3 +19,10 @@ def create_post(request):
         new_question.save()
         context['confirm_message'] = "Post {} sucessfully created!".format(title)
         return render(request, 'posts/create_post.html', context)
+
+
+def post(request):
+    context = {
+        'title': 'Pergunta'
+    }
+    return render(request, 'posts/post.html', context)

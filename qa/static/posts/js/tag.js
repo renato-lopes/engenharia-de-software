@@ -1,4 +1,4 @@
-// Code based in: https://codepen.io/srph/pen/rxoLMG?editors=0010
+// Code based in: https://codepen.io/damienpm/pen/pBxAm
 
 function existingTag(text) {
   var existing = false,
