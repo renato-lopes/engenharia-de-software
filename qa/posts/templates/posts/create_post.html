@@ -1,8 +1,9 @@
 {% extends "forum/base.html" %}
-{% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
 
 {% block css %}
-    <link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}
@@ -23,23 +24,26 @@
                                     aria-label="Title" aria-describedby="basic-addon1" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                    <div id="tag-wrapper">
-                                            <ul class="tags-input">
-                                              <li class="tags-new">
-                                                <input type="text" class="form-control" name="tags" placeholder="Insira Tags"                                              placeholder="Título"
-                                    aria-label="Tags"  aria-describedby="basic-addon1" required> 
-                                              </li>
-                                            </ul>  
-                                          </div>
+                                <div id="tag-wrapper">
+                                    <ul class="tags-input">
+                                        <li class="tags-new">
+                                            <input type="text" class="form-control" name="tags"
+                                                placeholder="Insira Tags" placeholder="Título" aria-label="Tags"
+                                                aria-describedby="basic-addon1" required>
+                                            <small id="emailHelp" class="form-text text-muted ">Use , para adicionar uma
+                                                tag.</small>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="form-group">    
-                          <textarea class="form-control" rows="15" name="description" id="description" 
-                          placeholder="Descrição da pergunta" required></textarea>
+
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" name="description" id="description"
+                                placeholder="Descrição da pergunta" required></textarea>
                         </div>
 
                         <div class="form-group">
@@ -58,8 +62,8 @@
     </div>
 </div>
 
-{% block js %} 
-    <script src = "{% static 'posts/js/tag.js' %}"></script>
+{% block js %}
+<script src="{% static 'posts/js/tag.js' %}"></script>
 {% endblock %}
 
 {% endblock %}

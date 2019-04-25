@@ -1,70 +1,68 @@
-body{
-    /* background-color: #f5f5f5; */
+body {
+  /* background-color: #f5f5f5; */
 }
 
-.shadow{
-    box-shadow: 0px 9px 0px 0px rgba(255, 255, 255, 0), 
-    0px -9px 0px 0px rgba(255, 255, 255, 0), 
+.shadow {
+  box-shadow: 0px 9px 0px 0px rgba(255, 255, 255, 0),
+    0px -9px 0px 0px rgba(255, 255, 255, 0),
     10px 0px 30px 0px rgba(0, 0, 0, 0.15),
-     -10px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    -10px 0px 30px 0px rgba(0, 0, 0, 0.15);
 }
 
 #tag-wrapper {
-    width:100%;
+  width: 100%;
 }
 
-.tags-input  {
-  	list-style : none;   
-  	display:inline-block;
-    border-radius:2px;
-    width:100%;
-    overflow:hidden;
-    margin: 0;
-    padding: 0;
+.tags-input {
+  list-style: none;
+  display: inline-block;
+  border-radius: 2px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .tags-input li {
-  	float:left;
+  float: left;
 }
 
 .tags-new {
-    width: 100%;
+  width: 100%;
 }
 
 .tags {
-  	background:#47CF73;
-  	padding:5px 20px 5px 8px;
-  	border-radius:2px;
-  	margin-right: 5px;
-  	position: relative;
+  background: #47cf73;
+  padding: 5px 20px 5px 8px;
+  border-radius: 2px;
+  margin-right: 5px;
+  position: relative;
 }
 
 .tags i {
-	position: absolute; 
-	right:6px;
-	top:3px;
-	width: 8px;
-	height: 8px;
-	content:'';
-	cursor:pointer;
-	opacity: .7;
-  font-size:12px;
+  position: absolute;
+  right: 6px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  content: "";
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 12px;
 }
 
-.tags i:hover
-{
-	opacity: 1;
+.tags i:hover {
+  opacity: 1;
 }
 
-.tags-new input[type="text"]{
-	margin: 0;
-	padding: 0 0 0 3px;
-	font-size: 14px;
-	margin-top: 5px;
-  background:transparent;
+.tags-new input[type="text"] {
+  margin: 0;
+  padding: 0 0 0 3px;
+  font-size: 14px;
+  margin-top: 5px;
+  background: transparent;
 }
 
-.tags-new input[type="text"]:focus
-{
-  	outline:none; 
+.tags-new input[type="text"]:focus {
+  outline: none;
 }
