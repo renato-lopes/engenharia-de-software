@@ -3,7 +3,7 @@
 var number_of_tags = 5
 var tags = [];
 var $container = document.querySelector('.tag-field');
-var $input = document.querySelector('.js-tag-input');
+var $input = document.querySelector('input');
 var $tags = document.querySelector('.js-tags');
 
 $container.addEventListener('click', function() {
