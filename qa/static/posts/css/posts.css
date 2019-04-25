@@ -77,7 +77,7 @@ main.container {
   }
   
   .mdm-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.03em;
   }
@@ -87,6 +87,7 @@ main.container {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     padding: 0.625rem 1.25rem;
   }
+
   .post__header-profile-image {
     width: 36px;
     height: 36px;
@@ -105,7 +106,7 @@ main.container {
     letter-spacing: -0.022em;
   }
   .post__content p {
-    font-size: 1.15rem;
+    font-size: 1rem;
     line-height: 1.5;
   }
  

@@ -31,8 +31,8 @@
                 </div>
                 <div class="widget">
                     <header class="widget__header">
-                        <span class="widget__header-title">Other Questions</span>
-                        <a href="#" class="widget__header-link">See More</a>
+                        <span class="widget__header-title">Outras Perguntas</span>
+                        <a href="#" class="widget__header-link">Ver Mais</a>
                     </header>
                     <ol class="widget__list">
                         <li>Temporibus impedit harum illo.</li>
@@ -69,7 +69,12 @@
                     </div>
                     <footer class="post__footer">
                         <div class="post__footer-likes"></div>				
-                        <div class="post__footer-responses"></div>				
+                        <div class="post__footer-responses text-right mr-3">
+                            <small><i class="fa fa-reply"></i>
+                                <a href="#ans" class="text-muted"> Responder</a>
+                            </small>    
+                            
+                        </div>				
                     </footer>
                 </article>
 
@@ -97,13 +102,15 @@
                         </div>
                         <footer class="post__footer">
                             <div class="post__footer-likes"></div>				
-                            <div class="post__footer-responses"></div>				
+                            <div class="post__footer-responses">
+                                   
+                            </div>				
                         </footer>
                     </article>
                     
                     <hr class="mt-5 mb-5">
 
-                    <form class="answer-form mt-5">
+                    <form class="answer-form mt-5" id="ans">
                             <div class="message">
                               <textarea name="message" id="message" placeholder="Sua Resposta"></textarea>
                             </div>
