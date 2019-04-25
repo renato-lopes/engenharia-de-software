@@ -16,3 +16,9 @@ def users(request):
     }
     return render(request, 'forum/users.html', context)
 
+
+def all_posts(request):
+    context = {
+        'title': 'Perguntas'
+    }
+    return render(request, 'forum/posts.html', context)
