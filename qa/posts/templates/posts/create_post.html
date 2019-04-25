@@ -1,5 +1,10 @@
 {% extends "forum/base.html" %}
 {% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+    <link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block content %}
 <div class='container'>
     {%  include "forum/header.html" %}
@@ -26,6 +31,16 @@
                             </div>
                         </div>
                         
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="tag-inner">
+                                      <div class="tag-field js-tags">
+                                        <input class="form-control js-tag-input" placeholder="Adicione tags..." />
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">    
                           <textarea class="form-control" rows="15" name="description" id="description" 
                           placeholder="Descrição da pergunta" required></textarea>
@@ -47,4 +62,9 @@
 
     </div>
 </div>
-{% endblock content %}
+
+{% block js %} 
+    <script src = "{% static 'posts/js/tag.js' %}"></script>
+{% endblock %}
+
+{% endblock %}
