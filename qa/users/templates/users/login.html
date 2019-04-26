@@ -16,29 +16,24 @@
                 <img src="{% static 'forum/img/logo_md.png' %}" class="card-img-top"
                     alt="logo">
                 <div class="card-body">
-                    <form action="#" method="post">
+                        <h1>Django Simple Login</h1>
+                        {% if user.is_authenticated %}
+                        You are logged in as {{ user.username }}. <a href="{% url 'users:logout' %}">Logout</a>
+                        {% else %}
+                        You aren't logged in.
+                        {% endif %}
+                    <form action="{% url 'users:login' %}" method="post">
                         {% csrf_token %}
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text icon-login" id="basic-addon1"><i
-                                            class="fa fa-user-circle"></i></span>
-                                </div>
-                                <input type="text" class="form-control " name="username" placeholder="Username"
-                                    aria-label="Username" aria-describedby="basic-addon1" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group ">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text icon-login" id="basic-addon2"><i
-                                            class="fa fa-key"></i></span>
-                                </div>
-                                <input class="prepend-fx form-control" type="password" id='password' name="password"
-                                    placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2" required>
-                            </div>
-                        </div>
+                        <table>
+                            <tr>
+                                <td>{{ form.username.label_tag }}</td>
+                                <td>{{ form.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password.label_tag }}</td>
+                                <td>{{ form.password }}</td>
+                            </tr>
+                        </table>
 
 
                         <div class="form-group mt-4">
@@ -49,14 +44,14 @@
                             </button>
 
                         </div>
-                        <a href="{% url 'password_reset' %}" class="text-muted mb-3 card-link"><strong>Esqueceu
-                                a senha?</strong></a>
+                        <!-- <a href="{% url 'users:password_reset' %}" class="text-muted mb-3 card-link"><strong>Esqueceu
+                                a senha?</strong></a> -->
                     </form>
                 </div>
             </div>
             <p class="text-center">
                 <small class="text-muted">Não tem uma conta?</small>
-                <small><a href="{% url 'register' %}">Cadastre-se</a></small>
+                <small><a href="{% url 'users:register' %}">Cadastre-se</a></small>
             </p>
         </div>
         <div class="col-md-4"></div>

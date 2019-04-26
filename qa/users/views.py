@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
-from .models import User
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 # Create your views here.
 def register(request):
@@ -21,8 +21,7 @@ def register(request):
         if len(users_res) != 0:
             context['error_message'] = "Username already taken!"
         else:
-            new_user = User(username=username, email=email, password=password)
-            new_user.save()
+            User.objects.create_user(username, email, password)
             context['confirm_message'] = "User {} sucessfully created!".format(username)
         return render(request, 'users/register.html', context)
 
