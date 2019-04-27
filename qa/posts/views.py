@@ -39,9 +39,17 @@ def create_post(request):
 def post(request,id_post):
 
     readed_question = Question.objects.get(id=id_post) #questao clicada pelo usuario
+    
+    question_tags = QuestionTag.objects.filter(question=id_post)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
 
 
-    context = {"question": readed_question}
+    context = {
+        "question": readed_question,
+        "tags": tags
+    }
 
 
     return render(request, 'posts/post.html', context)

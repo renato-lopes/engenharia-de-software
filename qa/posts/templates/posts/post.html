@@ -20,13 +20,9 @@
                         <span class="widget__header-title">Post Tags</span>
                     </header>
                     <div class="widget__tags">
-                        <a class="tag">PHP</a>
-                        <a class="tag">Development</a>
-                        <a class="tag">C++</a>
-                        <a class="tag">C#</a>
-                        <a class="tag">Javascript</a>
-                        <a class="tag">Google</a>
-                        <a class="tag">Software</a>
+                        {% for tag in tags %}
+                            <a class="tag">{{ tag }}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="widget">
