@@ -53,18 +53,15 @@
                                 </a>
                             </div>
                             <div class="media-object-section">
-                                <a class="post__header-profile-name">Dumb Student</a>
+                                <a class="post__header-profile-name">{{question.user}}</a>
                                 <time class="post__header-time">6 hours ago</time>					
                             </div>									
                         </div>									
-                        <h3 class="post__header-title">There are no stupid questions - or are there? </h3>
+                        <h3 class="post__header-title">{{question.title}}</h3>
                     </header>
                     <div class="post__content mt-4">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus leo augue, vitae condimentum ante dapibus sed. 
-                            Vestibulum ac eros vitae arcu accumsan fringilla et vel mauris. Etiam venenatis, massa et placerat tincidunt, libero sem tristique nisl,
-                            in lobortis libero velit vitae arcu. Aenean condimentum nunc vel nibh dictum, eu faucibus orci elementum.
-                            Maecenas sodales eleifend nisi, eget finibus velit vulputate et. Curabitur vitae lectus felis. 
+                            {{question.description}}
                         </p>
                     </div>
                     <footer class="post__footer">
