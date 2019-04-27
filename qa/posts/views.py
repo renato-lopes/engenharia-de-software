@@ -7,6 +7,7 @@ from .models import *
 
 @login_required
 def create_post(request):
+
     context = {}
     try:
         # Get data from request
@@ -35,10 +36,14 @@ def create_post(request):
         return redirect("/all-posts") # TODO: redirect to post page
 
 
-def post(request):
-    context = {
-        'title': 'Pergunta'
-    }
+def post(request,id_post):
+
+    readed_question = Question.objects.get(id=id_post) #questao clicada pelo usuario
+
+
+    context = {"question": readed_question}
+
+
     return render(request, 'posts/post.html', context)
 
 def edit_post(request, post_id):

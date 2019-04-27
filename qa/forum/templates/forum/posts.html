@@ -25,7 +25,7 @@
                             <h3 class="mb-0">{{ post.title }}</h3>
                             <div class="mb-1 text-muted">{{ post.creation_date }}</div>
                             <p class="card-text mb-auto">{{ post.description }}</p>
-                            <a href="{% url 'posts:post' %}" class="stretched-link">Continuar Lendo</a>
+                            <a href="../post/{{post.id}}" class="stretched-link">Continuar Lendo</a>
                         </div>
                     </div>
                 </div>
