@@ -37,6 +37,8 @@ $(function() {
             '</span><i class="fa fa-times"></i></i></li>'
         ).insertBefore($(".tags-new"));
         $(this).val("");
+        tags_hf = $("#tags")
+        tags_hf.val(tags_hf.val()+tag+",")
       } else {
         $(this).val(tag);
       }
@@ -48,4 +50,6 @@ $(function() {
       .parent("li")
       .remove();
   });
+
+  $
 });

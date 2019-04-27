@@ -14,7 +14,7 @@
             <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
                 <div class="card-body shadow">
                     <h1> Nova Pergunta</h1>
-                    <form action="{% url 'posts:create_post' %}" method="post">
+                    <form action="{% url 'posts:create_post' %}" method="post" id="form-create-data">
                         {% csrf_token %}
                         <div class="form-group">
                             <div class="input-group mb-3">
@@ -28,9 +28,10 @@
                                 <div id="tag-wrapper">
                                     <ul class="tags-input">
                                         <li class="tags-new">
-                                            <input type="text" class="form-control" name="tags"
+                                            <input type="text" class="form-control" name="tags-tf"
                                                 placeholder="Insira Tags" placeholder="Título" aria-label="Tags"
-                                                aria-describedby="basic-addon1" required>
+                                                aria-describedby="basic-addon1">
+                                            <input type="hidden" name="tags" id="tags">
                                             <small id="emailHelp" class="form-text text-muted ">Use , para adicionar uma
                                                 tag.</small>
                                         </li>
