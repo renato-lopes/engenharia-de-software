@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from .models import ForumUser as User
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -14,6 +14,8 @@ def register(request):
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
     except KeyError:
         return render(request, 'users/register.html', context)
     else:
@@ -22,7 +24,7 @@ def register(request):
         if len(users_res) != 0:
             context['error_message'] = "Username already taken!"
         else:
-            User.objects.create_user(username, email, password)
+            User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name, description="")
             context['confirm_message'] = "User {} sucessfully created!".format(username)
         return render(request, 'users/register.html', context)
 
@@ -30,12 +32,23 @@ def register(request):
 def profile(request):
     context = {}
 
-    user = request.user
+    username = request.user.username
+
+    user = User.objects.get(username=username)
 
     username = user.username
     email = user.email
+    description = user.description
+    first_name = user.first_name
+    last_name = user.last_name
     context['username'] = username
     context['email'] = email
+    if description:
+        context['description'] = description
+    if first_name:
+        context['first_name'] = first_name
+    if last_name:
+        context['last_name'] = last_name
 
     return render(request, 'users/profile.html', context)
 
@@ -44,13 +57,21 @@ def edit_profile(request):
     try:
         # Get data from request
         email = request.POST['email']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        description = request.POST['description']
     except KeyError:
         return redirect('users:profile')
     else:
-        user = request.user
+        username = request.user.username
 
-        if email:
-            user.email = email
-            user.save()
+        user = User.objects.get(username=username)
+
+        user.email = email
+        user.first_name = first_name
+        user.last_name = last_name
+        user.description = description
+        
+        user.save()
         
     return redirect('users:profile')

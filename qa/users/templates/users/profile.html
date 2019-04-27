@@ -29,18 +29,14 @@
                                             class="img-raised rounded-circle img-fluid">
                                     </div>
                                     <div class="name">
-                                        <h3 class="title">{{ username}}</h3>
-                                        <h6>{{ email }}</h6>
+                                        {% if first_name and last_name %}<h3 class="title">{{ first_name }} {{ last_name }}</h3>{% endif %}
+                                        <h4>{{ username }}</h4>
+                                        <h5><span class="font-italic">{{ email }}</span></h5>
                                     </div>
                                 </div>
-                                <!-- <div class="description text-center">
-                                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised,
-                                        Brooklyn-based
-                                        Nick Murphy — writes, performs and records all of his own music, giving it a
-                                        warm,
-                                        intimate feel
-                                        with a solid groove structure. </p>
-                                </div> -->
+                                <div class="description text-center">
+                                    <p>{{ description }} </p>
+                                </div>
                               
                             </div>
 
