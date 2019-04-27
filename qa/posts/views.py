@@ -33,7 +33,7 @@ def create_post(request):
                 new_tag = tag_res[0]
             new_question_tag = QuestionTag(question=new_question, tag=new_tag)
             new_question_tag.save()
-        return redirect("/all-posts") # TODO: redirect to post page
+        return redirect("/post/"+str(new_question.id))
 
 
 def post(request,id_post):
@@ -93,4 +93,4 @@ def edit_post(request, post_id):
                 new_tag = tag_res[0]
             new_question_tag = QuestionTag(question=question, tag=new_tag)
             new_question_tag.save()
-        return redirect("/all-posts") # TODO: redirect to post page
+        return redirect("/post/"+str(question.id))
