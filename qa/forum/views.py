@@ -27,4 +27,8 @@ def all_posts(request):
     context = {
         'title': 'Perguntas'
     }
+
+    questions = Question.objects.all()
+    context['posts'] = questions
+
     return render(request, 'forum/posts.html', context)

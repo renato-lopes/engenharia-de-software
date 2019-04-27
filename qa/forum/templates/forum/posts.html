@@ -14,7 +14,24 @@
             <h3 class="pb-4 mb-4 border-bottom">
                 Todas as Perguntas
             </h3>
+
+            {% for post in posts %}
             <div class="row mb-2">
+                <div class="col-md-12">
+                    <div
+                        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <!-- <strong class="d-inline-block mb-2 text-primary">World</strong> -->
+                            <h3 class="mb-0">{{ post.title }}</h3>
+                            <div class="mb-1 text-muted">{{ post.creation_date }}</div>
+                            <p class="card-text mb-auto">{{ post.description }}</p>
+                            <a href="{% url 'posts:post' %}" class="stretched-link">Continuar Lendo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="row mb-2">
                 <div class="col-md-12">
                     <div
                         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -61,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <nav class="blog-pagination">
                 <a class="btn btn-outline-primary" href="#">Older</a>
