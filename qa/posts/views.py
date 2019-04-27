@@ -104,3 +104,21 @@ def edit_post(request, post_id):
             new_question_tag = QuestionTag(question=question, tag=new_tag)
             new_question_tag.save()
         return redirect("/post/"+str(question.id))
+        
+def tag(request,tag_id):
+    tag = get_object_or_404(Tag, pk=tag_id)
+    # tag = Tag.objects.get(id=tag_id)
+    print(tag.name)
+    
+    question_tags = QuestionTag.objects.filter(tag=tag_id)
+    questions = []
+    for el in question_tags:
+        questions.append(Question.objects.get(id=el.question.id))
+    
+    context = {
+        "questions": questions,
+        "tag": tag.name
+    }
+
+
+    return render(request, 'tags/tag.html', context)
