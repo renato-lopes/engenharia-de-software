@@ -5,29 +5,30 @@
                 <div class="box">1</div><span>Dados Pessoais</span>
             </div>
             <div class="personal--form">
-                <form class="form--name" action="">
-                    <div class="avatar-upload">
-                        <div class="avatar-edit">
+                <form class="form-edit-profile" action="{% url 'users:edit_profile' %}" method="post">
+                    {% csrf_token %}
+                    <!-- <div class="avatar-upload"> -->
+                        <!-- <div class="avatar-edit">
                             <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                             <label for="imageUpload"></label>
-                        </div>
-                        <div class="avatar-preview">
+                        </div> -->
+                        <!-- <div class="avatar-preview">
                             <div id="imagePreview"
                                 style="background-image: url(http://cdn.onlinewebfonts.com/svg/img_569204.png);">
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     <div class="row one">
                         <div class="first">
-                            <label for="firstname">Nome</label>
-                            <input placeholder="e.g. Richard" id="firstname" type="text" />
+                            <label for="email">Email</label>
+                            <input placeholder="Type in your new email" id="email" name="email" type="email" required="true" />
                         </div>
-                        <div class="last">
+                        <!-- <div class="last">
                             <label for="firstname">Sobrenome</label>
                             <input placeholder="e.g. Bovell" id="firstname" type="text" />
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="row two">
+                    <!-- <div class="row two">
                         <div class="gender">
                             <label for="gender">Gênero</label>
                             <select id="gender">
@@ -73,11 +74,19 @@
                             <label for="country">País</label>
                             <input placeholder="e.g. BR" id="country" type="text" />
                         </div>
+                    </div> -->
+                    <div class="form__confirmation"></div>
+                        <button type="submit" id="submit" class="edit-profile-btn">
+                            <span class="font-weight-bold">
+                                Enviar
+                            </span>
+                        </button>
                     </div>
+
                 </form>
             </div>
         </section>
-        <section class="form__user">
+        <!-- <section class="form__user">
             <div class="sections">
                 <div class="box billing">2</div><span>Dados Cadastrais</span>
             </div>
@@ -107,10 +116,10 @@
                     </div>
                 </form>
             </div>
-        </section>
-
+        </section> -->
+<!-- 
         <div class="form__confirmation">
             <button class="edit-profile-btn">Salvar Dados</button>
-        </div>
+        </div> -->
     </div>
 </div>

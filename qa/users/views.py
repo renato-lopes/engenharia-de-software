@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register(request):
@@ -25,8 +26,31 @@ def register(request):
             context['confirm_message'] = "User {} sucessfully created!".format(username)
         return render(request, 'users/register.html', context)
 
+@login_required
 def profile(request):
-    context = {
-        'title': 'Perfil'
-    }
+    context = {}
+
+    user = request.user
+
+    username = user.username
+    email = user.email
+    context['username'] = username
+    context['email'] = email
+
     return render(request, 'users/profile.html', context)
+
+@login_required
+def edit_profile(request):
+    try:
+        # Get data from request
+        email = request.POST['email']
+    except KeyError:
+        return redirect('users:profile')
+    else:
+        user = request.user
+
+        if email:
+            user.email = email
+            user.save()
+        
+    return redirect('users:profile')
