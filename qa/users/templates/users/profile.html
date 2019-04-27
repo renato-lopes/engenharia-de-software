@@ -1,5 +1,6 @@
 {% extends "forum/base.html" %}profile/edit
 {% block content %}
+{% load static from staticfiles %}
 <div class='container profile-page'>
     {%  include "forum/header.html" %}
     <div class="main main-raised">
@@ -25,7 +26,7 @@
                             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="profile">
                                     <div class="avatar">
-                                        <img src="http://cdn.onlinewebfonts.com/svg/img_569204.png" alt="Usuário"
+                                        <img src="{% static 'users/img/default.png' %}" alt="Usuário"
                                             class="img-raised rounded-circle img-fluid">
                                     </div>
                                     <div class="name">
