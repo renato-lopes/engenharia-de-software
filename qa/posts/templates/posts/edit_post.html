@@ -1,0 +1,74 @@
+{% extends "forum/base.html" %}
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    {%  include "forum/header.html" %}
+    <div class="row">
+        <div class="col-md-8 mx-auto mb-5">
+            <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
+                <div class="card-body shadow">
+                    <h1> Editar Pergunta</h1>
+                    <form action="{% url 'posts:edit_post' question.id %}" method="post" id="form-create-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control " name="title" id="title" placeholder="Título" aria-label="Title" aria-describedby="basic-addon1" value={{ question.title }} required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div id="tag-wrapper">
+                                    <ul class="tags-input">
+                                        {% for tag in tags %}
+                                        <li class="tags">
+                                            <span>{{ tag }}</span>
+                                            <i class="fa fa-times"></i>
+                                        </li>
+                                        {% endfor %}
+                                        <li class="tags-new">
+                                            <input type="text" class="form-control" name="tags-tf"
+                                                placeholder="Insira Tags" placeholder="Título" aria-label="Tags"
+                                                aria-describedby="basic-addon1">
+                                            <input type="hidden" name="tags" id="tags">
+                                            <small id="emailHelp" class="form-text text-muted ">Use , para adicionar uma
+                                                tag.</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" name="description" id="description"
+                                placeholder="Descrição da pergunta" value={{ question.description }} required>{{ question.description }} 
+                                </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
+                                <span class="font-weight-bold">
+                                    CONCLUIR EDIÇÃO
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% block js %}
+<script src="{% static 'posts/js/tag.js' %}"></script>
+{% endblock %}
+
+{% endblock %}
