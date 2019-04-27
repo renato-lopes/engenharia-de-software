@@ -44,11 +44,13 @@ def post(request,id_post):
     tags = []
     for el in question_tags:
         tags.append(el.tag.name)
-
-
+    
+    answers = Answer.objects.filter(question=id_post)
+    
     context = {
         "question": readed_question,
-        "tags": tags
+        "tags": tags,
+        "answers": answers
     }
 
 
