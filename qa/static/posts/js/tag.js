@@ -37,8 +37,6 @@ $(function() {
             '</span><i class="fa fa-times"></i></i></li>'
         ).insertBefore($(".tags-new"));
         $(this).val("");
-        tags_hf = $("#tags")
-        tags_hf.val(tags_hf.val()+tag+",")
       } else {
         $(this).val(tag);
       }
@@ -51,5 +49,12 @@ $(function() {
       .remove();
   });
 
-  $
+  $("#form-create-data").submit(function() {
+    tags_val = ""
+    $(".tags > span").each(function(index){
+      tags_val = tags_val + $(this).text() +","
+    })
+    $("#tags").val(tags_val)
+  })
+
 });
