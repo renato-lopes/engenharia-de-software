@@ -20,6 +20,17 @@ def create_post(request):
         user = User.objects.get(username=username)
         new_question = Question(title=title, description=description, user=user)
         new_question.save()
+        # for tag_name in tags.split(', '):
+        #     if(len(tag_name) == 0):
+        #         continue
+        #     tag_res = Tags.objects.filter(name=tag_name)
+        #     if (len(tag_res) == 0):
+        #         new_tag = Tag(name=tag_name)
+        #         new_tag.save()
+        #     else:
+        #         new_tag = tag_res[0]
+        #     new_question_tag = QuestionTag(question=new_question, tag=new_tag)
+        #     new_question_tag.save()
         return redirect("/all-posts") # TODO: redirect to post page
 
 
