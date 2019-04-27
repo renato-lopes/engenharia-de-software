@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+from users.models import ForumUser as User
 
 from .models import *
 
+@login_required
 def create_post(request):
-    context = {
-        'title': 'Nova Pergunta'
-    }
-    if not request.user.is_authenticated:
-        return render(request, 'users/login.html', context)
+    context = {}
     try:
         # Get data from request
         title = request.POST['title']
@@ -16,10 +16,11 @@ def create_post(request):
     except KeyError:
         return render(request, 'posts/create_post.html', context)
     else:
-        new_question = Question(title=title, description=description, user=request.user)
+        username = request.user.username
+        user = User.objects.get(username=username)
+        new_question = Question(title=title, description=description, user=user)
         new_question.save()
-        context['confirm_message'] = "Post {} sucessfully created!".format(title)
-        return render(request, 'posts/create_post.html', context)
+        return redirect("/all-posts") # TODO: redirect to post page
 
 
 def post(request):
