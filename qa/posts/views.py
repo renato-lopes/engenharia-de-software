@@ -45,7 +45,7 @@ def post(request,id_post):
     for el in question_tags:
         tags.append(el.tag.name)
     
-    answers = Answer.objects.filter(question=id_post)
+    answers = Answer.objects.filter(question=id_post).order_by("creation_date")
     
     context = {
         "question": readed_question,
