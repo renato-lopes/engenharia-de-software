@@ -111,6 +111,10 @@ def edit_profile(request):
         user.first_name = first_name
         user.last_name = last_name
         user.description = description
+
+        new_pass = request.POST['password']
+        if new_pass:
+            user.set_password(new_pass)
         
         user.save()
         
