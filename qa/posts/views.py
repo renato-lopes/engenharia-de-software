@@ -106,15 +106,8 @@ def edit_post(request, post_id):
         return redirect("/post/"+str(question.id))
         
 
-
+@login_required
 def answer(request, id_post):
-
-
-    # Verificação de usuário
-    user_id = request.user.id
-    if(user_id == None):
-        context['error_message'] = "Precisa estar logado para responder"
-        return redirect("/login")
 
 
     description = request.POST['message']
