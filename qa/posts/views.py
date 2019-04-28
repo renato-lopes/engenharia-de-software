@@ -35,7 +35,6 @@ def create_post(request):
             new_question_tag.save()
         return redirect("/post/"+str(new_question.id))
 
-
 def post(request,id_post):
 
     question = get_object_or_404(Question, pk=id_post) #questao clicada pelo usuario
@@ -81,7 +80,6 @@ def post(request,id_post):
         answer.save()
         # return redirect("/post/"+str(question.id))
         return render(request, 'posts/post.html', context)
-
 
 def edit_post(request, post_id):
     question = get_object_or_404(Question, pk=post_id)
@@ -132,7 +130,37 @@ def edit_post(request, post_id):
             new_question_tag.save()
         return redirect("/post/"+str(question.id))
 
-
+def delete_post(request, post_id):
+    question = get_object_or_404(Question, pk=post_id) #questao clicada pelo usuario
+    
+    question_tags = QuestionTag.objects.filter(question=post_id)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
+    
+    answers = Answer.objects.filter(question=post_id).order_by("creation_date")
+    
+    context = {
+        "title": "Excluir pergunta",
+        "question": question,
+        "answers": answers,
+        "tags": tags
+    }
+    
+    # Verificação de usuário
+    user_id = request.user.id
+    if(user_id != question.user.id):
+        context['error_message'] = "Usuário atual não é o criador da resposta"
+        return redirect("/post/"+str(question.id))
+    
+    try:
+        # Get data from request
+        hidden_confirm = request.POST['hidden_confirm']
+    except (KeyError):
+        return render(request, 'posts/delete_post.html', context)
+    else:
+        question.delete()
+        return redirect("/all-posts")
 
 def tag(request,tag_id):
     tag = get_object_or_404(Tag, pk=tag_id)

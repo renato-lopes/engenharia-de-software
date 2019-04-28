@@ -1,0 +1,133 @@
+{% extends "forum/base.html" %}
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    {%  include "forum/header.html" %}
+   
+    <main class="container row">
+            <!-- Sidebar	 -->
+            <aside class="sidebar columns medium-4 medium-push-8">
+                <div class="widget">
+                    <header class="widget__header">
+                        <span class="widget__header-title">Post Tags</span>
+                    </header>
+                    <div class="widget__tags">
+                        {% for tag in tags %}
+                            <a class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="widget">
+                    <header class="widget__header">
+                        <span class="widget__header-title">Outras Perguntas</span>
+                        <a href="#" class="widget__header-link">Ver Mais</a>
+                    </header>
+                    <ol class="widget__list">
+                        <li>Temporibus impedit harum illo.</li>
+                        <li>Consectetur adipisicing elit. Quia sequi qui magnam.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>				
+                    </ol>
+                </div>
+            </aside>
+            
+            <!-- Content	 -->
+            <!-- Start Question-->
+            <section class="content columns medium-8 medium-pull-4">
+                <article class="post">
+                    <header class="post__header">
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <a href="#" class="post__header-profile">
+                                    <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167750.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="media-object-section">
+                                <a class="post__header-profile-name">{{question.user}}</a>
+                                <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
+                            </div>									
+                        </div>									
+                        <h3 class="post__header-title">{{question.title}}</h3>
+                    </header>
+                    <div class="post__content mt-4">
+                        <p>
+                            {{question.description}}
+                        </p>
+                    </div>
+                </article>
+            <!-- End Question-->
+
+            
+            <form class="answer-form mt-5" id="form-confirm-delete" action="{% url 'posts:delete_post' question.id %}" method="post">
+                        {% csrf_token %}
+                            
+                            <div class="submit" >
+                                
+                                <!-- <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="confirm" id="confirm" >
+                                    <label class="custom-control-label" for="confirm">Excluir resposta</label>
+                                </div> -->
+                                <div>
+                                <input type="hidden" name='hidden_confirm' id='hidden_confirm' value='on'>
+                            </div>
+                                
+                              <p class="user-message">
+                                  <small id="emailHelp" class="form-text text-muted ">
+                                        Deseja excluir a pergunta?
+                                    </small>
+                                </p> 
+                            <div>
+                              <a href="{% url 'posts:post' question.id %}">
+                              <input value="Cancelar" class="button  m-1" />
+                              </a>
+                            </div>
+                            <div>
+                              <input type="submit" value="Confirmar" class="button  m-1" />
+                            </div>
+                            </div>
+                        </form>
+                        
+                    
+            <!-- Start Answers-->    
+                    {% for answer in answers %}
+                    <article class="post mt-5">
+                        <header class="post__header">
+                            <div class="media-object">
+                                <div class="media-object-section">
+                                    <a href="#" class="post__header-profile">
+                                        <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167752.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-object-section">
+                                    <a class="post__header-profile-name">{{answer.user}}</a>
+                                    <time class="post__header-time">{{answer.last_modification_date|date:"d/m/Y H:i"}}</time>                   
+                                </div>                                  
+                            </div>                                  
+                            
+                        </header>
+                        <div class="post__content mt-4">
+                            <p>{{answer.description}}
+                            </p>
+                        </div>
+
+                    </article>
+                    {% endfor %}
+            <!-- End Answers-->
+
+            
+                </section>
+
+        </main>
+</div>
+
+{% block js %}
+{% endblock %}
+
+{% endblock %}
