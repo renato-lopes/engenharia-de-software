@@ -9,6 +9,7 @@ urlpatterns = [
     path('post/<int:id_post>/', views.post, name='post'),
     path('tag/<int:tag_id>/', views.tag, name='tag'),
     path('edit_answer/<int:answer_id>/', views.edit_answer, name='edit_answer'),
+    path('delete_answer/<int:answer_id>/', views.delete_answer, name='delete_answer'),
     path('tag/<int:tag_id>/', views.tag, name='tag')
 ]
 

@@ -131,34 +131,7 @@ def edit_post(request, post_id):
             new_question_tag = QuestionTag(question=question, tag=new_tag)
             new_question_tag.save()
         return redirect("/post/"+str(question.id))
-        
 
-# @login_required
-# def answer(request, id_post):
-#     username = request.user.username
-#     user = User.objects.get(username=username)
-#     lastAnswer = Answer(description=description, user=user, question=question)
- 
-
-#     lastAnswer.save()
-
-
-    
-#     question_tags = QuestionTag.objects.filter(question=id_post)
-#     tags = []
-#     for el in question_tags:
-#         tags.append(el.tag.name)
-    
-#     answers = Answer.objects.filter(question=id_post)
-    
-#     context = {
-#         "question": question,
-#         "tags": tags,
-#         "answers": answers,
-#         "loged_user": user
-#     }
-
-#     return render(request, 'posts/post.html', context)
 
 
 def tag(request,tag_id):
@@ -209,4 +182,35 @@ def edit_answer(request,answer_id):
     else:
         answer.description = description
         answer.save()
+        return redirect("/post/"+str(question.id))
+        
+def delete_answer(request,answer_id):
+    answer = get_object_or_404(Answer, pk=answer_id)
+    question = Question.objects.get(id=answer.question.id)
+    question_tags = QuestionTag.objects.filter(question=question.id)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
+    
+    
+    context = {
+        "title": "Excluir resposta",
+        "question": question,
+        "tags": tags,
+        "answer": answer
+    }
+    
+    # Verificação de usuário
+    user_id = request.user.id
+    if(user_id != answer.user.id):
+        context['error_message'] = "Usuário atual não é o criador da resposta"
+        return redirect("/post/"+str(question.id))
+    
+    try:
+        # Get data from request
+        hidden_confirm = request.POST['hidden_confirm']
+    except (KeyError):
+        return render(request, 'answers/delete_answer.html', context)
+    else:
+        answer.delete()
         return redirect("/post/"+str(question.id))

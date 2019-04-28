@@ -25,22 +25,11 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="widget">
-                    <header class="widget__header">
-                        <span class="widget__header-title">Outras Perguntas</span>
-                        <a href="#" class="widget__header-link">Ver Mais</a>
-                    </header>
-                    <ol class="widget__list">
-                        <li>Temporibus impedit harum illo.</li>
-                        <li>Consectetur adipisicing elit. Quia sequi qui magnam.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>				
-                    </ol>
-                </div>
             </aside>
             
             <!-- Content	 -->
-            <!-- Start Question-->
             <section class="content columns medium-8 medium-pull-4">
+                <h3> Excluir resposta </h3>
                 <article class="post">
                     <header class="post__header">
                         <div class="media-object">
@@ -61,28 +50,8 @@
                             {{question.description}}
                         </p>
                     </div>
-                    <footer class="post__footer">
-                        <div class="post__footer-likes"></div>				
-                        <div class="post__footer-responses text-right mr-3">
-                            {% if question.user == loged_user %}
-                                <small><i class="fa fa-edit"></i>
-                                    <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Editar</a>
-                                </small>
-                                <small><i class="fa fa-trash ml-3"></i>
-                                    <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Excluir</a>
-                                </small>                                                     
-                            {% endif %}
-                            <small><i class="fa fa-reply ml-3"></i>
-                                <a href="#ans" class="text-muted"> Responder</a>
-                            </small>    
-                            
-                        </div>				
-                    </footer>
                 </article>
-            <!-- End Question-->
-
-            <!-- Start Answers-->    
-                    {% for answer in answers %}
+                    
                     <article class="post mt-5">
                         <header class="post__header">
                             <div class="media-object">
@@ -102,42 +71,37 @@
                             <p>{{answer.description}}
                             </p>
                         </div>
-                        <footer class="post__footer">
-                            <div class="post__footer-likes"></div>
-                            {% if answer.user == loged_user %}
-                                <div class="post__footer-responses text-right mr-3">
-                                    <small><i class="fa fa-edit"></i>
-                                        <a href="{% url 'posts:edit_answer' answer.id %}" class="text-muted"> Editar</a>
-                                    </small>
-                                    <small><i class="fa fa-trash ml-3"></i>
-                                        <a href="{% url 'posts:delete_answer' answer.id %}" class="text-muted"> Excluir</a>
-                                    </small>                                                     
-                            {% endif %}
-                        </footer>
-
-                    </article>
-                    {% endfor %}
-            <!-- End Answers-->
-
-
-            <!-- Start Answer Field-->
-                    <hr class="mt-5 mb-5">
-                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:post' question.id %}" method="post">
+                        
+                        <form class="answer-form mt-5" id="form-confirm-delete" action="{% url 'posts:delete_answer' answer.id %}" method="post">
                         {% csrf_token %}
-                            <div class="message">
-                              <textarea name="message" id="message" placeholder="Sua Resposta"></textarea>
+                            
+                            <div class="submit" >
+                                
+                                <!-- <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="confirm" id="confirm" >
+                                    <label class="custom-control-label" for="confirm">Excluir resposta</label>
+                                </div> -->
+                                <div>
+                                <input type="hidden" name='hidden_confirm' id='hidden_confirm' value='on'>
                             </div>
-                            <div class="submit">
+                                
                               <p class="user-message">
                                   <small id="emailHelp" class="form-text text-muted ">
-                                        Obrigado por contribuir com uma resposta ao Fórum!<br>
-                                        Por favor, não deixe de responder à pergunta. Forneça detalhes e compartilhe sua pesquisa!
+                                        Deseja excluir a resposta?
                                     </small>
-                                </p>
-                              <input type="submit" value="Responder" class="button" />
+                                </p> 
+                            <div>
+                              <a href="{% url 'posts:post' question.id %}">
+                              <input value="Cancelar" class="button  m-1" />
+                              </a>
                             </div>
-                    </form>
-            <!-- End Answer Field-->
+                            <div>
+                              <input type="submit" value="Confirmar" class="button  m-1" />
+                            </div>
+                            </div>
+                        </form>
+
+                    </article>
                 </section>
 
         </main>
