@@ -17,15 +17,15 @@
             <aside class="sidebar columns medium-4 medium-push-8">
                 <div class="widget">
                     <header class="widget__header">
-                        <span class="widget__header-title">Post Tags</span>
+                        <span class="widget__header-title">Tags da pergunta</span>
                     </header>
                     <div class="widget__tags">
                         {% for tag in tags %}
-                            <a class="tag">{{ tag }}</a>
+                            <a class="tag" href="{% url 'posts:tag' tag.id %}">{{ tag.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
-                <div class="widget">
+                <!-- <div class="widget">
                     <header class="widget__header">
                         <span class="widget__header-title">Outras Perguntas</span>
                         <a href="#" class="widget__header-link">Ver Mais</a>
@@ -35,7 +35,7 @@
                         <li>Consectetur adipisicing elit. Quia sequi qui magnam.</li>
                         <li>Lorem ipsum dolor sit amet.</li>				
                     </ol>
-                </div>
+                </div> -->
             </aside>
             
             <!-- Content	 -->

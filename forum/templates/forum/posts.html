@@ -10,7 +10,7 @@
     
     {%  include "forum/header.html" %}
     <div class="row">
-        <div class="col-md-8 blog-main mt-5">
+        <div class="col-md-12 blog-main mt-5">
             <h3 class="pb-4 mb-4 border-bottom">
                 Todas as Perguntas
             </h3>
@@ -21,10 +21,10 @@
                     <div
                         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <!-- <strong class="d-inline-block mb-2 text-primary">World</strong> -->
                             <h3 class="mb-0">{{ post.title }}</h3>
                             <time class="post__header-time">{{post.creation_date|date:"d/m/Y H:i"}}</time> 
                             <p class="card-text mb-auto">{{ post.description }}</p>
+                            <strong class="d-inline-block mb-2 text-primary">{% for tag in post.tags %} {{tag.name}} {% endfor %}</strong>
                             <a href="{% url 'posts:post' post.id %}" class="stretched-link">Continuar Lendo</a>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
             </nav>
 
         </div><!-- /.blog-main -->
-        <aside class="col-md-4 blog-sidebar mt-5">
+        <!-- <aside class="col-md-4 blog-sidebar mt-5">
                 <div class="widget">
                         <header class="widget__header mt-1 pb-3">
                             <h4>Tags</h4>
@@ -94,7 +94,7 @@
                         <div class="widget__tags">
                             {% for tag in tags %}
                             <a class="tag">{{tag.name}}</a>
-                            <!-- <a class="tag">PHP</a>
+                            <a class="tag">PHP</a>
                             <a class="tag">Development</a>
                             <a class="tag">C++</a>
                             <a class="tag">C#</a>
@@ -106,13 +106,13 @@
                             <a class="tag">Nostradamus</a>
                             <a class="tag">Printer</a>
                             <a class="tag">Facebook</a>
-                            <a class="tag">Tesla</a> -->
+                            <a class="tag">Tesla</a>
                             {% endfor %}
                         </div>
                     </div>
           
                 <div class="p-4">
-                  <!-- <h4>Archives</h4>
+                  <h4>Archives</h4>
                   <ol class="list-unstyled mb-0">
                     <li><a href="#">March 2014</a></li>
                     <li><a href="#">February 2014</a></li>
@@ -127,10 +127,10 @@
                     <li><a href="#">May 2013</a></li>
                     <li><a href="#">April 2013</a></li>
                   </ol>
-                </div> -->
+                </div>
           
                
-              </aside><!-- /.blog-sidebar -->
+              </aside>/.blog-sidebar -->
     </div>
 </div>
 

@@ -34,6 +34,7 @@
                 <h3 class="mb-0">{{ question.title }}</h3>
                 <div class="mb-1 text-muted">{{ question.creation_date|date:"d/m/Y H:i" }}</div>
                 <p class="card-text mb-auto">{{ question.description }}</p>
+                <strong class="d-inline-block mb-2 text-primary">{% for tag in question.tags %} {{tag.name}} {% endfor %}</strong>
                 <a href="{% url 'posts:post' question.id %}" class="stretched-link">Continuar Lendo</a>
               </div>
             </div>

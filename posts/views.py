@@ -42,7 +42,7 @@ def post(request,id_post):
     question_tags = QuestionTag.objects.filter(question=id_post)
     tags = []
     for el in question_tags:
-        tags.append(el.tag.name)
+        tags.append(el.tag)
     
     answers = Answer.objects.filter(question=id_post).order_by("creation_date")
 
