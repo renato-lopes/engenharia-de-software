@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import ForumUser as User
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-
+from posts.models import Question, Answer
 # Create your views here.
 def register(request):
     context = {
@@ -49,6 +49,13 @@ def profile(request):
         context['first_name'] = first_name
     if last_name:
         context['last_name'] = last_name
+
+    # Activities tab
+    questions = Question.objects.filter(user=user).order_by("-creation_date")[:3]
+    context["questions"] = questions
+
+    answers = Answer.objects.filter(user=user).order_by("-creation_date")[:3]
+    context["answers"] = answers
 
     return render(request, 'users/profile.html', context)
 

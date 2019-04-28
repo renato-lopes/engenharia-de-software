@@ -43,21 +43,48 @@
 
                             <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
                                 <div class="row mb-2 mt-5">
-                                    <div class="col-md-12">
-                                      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                        <div class="col p-4 d-flex flex-column position-static">
-                                          <strong class="d-inline-block mb-2 text-primary">World</strong>
-                                          <h3 class="mb-0">Post title</h3>
-                                          <div class="mb-1 text-muted">Nov 12</div>
-                                          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                          <a href="#" class="stretched-link">Continuar Lendo</a>
+                                    {% if questions %}
+                                        <div class="col-md-12">
+                                            <h4>Últimas perguntas feitas por você</h4>
+                                            {% for question in questions %}
+                                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+                                                <div class="col p-4 d-flex flex-column position-static">
+                                                <h3 class="mb-0">{{ question.title }}</h3>
+                                                <div class="mb-1 text-muted">{{question.creation_date|date:"d/m/Y H:i"}}</div>
+                                                <a href="{% url 'posts:post' question.id %}" class="stretched-link">Ver pergunta</a>
+                                                </div>
+                                                <!-- <div class="col-auto d-none d-lg-block">
+                                                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                                </div> -->
+                                            </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="col-auto d-none d-lg-block">
-                                          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                    {% endif %}
+                                    {% if answers %}
+                                        <div class="col-md-12">
+                                            <h4>Últimas respostas enviadas por você</h4>
+                                            {% for answer in answers %}
+                                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+                                                <div class="col p-4 d-flex flex-column position-static">
+                                                <h3 class="mb-0">{{ answer.question.title }}</h3>
+                                                <div class="mb-1 text-muted">{{answer.creation_date|date:"d/m/Y H:i"}}</div>
+                                                <p>{{ answer.description }}</p>
+                                                <a href="{% url 'posts:post' answer.question.id %}" class="stretched-link">Ver pergunta</a>
+                                                </div>
+                                                <!-- <div class="col-auto d-none d-lg-block">
+                                                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                                </div> -->
+                                            </div>
+                                            {% endfor %}
                                         </div>
-                                      </div>
+                                        {% endif %}
+                                    {% if not questions and not answers %}
+                                    <div class="col-md-12 text-center">
+                                        <h5>Nada a ser exibido aqui ainda :(</h5>
+                                        <p><a href="{% url 'posts:create_post' %}">Faça uma pergunta!</a></p>
                                     </div>
-                                  </div>
+                                    {% endif %}
+                                </div>
                             </div>
 
                             <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">

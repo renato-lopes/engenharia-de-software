@@ -8,6 +8,9 @@ def index(request):
     context = {
         'title': 'Homepage'
     }
+    questions = Question.objects.all().order_by("-creation_date")[:5]
+    context['questions'] = questions
+
     return render(request, 'forum/index.html', context)
 
 
@@ -16,7 +19,7 @@ def users(request):
         'title': 'Usuários'
     }
 
-    users = User.objects.all()
+    users = User.objects.all().order_by("username")
 
     context['users'] = users
 
@@ -28,7 +31,7 @@ def all_posts(request):
         'title': 'Perguntas'
     }
 
-    questions = Question.objects.all()
+    questions = Question.objects.all().order_by("-creation_date")
     context['posts'] = questions
 
     return render(request, 'forum/posts.html', context)
