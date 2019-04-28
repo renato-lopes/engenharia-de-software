@@ -20,13 +20,9 @@
                         <span class="widget__header-title">Post Tags</span>
                     </header>
                     <div class="widget__tags">
-                        <a class="tag">PHP</a>
-                        <a class="tag">Development</a>
-                        <a class="tag">C++</a>
-                        <a class="tag">C#</a>
-                        <a class="tag">Javascript</a>
-                        <a class="tag">Google</a>
-                        <a class="tag">Software</a>
+                        {% for tag in tags %}
+                            <a class="tag">{{ tag }}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="widget">
@@ -54,7 +50,7 @@
                             </div>
                             <div class="media-object-section">
                                 <a class="post__header-profile-name">{{question.user}}</a>
-                                <time class="post__header-time">6 hours ago</time>					
+                                <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
                             </div>									
                         </div>									
                         <h3 class="post__header-title">{{question.title}}</h3>
@@ -74,7 +70,8 @@
                         </div>				
                     </footer>
                 </article>
-
+                    
+                    {% for answer in answers %}
                     <article class="post mt-5">
                         <header class="post__header">
                             <div class="media-object">
@@ -104,6 +101,34 @@
                             </div>				
                         </footer>
                     </article>
+                    
+                    <article class="post mt-5">
+                        <header class="post__header">
+                            <div class="media-object">
+                                <div class="media-object-section">
+                                    <a href="#" class="post__header-profile">
+                                        <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167752.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-object-section">
+                                    <a class="post__header-profile-name">{{answer.user}}</a>
+                                    <time class="post__header-time">{{answer.last_modification_date|date:"d/m/Y H:i"}}</time>                   
+                                </div>                                  
+                            </div>                                  
+                            
+                        </header>
+                        <div class="post__content mt-4">
+                            <p>{{answer.description}}
+                            </p>
+                        </div>
+                        <footer class="post__footer">
+                            <div class="post__footer-likes"></div>              
+                            <div class="post__footer-responses">
+                                   
+                            </div>              
+                        </footer>
+                    </article>
+                    {% endfor %}
                     
                     <hr class="mt-5 mb-5">
 

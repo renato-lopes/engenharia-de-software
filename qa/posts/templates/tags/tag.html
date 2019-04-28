@@ -6,31 +6,32 @@
 {% endblock %}
 
 {% block content %}
-<div class='container'>
+<div class='container '>
     
     {%  include "forum/header.html" %}
-    <div class="row">
-        <div class="col-md-8 blog-main mt-5">
+    
             <h3 class="pb-4 mb-4 border-bottom">
-                Todas as Perguntas
+                {{tag}}
             </h3>
 
-            {% for post in posts %}
-            <div class="row mb-2">
-                <div class="col-md-12">
+            <div class="list-group list-unstyled list-group-horizontal">
+            {% for question in questions %}
+            <div class="row mb-2 mr-5 md-20">
+                <div class="col-md-20">
                     <div
                         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <!-- <strong class="d-inline-block mb-2 text-primary">World</strong> -->
-                            <h3 class="mb-0">{{ post.title }}</h3>
-                            <time class="post__header-time">{{post.creation_date|date:"d/m/Y H:i"}}</time> 
-                            <p class="card-text mb-auto">{{ post.description }}</p>
-                            <a href="../post/{{post.id}}" class="stretched-link">Continuar Lendo</a>
+                            <h3 class="mb-1">{{ question.title }}</h3>
+                            <time class="post__header-time">{{question.creation_date|date:"d/m/Y H:i"}}</time> 
+                            <p class="card-text mb-auto">{{ question.description }}</p>
+                            <a href="../../post/{{question.id}}" class="stretched-link">Continuar Lendo</a>
                         </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
+        </div>
             <!-- <div class="row mb-2">
                 <div class="col-md-12">
                     <div
@@ -84,9 +85,8 @@
                 <a class="btn btn-outline-primary" href="#">Older</a>
                 <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
             </nav>
-
-        </div><!-- /.blog-main -->
-        <aside class="col-md-4 blog-sidebar mt-5">
+<!-- /.blog-main -->
+        <!-- <aside class="col-md-4 blog-sidebar mt-5">
                 <div class="widget">
                         <header class="widget__header mt-1 pb-3">
                             <h4>Tags</h4>
@@ -127,8 +127,8 @@
                 </div>
           
                
-              </aside><!-- /.blog-sidebar -->
-    </div>
+              </aside> --><!-- /.blog-sidebar -->
+    
 </div>
 
 {% block js %}

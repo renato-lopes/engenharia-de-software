@@ -33,15 +33,25 @@ def create_post(request):
                 new_tag = tag_res[0]
             new_question_tag = QuestionTag(question=new_question, tag=new_tag)
             new_question_tag.save()
-        return redirect("/all-posts") # TODO: redirect to post page
+        return redirect("/post/"+str(new_question.id))
 
 
 def post(request,id_post):
 
     readed_question = Question.objects.get(id=id_post) #questao clicada pelo usuario
-
-
-    context = {"question": readed_question}
+    
+    question_tags = QuestionTag.objects.filter(question=id_post)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
+    
+    answers = Answer.objects.filter(question=id_post)
+    
+    context = {
+        "question": readed_question,
+        "tags": tags,
+        "answers": answers
+    }
 
 
     return render(request, 'posts/post.html', context)
@@ -93,4 +103,22 @@ def edit_post(request, post_id):
                 new_tag = tag_res[0]
             new_question_tag = QuestionTag(question=question, tag=new_tag)
             new_question_tag.save()
-        return redirect("/all-posts") # TODO: redirect to post page
+        return redirect("/post/"+str(question.id))
+        
+def tag(request,tag_id):
+    tag = get_object_or_404(Tag, pk=tag_id)
+    # tag = Tag.objects.get(id=tag_id)
+    print(tag.name)
+    
+    question_tags = QuestionTag.objects.filter(tag=tag_id)
+    questions = []
+    for el in question_tags:
+        questions.append(Question.objects.get(id=el.question.id))
+    
+    context = {
+        "questions": questions,
+        "tag": tag.name
+    }
+
+
+    return render(request, 'tags/tag.html', context)
