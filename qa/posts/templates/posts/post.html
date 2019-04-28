@@ -131,8 +131,8 @@
                     {% endfor %}
                     
                     <hr class="mt-5 mb-5">
-
-                    <form class="answer-form mt-5" id="ans">
+                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:answer' question.id %}" method="post">
+                        {% csrf_token %}
                             <div class="message">
                               <textarea name="message" id="message" placeholder="Sua Resposta"></textarea>
                             </div>

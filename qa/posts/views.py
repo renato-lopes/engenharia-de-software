@@ -105,6 +105,50 @@ def edit_post(request, post_id):
             new_question_tag.save()
         return redirect("/post/"+str(question.id))
         
+
+
+def answer(request, id_post):
+
+
+    # Verificação de usuário
+    user_id = request.user.id
+    if(user_id == None):
+        context['error_message'] = "Precisa estar logado para responder"
+        return redirect("/login")
+
+
+    description = request.POST['message']
+
+
+    question = Question.objects.get(id=id_post)
+
+    username = request.user.username
+    user = User.objects.get(username=username)
+    lastAnswer = Answer(description=description, user=user, question=question)
+ 
+
+    lastAnswer.save()
+
+
+    
+    question_tags = QuestionTag.objects.filter(question=id_post)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
+    
+    answers = Answer.objects.filter(question=id_post)
+    
+    context = {
+        "question": question,
+        "tags": tags,
+        "answers": answers
+    }
+
+
+
+    return render(request, 'posts/post.html', context)
+
+
 def tag(request,tag_id):
     tag = get_object_or_404(Tag, pk=tag_id)
     # tag = Tag.objects.get(id=tag_id)
