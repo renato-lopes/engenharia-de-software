@@ -7,9 +7,10 @@ urlpatterns = [
     path('post/', views.post, name='post'),
     path('edit_post/<int:post_id>/', views.edit_post, name='edit_post'),
     path('post/<int:id_post>/', views.post, name='post'),
-    path('post/', views.post, name='post'),
     path('tag/<int:tag_id>/', views.tag, name='tag'),
     path('edit_answer/<int:answer_id>/', views.edit_answer, name='edit_answer')
+    path('answer/<int:id_post>/', views.answer, name='answer'),
+    path('tag/<int:tag_id>/', views.tag, name='tag')
 ]
 
 

@@ -25,7 +25,7 @@
                             <h3 class="mb-0">{{ post.title }}</h3>
                             <time class="post__header-time">{{post.creation_date|date:"d/m/Y H:i"}}</time> 
                             <p class="card-text mb-auto">{{ post.description }}</p>
-                            <a href="../post/{{post.id}}" class="stretched-link">Continuar Lendo</a>
+                            <a href="{% url 'posts:post' post.id %}" class="stretched-link">Continuar Lendo</a>
                         </div>
                     </div>
                 </div>
