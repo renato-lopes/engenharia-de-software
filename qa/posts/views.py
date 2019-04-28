@@ -46,15 +46,32 @@ def post(request,id_post):
         tags.append(el.tag.name)
     
     answers = Answer.objects.filter(question=id_post).order_by("creation_date")
-    
-    context = {
-        "question": readed_question,
-        "tags": tags,
-        "answers": answers
-    }
 
+    username = request.user.username
+
+    # Verificação de usuário
+    user_id = request.user.id
+    if (user_id == None):
+        context = {
+                "question": readed_question,
+                "tags": tags,
+                "answers": answers,
+                "loged_user": "X"
+        }
+
+    else:
+        user = User.objects.get(username=username)
+        context = {
+                "question": readed_question,
+                "tags": tags,
+                "answers": answers,
+                "loged_user": user
+        }
+
+    print (context)
 
     return render(request, 'posts/post.html', context)
+
 
 def edit_post(request, post_id):
     question = get_object_or_404(Question, pk=post_id)
@@ -134,10 +151,9 @@ def answer(request, id_post):
     context = {
         "question": question,
         "tags": tags,
-        "answers": answers
+        "answers": answers,
+        "loged_user": user
     }
-
-
 
     return render(request, 'posts/post.html', context)
 

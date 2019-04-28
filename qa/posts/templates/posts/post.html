@@ -39,6 +39,7 @@
             </aside>
             
             <!-- Content	 -->
+            <!-- Start Question-->
             <section class="content columns medium-8 medium-pull-4">
                 <article class="post">
                     <header class="post__header">
@@ -70,7 +71,9 @@
                         </div>				
                     </footer>
                 </article>
-                    
+            <!-- End Question-->
+
+            <!-- Start Answers-->    
                     {% for answer in answers %}
                     <article class="post mt-5">
                         <header class="post__header">
@@ -92,14 +95,21 @@
                             </p>
                         </div>
                         <footer class="post__footer">
-                            <div class="post__footer-likes"></div>              
-                            <div class="post__footer-responses">
-                                   
-                            </div>              
+                            <div class="post__footer-likes"></div>
+                            {% if answer.user == loged_user %}
+                                <div class="post__footer-responses text-right mr-3">
+                                    <small><i class="fa fa-edit"></i>
+                                        <a href="{% url 'posts:edit_answer' answer.id %}" class="text-muted"> Editar</a>
+                                    </small>              
+                            {% endif %}
                         </footer>
+
                     </article>
                     {% endfor %}
-                    
+            <!-- End Answers-->
+
+
+            <!-- Start Answer Field-->
                     <hr class="mt-5 mb-5">
                     <form class="answer-form mt-5" id="ans" action="{% url 'posts:answer' question.id %}" method="post">
                         {% csrf_token %}
@@ -116,6 +126,7 @@
                               <input type="submit" value="Responder" class="button" />
                             </div>
                     </form>
+            <!-- End Answer Field-->
                 </section>
 
         </main>
