@@ -1,0 +1,11 @@
+# login no heroku
+heroku login
+
+# adiciona o remote do heroku
+heroku git:remote -a app_name
+
+# migra o banco de dados (só é necessário quando há mudanças)
+heroku run python manage.py migrate -a app_name
+
+# para dar push para o repositório do heroku (use -f para forçar a integração)
+git push heroku heroku:master (-f)
