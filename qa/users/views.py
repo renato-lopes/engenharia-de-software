@@ -57,6 +57,39 @@ def profile(request):
     answers = Answer.objects.filter(user=user).order_by("-creation_date")[:3]
     context["answers"] = answers
 
+    context["edit"] = True
+    return render(request, 'users/profile.html', context)
+
+def view_profile(request, username):
+    context = {}
+
+    if username == request.user.username:
+        return redirect('users:profile')
+
+    user = User.objects.get(username=username)
+
+    username = user.username
+    email = user.email
+    description = user.description
+    first_name = user.first_name
+    last_name = user.last_name
+    context['username'] = username
+    context['email'] = email
+    if description:
+        context['description'] = description
+    if first_name:
+        context['first_name'] = first_name
+    if last_name:
+        context['last_name'] = last_name
+
+    # Activities tab
+    questions = Question.objects.filter(user=user).order_by("-creation_date")[:3]
+    context["questions"] = questions
+
+    answers = Answer.objects.filter(user=user).order_by("-creation_date")[:3]
+    context["answers"] = answers
+
+    context["edit"] = False
     return render(request, 'users/profile.html', context)
 
 @login_required

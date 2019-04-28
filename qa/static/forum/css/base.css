@@ -614,3 +614,8 @@ section:nth-child(1) {
   border-color: rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
 }
+
+/* Custom css */
+.img-profile {
+  max-width: 75%;
+}

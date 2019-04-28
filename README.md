@@ -25,7 +25,7 @@ Iniciei os apps:
 - Deiziane Silva                  
   - [grrl](https://github.com/grrl) - Ciência da Computação
 - Gabriel Oliveira                
-  - [gagaero](https://github.com/gagaero) - Engenharia
+  - [gagaero](https://github.com/gagaero) - Engenharia Aeroespacial
 - Pedro Maciel
   - [pedro-maciel](https://github.com/pedro-maciel) - Engenharia Elétrica
 - Renato Junior (Líder)           
