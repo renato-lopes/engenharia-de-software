@@ -8,6 +8,9 @@ def index(request):
     context = {
         'title': 'Homepage'
     }
+    questions = Question.objects.all().order_by("-creation_date")[:5]
+    context['questions'] = questions
+
     return render(request, 'forum/index.html', context)
 
 
