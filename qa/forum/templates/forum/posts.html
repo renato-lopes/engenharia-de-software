@@ -92,7 +92,9 @@
                             <h4>Tags</h4>
                         </header>
                         <div class="widget__tags">
-                            <a class="tag">PHP</a>
+                            {% for tag in tags %}
+                            <a class="tag">{{tag.name}}</a>
+                            <!-- <a class="tag">PHP</a>
                             <a class="tag">Development</a>
                             <a class="tag">C++</a>
                             <a class="tag">C#</a>
@@ -104,12 +106,13 @@
                             <a class="tag">Nostradamus</a>
                             <a class="tag">Printer</a>
                             <a class="tag">Facebook</a>
-                            <a class="tag">Tesla</a>
+                            <a class="tag">Tesla</a> -->
+                            {% endfor %}
                         </div>
                     </div>
           
                 <div class="p-4">
-                  <h4>Archives</h4>
+                  <!-- <h4>Archives</h4>
                   <ol class="list-unstyled mb-0">
                     <li><a href="#">March 2014</a></li>
                     <li><a href="#">February 2014</a></li>
@@ -124,7 +127,7 @@
                     <li><a href="#">May 2013</a></li>
                     <li><a href="#">April 2013</a></li>
                   </ol>
-                </div>
+                </div> -->
           
                
               </aside><!-- /.blog-sidebar -->

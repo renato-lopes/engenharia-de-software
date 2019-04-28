@@ -33,6 +33,9 @@ def all_posts(request):
 
     questions = Question.objects.all().order_by("-creation_date")
     context['posts'] = questions
+    
+    tags = Tag.objects.all()
+    context['tags'] = tags
 
     return render(request, 'forum/posts.html', context)
 
