@@ -100,7 +100,10 @@
                                 <div class="post__footer-responses text-right mr-3">
                                     <small><i class="fa fa-edit"></i>
                                         <a href="{% url 'posts:edit_answer' answer.id %}" class="text-muted"> Editar</a>
-                                    </small>              
+                                    </small>
+                                    <small><i class="fa fa-trash ml-3"></i>
+                                        <a href="{% url 'posts:edit_answer' answer.id %}" class="text-muted"> Excluir</a>
+                                    </small>                                                     
                             {% endif %}
                         </footer>
 
