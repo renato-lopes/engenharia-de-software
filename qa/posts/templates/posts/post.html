@@ -50,7 +50,7 @@
                                 </a>
                             </div>
                             <div class="media-object-section">
-                                <a class="post__header-profile-name">{{question.user}}</a>
+                                <a class="post__header-profile-name" href="{% url 'users:view_profile' question.user.username %}">{{question.user.username}}</a>
                                 <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
                             </div>									
                         </div>									
@@ -92,7 +92,7 @@
                                     </a>
                                 </div>
                                 <div class="media-object-section">
-                                    <a class="post__header-profile-name">{{answer.user}}</a>
+                                    <a class="post__header-profile-name" href="{% url 'users:view_profile' answer.user.username %}">{{answer.user.username}}</a>
                                     <time class="post__header-time">{{answer.last_modification_date|date:"d/m/Y H:i"}}</time>                   
                                 </div>                                  
                             </div>                                  
