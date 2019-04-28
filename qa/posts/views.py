@@ -38,7 +38,7 @@ def create_post(request):
 
 def post(request,id_post):
 
-    readed_question = Question.objects.get(id=id_post) #questao clicada pelo usuario
+    question = get_object_or_404(Question, pk=id_post) #questao clicada pelo usuario
     
     question_tags = QuestionTag.objects.filter(question=id_post)
     tags = []
@@ -47,30 +47,40 @@ def post(request,id_post):
     
     answers = Answer.objects.filter(question=id_post).order_by("creation_date")
 
-    username = request.user.username
-
     # Verificação de usuário
+    username = request.user.username
     user_id = request.user.id
     if (user_id == None):
         context = {
-                "question": readed_question,
+                "question": question,
                 "tags": tags,
                 "answers": answers,
-                "loged_user": "X"
+                "loged_user": {"id": 0}
         }
 
     else:
         user = User.objects.get(username=username)
         context = {
-                "question": readed_question,
+                "question": question,
                 "tags": tags,
                 "answers": answers,
                 "loged_user": user
         }
-
-    print (context)
-
-    return render(request, 'posts/post.html', context)
+    
+    try:
+        # Get data from request
+        description = request.POST['message']
+    except (KeyError):
+        return render(request, 'posts/post.html', context)
+    else:
+        if (user_id == None):
+            context['error_message'] = "Você não está logado"
+            return render(request, 'posts/post.html', context)
+        user = User.objects.get(username=username)
+        answer = Answer(description=description, user=user, question=question)
+        answer.save()
+        # return redirect("/post/"+str(question.id))
+        return render(request, 'posts/post.html', context)
 
 
 def edit_post(request, post_id):
@@ -123,39 +133,32 @@ def edit_post(request, post_id):
         return redirect("/post/"+str(question.id))
         
 
-@login_required
-def answer(request, id_post):
-
-
-    description = request.POST['message']
-
-
-    question = Question.objects.get(id=id_post)
-
-    username = request.user.username
-    user = User.objects.get(username=username)
-    lastAnswer = Answer(description=description, user=user, question=question)
+# @login_required
+# def answer(request, id_post):
+#     username = request.user.username
+#     user = User.objects.get(username=username)
+#     lastAnswer = Answer(description=description, user=user, question=question)
  
 
-    lastAnswer.save()
+#     lastAnswer.save()
 
 
     
-    question_tags = QuestionTag.objects.filter(question=id_post)
-    tags = []
-    for el in question_tags:
-        tags.append(el.tag.name)
+#     question_tags = QuestionTag.objects.filter(question=id_post)
+#     tags = []
+#     for el in question_tags:
+#         tags.append(el.tag.name)
     
-    answers = Answer.objects.filter(question=id_post)
+#     answers = Answer.objects.filter(question=id_post)
     
-    context = {
-        "question": question,
-        "tags": tags,
-        "answers": answers,
-        "loged_user": user
-    }
+#     context = {
+#         "question": question,
+#         "tags": tags,
+#         "answers": answers,
+#         "loged_user": user
+#     }
 
-    return render(request, 'posts/post.html', context)
+#     return render(request, 'posts/post.html', context)
 
 
 def tag(request,tag_id):

@@ -64,7 +64,15 @@
                     <footer class="post__footer">
                         <div class="post__footer-likes"></div>				
                         <div class="post__footer-responses text-right mr-3">
-                            <small><i class="fa fa-reply"></i>
+                            {% if question.user == loged_user %}
+                                <small><i class="fa fa-edit"></i>
+                                    <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Editar</a>
+                                </small>
+                                <small><i class="fa fa-trash ml-3"></i>
+                                    <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Excluir</a>
+                                </small>                                                     
+                            {% endif %}
+                            <small><i class="fa fa-reply ml-3"></i>
                                 <a href="#ans" class="text-muted"> Responder</a>
                             </small>    
                             
@@ -114,7 +122,7 @@
 
             <!-- Start Answer Field-->
                     <hr class="mt-5 mb-5">
-                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:answer' question.id %}" method="post">
+                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:post' question.id %}" method="post">
                         {% csrf_token %}
                             <div class="message">
                               <textarea name="message" id="message" placeholder="Sua Resposta"></textarea>
