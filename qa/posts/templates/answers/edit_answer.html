@@ -1,0 +1,82 @@
+{% extends "forum/base.html" %}
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    {%  include "forum/header.html" %}
+   
+    <main class="container row">
+            <!-- Sidebar	 -->
+            <aside class="sidebar columns medium-4 medium-push-8">
+                <div class="widget">
+                    <header class="widget__header">
+                        <span class="widget__header-title">Post Tags</span>
+                    </header>
+                    <div class="widget__tags">
+                        {% for tag in tags %}
+                            <a class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Content	 -->
+            <section class="content columns medium-8 medium-pull-4">
+                <h3> Editar resposta </h3>
+                <article class="post">
+                    <header class="post__header">
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <a href="#" class="post__header-profile">
+                                    <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167750.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="media-object-section">
+                                <a class="post__header-profile-name">{{question.user}}</a>
+                                <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
+                            </div>									
+                        </div>									
+                        <h3 class="post__header-title">{{question.title}}</h3>
+                    </header>
+                    <div class="post__content mt-4">
+                        <p>
+                            {{question.description}}
+                        </p>
+                    </div>
+                    <footer class="post__footer">
+                        <div class="post__footer-likes"></div>				
+                        <div class="post__footer-responses text-right mr-3">
+                            <small><i class="fa fa-reply"></i>
+                                <a href="#ans" class="text-muted"> Responder</a>
+                            </small>    
+                            
+                        </div>				
+                    </footer>
+                </article>
+                    
+                    <hr class="mt-5 mb-5">
+                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:edit_answer' answer.id %}" method="post">
+                    {% csrf_token %}
+                            <div class="message">
+                              <textarea name="description" id="description" placeholder="Sua Resposta">{{answer.description}}</textarea>
+                            </div>
+                            <div class="submit">
+                              <input type="submit" value="Concluir" class="button" />
+                            </div>
+                    </form>
+                </section>
+
+        </main>
+</div>
+
+{% block js %}
+{% endblock %}
+
+{% endblock %}

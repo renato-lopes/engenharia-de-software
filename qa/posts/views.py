@@ -122,3 +122,35 @@ def tag(request,tag_id):
 
 
     return render(request, 'tags/tag.html', context)
+
+def edit_answer(request,answer_id):
+    answer = get_object_or_404(Answer, pk=answer_id)
+    question = Question.objects.get(id=answer.question.id)
+    question_tags = QuestionTag.objects.filter(question=question.id)
+    tags = []
+    for el in question_tags:
+        tags.append(el.tag.name)
+    
+    
+    context = {
+        "title": "Editar resposta",
+        "question": question,
+        "tags": tags,
+        "answer": answer
+    }
+    
+    # Verificação de usuário
+    user_id = request.user.id
+    if(user_id != answer.user.id):
+        context['error_message'] = "Usuário atual não é o criador da resposta"
+        return redirect("/post/"+str(question.id))
+    
+    try:
+        # Get data from request
+        description = request.POST['description']
+    except (KeyError):
+        return render(request, 'answers/edit_answer.html', context)
+    else:
+        answer.description = description
+        answer.save()
+        return redirect("/post/"+str(question.id))
