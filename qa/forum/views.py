@@ -48,3 +48,9 @@ def all_tags(request):
     context['tags'] = tags
 
     return render(request, 'forum/tags.html', context)
+
+def about(request):
+    context = {
+        'title': 'Sobre'
+    }
+    return render(request, 'forum/about.html', context)
