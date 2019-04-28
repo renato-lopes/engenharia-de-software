@@ -72,9 +72,9 @@
                                     <a href="{% url 'posts:delete_post' question.id %}" class="text-muted"> Excluir</a>
                                 </small>                                                     
                             {% endif %}
-                            <small><i class="fa fa-reply ml-3"></i>
+                            <!-- <small><i class="fa fa-reply ml-3"></i>
                                 <a href="#ans" class="text-muted"> Responder</a>
-                            </small>    
+                            </small>     -->
                             
                         </div>				
                     </footer>
@@ -121,7 +121,8 @@
 
 
             <!-- Start Answer Field-->
-                    <hr class="mt-5 mb-5">
+                    <hr class="mt-5 mb-3">
+                    {% if user.is_authenticated %}
                     <form class="answer-form mt-5" id="ans" action="{% url 'posts:post' question.id %}" method="post">
                         {% csrf_token %}
                             <div class="message">
@@ -137,6 +138,15 @@
                               <input type="submit" value="Responder" class="button" />
                             </div>
                     </form>
+                    {% else %}
+                    <p class="user-message">
+                        <small id="emailHelp" class="form-text text-muted ">
+                            Você precisa estar logado para responder esta pergunta.<br>
+                            Faça <a href="{% url 'users:login' %}">login</a> ou <a href="{% url 'users:register' %}">registre-se</a> agora mesmo!
+                        </small>
+                    </p>
+                    {% endif %}
+                    
             <!-- End Answer Field-->
                 </section>
 
