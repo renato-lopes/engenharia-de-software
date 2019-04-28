@@ -1,0 +1,32 @@
+{% extends "forum/base.html" %}
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<div class='container '>
+    
+    {%  include "forum/header.html" %}
+            <h3 class="pb-4 mb-4 border-bottom", align="center">
+                Tags
+            </h3>
+            
+            <div class ="container d-flex justify-content-center"  >
+              <div class ="row " align="center" >
+                {%for tag in tags%}
+                <div class ="col border round m-1 col-md-auto col-sm-auto shadow-sm" >
+                <a href="../tag/{{tag.id}}" class="stretched-link">
+                    <h3>{{tag.name}}</h3>
+                </a>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+</div>
+
+{% block js %}
+{% endblock %}
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from users.models import ForumUser as User
-from posts.models import Answer, Question
+from posts.models import Answer, Question, Tag
 
 # Create your views here.
 def index(request):
@@ -32,3 +32,13 @@ def all_posts(request):
     context['posts'] = questions
 
     return render(request, 'forum/posts.html', context)
+
+def all_tags(request):
+    context = {
+        'title': 'Tags'
+    }
+
+    tags = Tag.objects.all()
+    context['tags'] = tags
+
+    return render(request, 'forum/tags.html', context)
