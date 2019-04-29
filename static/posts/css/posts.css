@@ -219,5 +219,29 @@ main.container {
     -webkit-border-radius: 5px;
     border-radius: 5px;
   }
+  
+  .answer-form .submit  .delete{
+    background: #dc3545;
+    border: 1px #dc3545 solid;
+    color: #ffffff;
+    float: right;
+    padding: 9px 0;
+    width: 100px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .answer-form .submit  .cancel{
+    background: #ffffff;
+    border: 1px #6c757d solid;
+    color: #6c757d;
+    float: right;
+    padding: 9px 0;
+    width: 100px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
 
   
