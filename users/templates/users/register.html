@@ -16,8 +16,8 @@
                 <img src="{% static 'forum/img/logo_md.png' %}" class="card-img-top"
                     alt="logo">
                 <div class="card-body">
-                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                    {% if confirm_message %}<p><strong>{{ confirm_message }}</strong></p>{% endif %}
+                    {% if success is True %}<p><strong>Usuário {{ username }} criado com sucesso!</strong> <a href="{% url 'users:login' %}">Fazer login.</a></p> {% endif %}
+                    {% if fail is True %}<p><strong>O nome de usuário {{ username }} já está em uso. Por favor, escolha outro. </strong></p>{% endif %}
                     <form action="{% url 'users:register' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
@@ -26,7 +26,7 @@
                                     <span class="input-group-text icon-login" id="basic-addon1"><i
                                             class="fa fa-user-circle"></i></span>
                                 </div>
-                                <input type="text" class="form-control " name="username" placeholder="Username"
+                                <input type="text" class="form-control " name="username" placeholder="Nome de usuário"
                                     aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                     <span class="input-group-text icon-login" id="basic-addon1"><i
                                             class="fa fa-user-circle"></i></span>
                                 </div>
-                                <input type="text" class="form-control " name="first_name" placeholder="First Name"
+                                <input type="text" class="form-control " name="first_name" placeholder="Primeiro nome" value="{{first_name}}"
                                     aria-label="First Name" aria-describedby="basic-addon1" required>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                     <span class="input-group-text icon-login" id="basic-addon1"><i
                                             class="fa fa-user-circle"></i></span>
                                 </div>
-                                <input type="text" class="form-control " name="last_name" placeholder="Last Name"
+                                <input type="text" class="form-control " name="last_name" placeholder="Último nome" value="{{last_name}}"
                                     aria-label="Last Name" aria-describedby="basic-addon1" required>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                     <span class="input-group-text icon-login" id="basic-addon3"><i
                                             class="fa fa-at"></i></span>
                                 </div>
-                                <input type="text" class="form-control " name="email" placeholder="E-mail"
+                                <input type="text" class="form-control " name="email" placeholder="E-mail" value="{{email}}"
                                     aria-label="E-mail" aria-describedby="basic-addon3" required>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     <span class="input-group-text icon-login" id="basic-addon2"><i
                                             class="fa fa-key"></i></span>
                                 </div>
-                                <input class="prepend-fx form-control" type="password" id='password' name="password"
+                                <input class="prepend-fx form-control" type="password" id='password' name="password" value="{{password}}"
                                     placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2" required>
                             </div>
                         </div>

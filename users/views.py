@@ -22,10 +22,18 @@ def register(request):
         # Check if username is already taken
         users_res = User.objects.filter(username=username)
         if len(users_res) != 0:
-            context['error_message'] = "Username already taken!"
+            # context['error_message'] = "Nome de usuário já cadastrado! Escolha outro."
+            context['email'] = email
+            context['password'] = password
+            context['first_name'] = first_name
+            context['last_name'] = last_name
+            context['fail'] = True
+            context['username'] = username
         else:
             User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name, description="")
-            context['confirm_message'] = "User {} sucessfully created!".format(username)
+            context['success'] = True
+            context['username'] = username
+            # context['confirm_message'] = "Usuário {} cadastrado com sucesso!".format(username)
         return render(request, 'users/register.html', context)
 
 @login_required

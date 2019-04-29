@@ -22,20 +22,18 @@
                     alt="logo">
                 <div class="card-body">
                         {% if user.is_authenticated %}
-                            <h6 class="card-subtitle mb-2 text-muted">You are logged in as {{ user.username }}.</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Você está logado como {{ user.username }}.</h6>
                             <a class="btn btn-outline-danger btn-block mb-3" href="{% url 'users:logout' %}">LOGOUT</a>
-                        {% else %}
-                            <h6 class="card-subtitle mb-2 text-muted">You aren't logged in.</h6> 
                         {% endif %}
                     <form action="{% url 'users:login' %}" method="post">
                         {% csrf_token %}
                         <table class="login-table w-100">
                             <tr>
-                                <td class="w-100">{{ form.username.label_tag }}</td>
+                                <td class="w-100">Nome de usuário:</td>
                                 <td class="w-100">{{ form.username }}</td>
                             </tr>
                             <tr>
-                                <td>{{ form.password.label_tag }}</td>
+                                <td>Senha:</td>
                                 <td>{{ form.password }}</td>
                             </tr>
                         </table>
