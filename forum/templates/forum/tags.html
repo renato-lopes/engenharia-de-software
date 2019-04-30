@@ -6,24 +6,35 @@
 {% endblock %}
 
 {% block content %}
-<div class='container '>
-    
-    {%  include "forum/header.html" %}
-            <h3 class="pb-4 mb-4 border-bottom", align="center">
-                Tags
-            </h3>
+
+<div class="container">
+  {%  include "forum/header.html" %}
+  <div class="row">
+    <div class="col-md-12 blog-main mt-5">
+      <h3 class="pb-4 mb-4 border-bottom page-title">
+        Tags
+      </h3>
+
+      <div class="row mb-2">
+        <div class="col-md-12">
+
+          {%for tag in tags%}
+          <div class="event">
             
-            <div class ="container d-flex justify-content-center"  >
-              <div class ="row " align="center" >
-                {%for tag in tags%}
-                <div class ="col border round m-1 col-md-auto col-sm-auto shadow-sm" >
-                <a href="../tag/{{tag.id}}" class="stretched-link" style="text-decoration:none;color:#555555">
-                    <h3>{{tag.name}}</h3>
-                </a>
-                </div>
-                {%endfor%}
-              </div>
+            <span>#0{{tag.id}}</span>
+            <div class="info">
+                <a href="../tag/{{tag.id}}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a>
             </div>
+            
+          </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 {% block js %}
