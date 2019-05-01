@@ -21,7 +21,9 @@
                         {% for post in posts %}
                         <div class="card shadow-sm mb-3">
                             <div class="card-header">
-                                <span class="badge badge-info">{% for tag in post.tags %} {{tag.name}} {% endfor %}</span>
+                                {% for tag in post.tags %}
+                                <span class="badge badge-info"> {{tag.name}}</span>
+                                {% endfor %}
                                 <div class="mb-1 text-muted float-right d-inline-block question-title">{{ post.creation_date|date:"d/m/Y H:i" }}</div>
                             </div>
                             <div class="card-body">

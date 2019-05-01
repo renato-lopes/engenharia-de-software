@@ -33,7 +33,9 @@
                     <h5 class="card-title question-title">{{ question.title }}</h5>
                     <div class="mb-1 text-muted">{{ question.creation_date|date:"d/m/Y H:i" }}</div>
                     <p class="card-text">{{ question.description }}</p>
-                    <span class="badge badge-info">{% for tag in question.tags %} {{tag.name}} {% endfor %}</span>
+                    {% for tag in question.tags %}
+                    <span class="badge badge-info"> {{tag.name}}</span>
+                    {% endfor %}
                     <a href="{% url 'posts:post' question.id %}" class="d-block text-decoration-none mt-2">Continuar Lendo <i class="fa fa-arrow-right"></i></a>
                   </div>
                   <hr>

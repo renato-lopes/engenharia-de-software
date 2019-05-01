@@ -1,32 +1,56 @@
 {% extends "forum/base.html" %}
-{% load static from staticfiles %} <!-- to use static files -->
+{% load static from staticfiles %}
+<!-- to use static files -->
 
-{% block css %} 
-   
+{% block css %}
+
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    
+
     {%  include "forum/header.html" %}
 
     <div class="row">
         <div class="col-md-12 blog-main mt-5">
-          <h3 class="pb-4 mb-4 border-bottom page-title">
-            Sobre
-          </h3>
-        <div class="col-md-12 text-center mb-3">
-            <h2>Fórum Q&A</h2>
-            <h3>Trabalho de Engenharia de Software - 2019/1 - Simulação de XP</h3>
+            <h3 class="pb-4 mb-4 border-bottom page-title">
+                Sobre
+            </h3>
+            <div class="col-md-12 text-center mb-3">
+                <h2>Fórum Q&A</h2>
+                <h3>Trabalho de Engenharia de Software - 2019/1 - Simulação de XP</h3>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 mt-5">
+    <div class="row  d-flex justify-content-center">
+        <div class="col-md-12 mt-5 text-center">
             <h4>Integrantes do grupo</h4>
         </div>
+
+        <ol class="list mt-5">
+            <li class="item">
+                <h2 class="headline">Breno Martins</h2>
+                <span>Ciência da Computação</span>
+            </li>
+            <li class="item">
+                <h2 class="headline">Deiziane Silva</h2>
+                <span>Ciência da Computação</span>
+            </li>
+            <li class="item">
+                <h2 class="headline">Gabriel Oliveira</h2>
+                <span>Engenharia Aeronáutica</span>
+            </li>
+            <li class="item">
+                <h2 class="headline">Pedro Maciel</h2>
+                <span>Engenharia Elétrica</span>
+            </li>
+            <li class="item">
+                <h2 class="headline">Renato Junior</h2>
+                <span>Ciência da Computação</span>
+            </li>
+        </ol>
     </div>
-   
+
 </div>
 
 {% endblock content %}

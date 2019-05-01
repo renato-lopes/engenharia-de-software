@@ -100,6 +100,8 @@ def view_profile(request, username):
     context["edit"] = False
     return render(request, 'users/profile.html', context)
 
+
+
 @login_required
 def edit_profile(request):
     try:
