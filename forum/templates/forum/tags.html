@@ -7,37 +7,89 @@
 
 {% block content %}
 
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+      <li><a href="index.html">Início</a></li>
+      <li class="active">Tags</li>
+    </ol>
+  </div>
+</div>
+<!-- //breadcrumbs -->
 <div class="container">
-  {%  include "forum/header.html" %}
-  <div class="row">
-    <div class="col-md-12 blog-main mt-5">
-      <h3 class="pb-4 mb-4 border-bottom page-title">
-        Tags
-      </h3>
-
-      <div class="row mb-2">
-        <div class="col-md-12">
-
-          {%for tag in tags%}
-          <div class="event">
-            
-            <span>#0{{tag.id}}</span>
-            <div class="info">
-                <a href="../tag/{{tag.id}}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a>
+  <div class="banner-btm-agile">
+  <!-- //btm-wthree-left -->
+    <div class="col-md-9 btm-wthree-left">
+<!-- features -->
+<div class="banner-bottom-abt">
+  <div class="agileits_heading_section">
+      <h3 class="wthree_head">Tags</h3>
+      <p class="agileinfo_para">
+        Uma tag é uma palavra-chave ou um marcador que categoriza sua pergunta com outras perguntas semelhantes. 
+        Usar as tags corretas facilita que outras pessoas encontrem e respondam à sua pergunta.
+      </p>
+    </div>
+    
+    <div class="w3_testimonials_grids">
+      {%for tag in tags%}
+      <div class="col-md-6 w3_agile_classes_grid">
+        <div class="agile_classes_grid1">
+          <div class="col-xs-4 agile_classes_grid1_right">
+            <div class="agileits_w3layouts_classes_grid1_right">
+              <i class="fa fa-tags" aria-hidden="true"></i>
             </div>
-            
           </div>
-
-          {% endfor %}
-
+          <div class="col-xs-8 agile_classes_grid1_left">
+            <h4><a href="../tag/{{tag.id}}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a></h4>
+            <p>Tag #0{{tag.id}}</p>
+          </div>
+          <div class="clearfix"> </div>
         </div>
+      </div>
+      {% endfor %}
+    </div>
+
+</div>
+<!-- features -->
+    </div>
+    <!-- //btm-wthree-left -->
+      <!-- btm-wthree-right -->
+    <div class="col-md-3 w3agile_blog_left">
+      <div class="wthreesearch">
+            <form action="#" method="post">
+              <input type="search" name="Search" placeholder="Search here" required="">
+              <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          
+      </div>
+      
+      <div class="agileinfo_calender">
+      <h3>CONNECT SOCIALLY</h3>
+      <div class="w3ls-social-icons-1">
+        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+        <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+        <a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
+        <a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
+        <a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
+      </div>
       </div>
 
     </div>
+    <!-- //btm-wthree-right -->
+    <div class="clearfix"></div>
   </div>
 </div>
+
 
 {% block js %}
 {% endblock %}
 
 {% endblock %}
+
+
+

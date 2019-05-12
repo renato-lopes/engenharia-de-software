@@ -6,45 +6,100 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
 
-    {%  include "forum/header.html" %}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="{% url 'forum:index' %}">Início</a></li>
+				<li class="active">Usuários</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+	<div class="container">
+		<div class="banner-btm-agile">
+		<!-- //btm-wthree-left -->
+			<div class="col-md-9 btm-wthree-left">
+	<!-- features -->
+	<div class="banner-bottom-abt">
+			<!-- featured-services -->
+	<div class="fea-tp">
+			<h3 class="wthree_head">Usuários</h3>
+				<p class="agileinfo_para">Todos os usuários cadastrados.</p>
+			<div class="w3ls_service_grids">
 
-    <div class="row">
-        <div class="col-md-12 blog-main mt-5">
-          <h3 class="pb-4 mb-4 border-bottom page-title">
-            Usuários 
-          </h3>
-          
-          <div class="d-flex flex-wrap">
-          {% for user in users %}
-              <div class="profile ml-4">
-                <div class="profile__picture"> <img src="{% static 'users/img/default.png' %}" alt="..."></div>
-                <div class="profile__header">
-                  <div class="profile__account">
-                    <h4 class="profile__username">
-                      <a href="{% url 'users:view_profile' username=user.username %}" class="text-decoration-none">{{ user.username }}</a>
-                    </h4>
-                  </div>
-                  <!-- <div class="profile__edit"><a class="profile__button" href="#">Edit Profile</a></div> -->
-                </div>
-                <div class="profile__stats">
-                  
-                  <div class="profile__stat">
-                      <div class="profile__value">{{ user.first_name }} {{ user.last_name }}
-                        <div class="profile__key">{{ user.description }}</div>
-                      </div>
-                    </div>
-                </div>
+        {% for user in users %}
+				<div class="col-md-6 w3_agile_services_grid">
+					<div class="agile_services_grid">
+						<div class="hover06 column">
+							<div>
+								<figure><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt=" " class="img-responsive" /></figure>
+							</div>
+						</div>
+						<div class="agile_services_grid_pos">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+					</div>
+					<h4><a href="{% url 'users:view_profile' username=user.username %}" class="text-decoration-none">{{ user.username }}</a></h4>
+					<p><strong>{{ user.first_name }} {{ user.last_name }}</strong> <br>
+            {{ user.description }}</p>
+        </div>
+        {% endfor %}
+
+				<div class="clearfix"> </div>
+			</div>
+
+	</div>
+<!-- //featured-services -->
+
+	</div>
+<!-- features -->
+			</div>
+			<!-- //btm-wthree-left -->
+			<!-- btm-wthree-right -->
+      <div class="col-md-3 w3agile_blog_left">
+          <div class="wthreesearch">
+              <form action="#" method="post">
+                  <input type="search" name="Search" placeholder="Search here" required="">
+                  <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+              </form>
+
+          </div>
+
+          <div class="agileinfo_calender">
+              <h3>Sobre</h3>
+              <div class="w3ls-social-icons-1">
+                  <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                  <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
               </div>
-          {% endfor %}
-        </div>
-        </div>
-        </div>
-  <footer class="blog-footer">
-    <p>
-      <a href="#">Back to top</a>
-    </p>
-  </footer>
+          </div>
+
+          <div class="w3l_tags">
+              <h3>Tags</h3>
+              <ul class="tag">
+                  <li><a href="singlepage.html">Fashion</a></li>
+                  <li><a href="singlepage.html">Photography</a></li>
+                  <li><a href="singlepage.html">Artist</a></li>
+                  <li><a href="singlepage.html">Music</a></li>
+                  <li><a href="singlepage.html">Shop</a></li>
+                  <li><a href="singlepage.html">Corporate</a></li>
+                  <li><a href="singlepage.html">Personal</a></li>
+                  <li><a href="singlepage.html">Restaurant</a></li>
+                  <li><a href="singlepage.html">Business</a></li>
+              </ul>
+          </div>
+      </div>
+      <!-- //btm-wthree-right -->
+      <div class="clearfix"></div>
+  </div>
 </div>
-{% endblock content %}
+
+{% endblock%}

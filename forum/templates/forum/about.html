@@ -7,50 +7,104 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="{% url 'forum:index' %}">Início</a></li>
+				<li class="active">Sobre</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+	<div class="container">
+		<div class="banner-btm-agile">
+		<!-- //btm-wthree-left -->
+			<div class="col-md-9 btm-wthree-left">
+				<div class="courses">
+					
+					<div class="agileits_heading_section">
+						<h3 class="wthree_head">Sobre</h3>
+						<p class="agileinfo_para">Trabalho de Engenharia de Software - 2019/1 - Simulação de XP</p>
+					</div>
+						<div class="agileits_w3layouts_team_grids w3ls_courses_grids">
+							<div class="col-md-6 w3ls_banner_bottom_left w3ls_courses_left">
+								<div class="w3ls_courses_left_grids">
+									<div class="w3ls_courses_left_grid">
+										<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Breno Martins</h3>
+										<p>Ciência da Computação</p>
+									</div>
+									<div class="w3ls_courses_left_grid">
+										<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Deiziane Silva</h3>
+										<p>Ciência da Computação</p>
+									</div>
+									<div class="w3ls_courses_left_grid">
+										<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Gabriel Oliveira</h3>
+										<p>Engenharia Aeronáutica</p>
+                                    </div>
+                                    <div class="w3ls_courses_left_grid">
+										<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Pedro Maciel</h3>
+										<p>Engenharia Elétrica</p>
+                                    </div>
+                                    <div class="w3ls_courses_left_grid">
+										<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Renato Junior</h3>
+										<p>Ciência da Computação</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 agileits_courses_right">
+								<img src="https://images.unsplash.com/photo-1528660544347-95a93c58e424?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt=" " class="img-responsive">
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				
+    <!-- //team -->	
+			</div>
+			<!-- //btm-wthree-left -->
+			<!-- btm-wthree-right -->
+			<div class="col-md-3 w3agile_blog_left">
+				<div class="wthreesearch">
+							<form action="#" method="post">
+								<input type="search" name="Search" placeholder="Search here" required="">
+								<button type="submit" class="btn btn-default search" aria-label="Left Align">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						
+				</div>
+				
+				<div class="agileinfo_calender">
+				<h3>CONNECT SOCIALLY</h3>
+				<div class="w3ls-social-icons-1">
+					<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+					<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+					<a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+					<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+					<a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
+					<a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
+					<a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
+				</div>
+				</div>
+				
+			<div class="w3l_tags">
+					<h3>Tags</h3>
+					<ul class="tag">
+						<li><a href="singlepage.html">Fashion</a></li>
+						<li><a href="singlepage.html">Photography</a></li>
+						<li><a href="singlepage.html">Artist</a></li>
+						<li><a href="singlepage.html">Music</a></li>
+						<li><a href="singlepage.html">Shop</a></li>
+						<li><a href="singlepage.html">Corporate</a></li>
+						<li><a href="singlepage.html">Personal</a></li>
+						<li><a href="singlepage.html">Restaurant</a></li>
+						<li><a href="singlepage.html">Business</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //btm-wthree-right -->
+			<div class="clearfix"></div>
+		</div>
+	</div>
 
-    {%  include "forum/header.html" %}
-
-    <div class="row">
-        <div class="col-md-12 blog-main mt-5">
-            <h3 class="pb-4 mb-4 border-bottom page-title">
-                Sobre
-            </h3>
-            <div class="col-md-12 text-center mb-3">
-                <h2>Fórum Q&A</h2>
-                <h3>Trabalho de Engenharia de Software - 2019/1 - Simulação de XP</h3>
-            </div>
-        </div>
-    </div>
-    <div class="row  d-flex justify-content-center">
-        <div class="col-md-12 mt-5 text-center">
-            <h4>Integrantes do grupo</h4>
-        </div>
-
-        <ol class="list mt-5">
-            <li class="item">
-                <h2 class="headline">Breno Martins</h2>
-                <span>Ciência da Computação</span>
-            </li>
-            <li class="item">
-                <h2 class="headline">Deiziane Silva</h2>
-                <span>Ciência da Computação</span>
-            </li>
-            <li class="item">
-                <h2 class="headline">Gabriel Oliveira</h2>
-                <span>Engenharia Aeronáutica</span>
-            </li>
-            <li class="item">
-                <h2 class="headline">Pedro Maciel</h2>
-                <span>Engenharia Elétrica</span>
-            </li>
-            <li class="item">
-                <h2 class="headline">Renato Junior</h2>
-                <span>Ciência da Computação</span>
-            </li>
-        </ol>
-    </div>
-
-</div>
-
-{% endblock content %}
+{% endblock%}
