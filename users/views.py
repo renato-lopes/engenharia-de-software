@@ -68,6 +68,7 @@ def profile(request):
     context["edit"] = True
     return render(request, 'users/profile.html', context)
 
+
 def view_profile(request, username):
     context = {}
 

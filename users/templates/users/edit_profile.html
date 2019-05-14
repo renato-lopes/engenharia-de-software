@@ -1,143 +1,58 @@
-<div class="container">
-    <div class="form__container">
-        <section class="form__personal">
-            <div class="sections">
-                <div class="box">1</div><span>Dados Pessoais</span>
-            </div>
-            <div class="personal--form">
-                <form class="form-edit-profile" action="{% url 'users:edit_profile' %}" method="post">
-                    {% csrf_token %}
-                    <!-- <div class="avatar-upload"> -->
-                        <!-- <div class="avatar-edit">
-                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                            <label for="imageUpload"></label>
-                        </div> -->
-                        <!-- <div class="avatar-preview">
-                            <div id="imagePreview"
-                                style="background-image: url(http://cdn.onlinewebfonts.com/svg/img_569204.png);">
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
-                    <div class="row two mt-3">
-                        <div class="first">
-                            <label for="first_name">Primeiro nome</label>
-                            <input placeholder="{{ first_name }}" id="first_name" name="first_name" type="text" required="true" value="{{ first_name }}" />
-                        </div>
-                        <div class="last">
-                            <label for="last_name">Último nome</label>
-                            <input placeholder="{{ last_name }}" id="last_name" name="last_name" type="text" required="true" value="{{ last_name }}" />
-                        </div>
-                    </div>
-                    <div class="row one mt-3">
-                        <div class="first">
-                            <label for="email">Email</label>
-                            <input placeholder="{{ email }}" id="email" name="email" type="email" required="true" value="{{ email }}" />
-                        </div>
-                    </div>
-                    <div class="row one mt-3">
-                        <div class="first">
-                            <label for="description">Sua descrição</label>
-                            <input placeholder="{{ description }}" id="description" name="description" type="text" value="{{ description }}" />
-                        </div>
-                    </div>
-                    <div class="row one mt-3">
-                        <div class="first">
-                            <label for="description">Alterar senha</label>
-                            <input placeholder="Digite a nova senha" id="password" name="password" type="password" value="" />
-                        </div>
-                    </div>
-                    <!-- <div class="row two">
-                        <div class="gender">
-                            <label for="gender">Gênero</label>
-                            <select id="gender">
-                                <option>Feminino</option>
-                                <option>Masculino</option>
-                                <option>Outro</option>
-                                <option>Prefiro não informar</option>
-                            </select>
-                        </div>
+<div class="team">
+    <!-- mail -->
+        <div class="agileits_heading_section">
+            <h3 class="wthree_head">
+                Editar Perfil
+            </h3>
+            <p class="agileinfo_para">Dados Pessoais</p>
+        </div>
+        <div class="w3ls_portfolio_grids w3_agile_mail_grids">
+            <form action="{% url 'users:edit_profile' %}" method="post">
+                {% csrf_token %}
+                <div class="col-md-12 w3_agile_mail_grid">
+                    <span class="input input--ichiro">
+                        <label for="id_first-name">
+							Nome
+						</label>
+                        <input type="text" id="id_first-name" class="form-control" name="first_name" placeholder="{{first_name}}"
+                            value="{{first_name}}" aria-label="First Name" aria-describedby="basic-addon1" required>
 
+                    </span>
+                    <span class="input input--ichiro">
+                        <label for="id_last-name">
+                            Sobrenome
+                        </label>
+                        <input type="text" id="id_last-name" class="form-control " name="last_name" placeholder="{{last_name}}"
+                            value="{{last_name}}" aria-label="Last Name" aria-describedby="basic-addon1" required>
+                    </span>
+                    <span class="input input--ichiro">
+                        <label for="id_email">
+                            E-mail
+                        </label>
+                        <input type="text" id="id_email" class="form-control " name="email" placeholder="{{email}}" value="{{email}}"
+                            aria-label="E-mail" aria-describedby="basic-addon3" required>
 
-                        <div class="date">
-                            <label for="date">Data de Nascimento</label>
-                            <input placeholder="e.g. 01/01/1999" id="date" type="text" />
-                        </div>
-                    </div>
-                    <div class="row three">
-                        <div class="address">
-                            <label for="address-one">Telefone 1</label>
-                            <input placeholder="e.g. (31) 9999-9999" id="address-one" type="text" />
-                        </div>
-                        <div class="address-two">
-                            <label for="address-two">Telefone 2</label>
-                            <input id="address-two" type="text" />
-                        </div>
-                    </div>
-                    <div class="row two">
-                        <div class="city">
-                            <label for="city">Cidade</label>
-                            <input placeholder="e.g. Belo Horizonte" id="city" type="text" />
-                        </div>
-                        <div class="state">
-                            <label for="state">Estado / Região</label>
-                            <input placeholder="e.g. Minas Gerais" id="state" type="text" />
-                        </div>
-                    </div>
-                    <div class="row three">
-                        <div class="zip">
-                            <label for="zip">CEP</label>
-                            <input placeholder="e.g. 99999-000" id="zip" type="text" />
-                        </div>
-                        <div class="country">
-                            <label for="country">País</label>
-                            <input placeholder="e.g. BR" id="country" type="text" />
-                        </div>
-                    </div> -->
-                    <div class="form__confirmation"></div>
-                        <button type="submit" id="submit" class="edit-profile-btn">
-                            <span class="font-weight-bold">
-                                Enviar
-                            </span>
-                        </button>
-                    </div>
+                    </span>
+                    <span class="input input--ichiro">
+                        <label for="id_description">
+                            Descrição
+                        </label>
+                        <textarea id="id_description" class="form-control " name="description" placeholder="{{description}}" aria-describedby="basic-addon3"></textarea>
+                    </span>
+                    <span class="input input--ichiro">
+                        <label for="id_password">
+                            Alterar Senha
+                        </label>
+                        <input class="prepend-fx form-control" type="password" id='id_password' name="password"
+                            value="{{password}}" placeholder="Digite a nova senha" aria-label="Senha"
+                            aria-describedby="basic-addon2">
 
-                </form>
-            </div>
-        </section>
-        <!-- <section class="form__user">
-            <div class="sections">
-                <div class="box billing">2</div><span>Dados Cadastrais</span>
-            </div>
-            <div class="user--form">
-                <form class="form--user" action="">
-                    <div class="row one">
-                        <div class="username">
-                            <label for="username">Username</label>
-                            <input placeholder="" id="username" type="text" />
-                        </div>
-                    </div>
-                    <div class="row two">
-                        <div class="email">
-                            <label for="firstname">E-mail</label>
-                            <input placeholder="e.g. rb@apple.com" id="firstname" type="email" />
-                        </div>
-                    </div>
-                    <div class="row three">
-                        <div class="password">
-                            <label for="password">Senha</label>
-                            <input placeholder="" id="password" type="password" />
-                        </div>
-                        <div class="password-2">
-                            <label for="password-2">Confirmar Senha</label>
-                            <input placeholder="" id="password-2" type="password" />
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section> -->
-<!-- 
-        <div class="form__confirmation">
-            <button class="edit-profile-btn">Salvar Dados</button>
-        </div> -->
-    </div>
+                    </span>
+                    <input type="submit" value="Enviar">
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+
+    <!-- //mail -->
 </div>

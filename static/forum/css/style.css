@@ -789,7 +789,7 @@ header {
     background: #fff;
     padding: 18px;
     position: absolute;
-    left: 4%;
+    left: 40%;
     bottom: 0;
 }
 .w3agile-middle i {
@@ -841,6 +841,19 @@ a.agileits.w3layouts {
     font-size: 16px;
 	 border: 1px solid #FFAC3A;
 }
+
+.header-right{
+    margin-left: 4px;
+    background-color: none;
+    color: #FFAC3A;
+    border: 1px solid #FFAC3A;
+}
+
+.header-right:hover{
+   background-color: #FFAC3A;
+   color: #FFF;
+}
+
 a.agileits.w3layouts:hover {
     border: 1px solid #FFAC3A;
 	color: #FFAC3A;
@@ -1003,6 +1016,11 @@ a.pa_italic:focus {
 ul.tag {
     margin-top: 2em;
 }
+
+ul.tag.pull-right{
+    margin-top: 0;
+}
+
 ul.tag li {
 	display: inline-block;
     margin-top: 6px;
@@ -1096,7 +1114,7 @@ ul.tag li a:hover{
     padding-right: 0;
 }
 .w3ls-social-icons-1 {
-    margin-top: 2em;
+    margin: 2em 0;
 }
 .w3agile_blog_left {
     padding-right: 0;
@@ -1105,7 +1123,8 @@ ul.tag li a:hover{
 }
 .footer-agile-info {
     padding: 5em 0;
-    background: #212121;
+    margin-top: 5em;
+    background: #313638;
 }
 .footer-agile-info h3,h2 {
     font-size: 24px;
@@ -1250,7 +1269,13 @@ ul.tag li a:hover{
 }
 
 #id_username,
-#id_password {
+#id_first-name,
+#id_last-name,
+#id_email,
+#id_description,
+#id_password,
+#id_title,
+#id_tags {
 	position: relative;
 	display: block;
 	float: right;
@@ -1258,13 +1283,19 @@ ul.tag li a:hover{
 	width: 100%;
 	border: none;
 	border-radius: 0;
-	background: #f0f0f0;
-	color: #aaa;
+    background: #f7f6f6;
+	/* color: #aaa; */
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
 
 #id_username:focus,
-#id_password:focus {
+#id_first-name:focus,
+#id_last-name:focus,
+#id_email:focus,
+#id_description:focus,
+#id_password:focus,
+#id_title:focus,
+#id_tags:focus {
     outline: none;
     background: #ffffff;
     border: 3px #f0f0f0 solid;
@@ -1295,7 +1326,7 @@ ul.tag li a:hover{
 }
 /* Ichiro */
 .input--ichiro {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 
 .input__field--ichiro {
@@ -1381,7 +1412,7 @@ ul.tag li a:hover{
     border: 1px solid #e4e4e4;
     min-height: 300px;
     font-weight: bold;
-    margin: 2em 0 0;
+    /* margin: 2em 0 0; */
 }
 .w3_agile_mail_grid textarea::-webkit-input-placeholder {
 	color: #212121 !important;
@@ -2752,7 +2783,7 @@ nav.events {
 }
 .w3agile-middle {
     width: 72%;
-	padding:13px;
+    padding:13px;
 }
 .w3agile-left {
     padding-left: 32px;
@@ -2949,6 +2980,7 @@ nav.events {
 }
 .team {
     margin-top: 3em;
+    z-index: 9999;
 }
 .agileits_w3layouts_team_grids {
     margin-top: 3em;

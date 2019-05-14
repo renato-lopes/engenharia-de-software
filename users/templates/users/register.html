@@ -31,30 +31,40 @@
                 {% csrf_token %}
                 <div class="col-md-6 w3_agile_mail_grid center-login">
                     <span class="input input--ichiro">
-                        <!-- <input class="input__field input__field--ichiro" type="text" id="input-25" placeholder=" " required="" /> -->
-                        <input type="text" class="form-control " name="username" placeholder="Nome de usuário"
+                        <label for="id_username">
+								Nome de Usuário
+						</label>
+                        <input type="text" id="id_username" class="form-control " name="username" placeholder="Nome de usuário"
                             aria-label="Username" aria-describedby="basic-addon1" required>
                     </span>
                     <span class="input input--ichiro">
-                        <!-- <input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="" /> -->
-                        <input type="text" class="form-control " name="first_name" placeholder="Primeiro nome"
+                         <label for="id_first-name">
+							Nome
+						</label>
+                        <input type="text" id="id_first-name" class="form-control " name="first_name" placeholder="Primeiro nome"
                             value="{{first_name}}" aria-label="First Name" aria-describedby="basic-addon1" required>
 
                     </span>
                     <span class="input input--ichiro">
-                        <!-- <input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="" /> -->
-                        <input type="text" class="form-control " name="last_name" placeholder="Último nome"
+                        <label for="id_last-name">
+                            Sobrenome
+                        </label>
+                        <input type="text" id="id_last-name" class="form-control " name="last_name" placeholder="Último nome"
                             value="{{last_name}}" aria-label="Last Name" aria-describedby="basic-addon1" required>
                     </span>
                     <span class="input input--ichiro">
-                        <!-- <input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="" /> -->
-                        <input type="text" class="form-control " name="email" placeholder="E-mail" value="{{email}}"
+                        <label for="id_email">
+                            E-mail
+                        </label>
+                        <input type="text" id="id_email" class="form-control " name="email" placeholder="E-mail" value="{{email}}"
                             aria-label="E-mail" aria-describedby="basic-addon3" required>
 
                     </span>
                     <span class="input input--ichiro">
-                        <!-- <input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="" /> -->
-                        <input class="prepend-fx form-control" type="password" id='password' name="password"
+                         <label for="id_password">
+                            Senha
+                        </label>
+                        <input class="prepend-fx form-control" type="password" id='id_password' name="password"
                             value="{{password}}" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2"
                             required>
 
