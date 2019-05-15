@@ -30,12 +30,14 @@
 					</ul>
                     <p>{{question.description}}</p>
                     {% if question.user == loged_user %}
-                        <small><i class="fa fa-edit"></i>
+						<div class="post-footer pull-right">
+						<i class="fa fa-edit"></i>
                             <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Editar</a>
-                        </small>
-                        <small><i class="fa fa-trash ml-3"></i>
+                        
+                        <i class="fa fa-trash"></i>
                             <a href="{% url 'posts:delete_post' question.id %}" class="text-muted"> Excluir</a>
-                        </small>    
+						</div>    
+						<div class="clearfix"> </div>
                     {% endif %}
                      <!-- <small><i class="fa fa-reply ml-3"></i>
                                 <a href="#ans" class="text-muted"> Responder</a>
@@ -76,7 +78,6 @@
                     
 				</div>
 				<div class="leave-coment-form">
-                    <h3>Responda à Pergunta</h3>
                     {% if user.is_authenticated %}
 					<form action="{% url 'posts:post' question.id %}" method="post">
                         {% csrf_token %}
@@ -97,6 +98,7 @@
 			</div>
 
 			</div>
+		</div>
 			<!-- //btm-wthree-left -->
 				<!-- btm-wthree-right -->
 			<div class="col-md-3 w3agile_blog_left">
@@ -112,7 +114,7 @@
 			</div>
 			<!-- //btm-wthree-right -->
 			<div class="clearfix"></div>
-		</div>
+		
 	</div>
 	</div>
 

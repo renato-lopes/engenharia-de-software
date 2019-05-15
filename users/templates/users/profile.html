@@ -34,12 +34,25 @@
                                     <img src="https://images.unsplash.com/photo-1531837763904-5d3cb2632ea3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=671&q=80"
                                         alt=" " class="img-responsive" />
                                 </div>
-                                <div class="col-md-6 w3l_stats_bottom_grid_right">
-                                    <h3>{{ username }}</h3>
-                                    <h4>{{ first_name }} {{ last_name }}</h4>
-                                    <h5><span class="font-italic">{{ email }}</span></h5>
-                                    <p>{{ description }} </p>
-
+                                <div class="col-md-6 w3l_stats_bottom_grid_right user-profile-desc">
+                                <ul>
+                                    <li>
+                                        <h4>Nome de Usuário</h4>
+                                        <p>{{ username }}</p>
+                                    </li>
+                                    <li>
+                                        <h4>Nome</h4>                                    
+                                        <p>{{ first_name }} {{ last_name }}</p>
+                                    </li>
+                                    <li>
+                                        <h4>E-mail</h4>
+                                        <p>{{ email }}</p>
+                                    </li>
+                                    <li>
+                                        <h4>Sobre</h4>
+                                        <p>{{ description }} </p>
+                                    </li>
+                                </ul>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>

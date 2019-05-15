@@ -54,6 +54,54 @@ label{
     margin-bottom: 20px;
 }
 
+#wtout-border{
+    border:none;
+}
+
+#wtout-border:hover{
+    background: transparent;
+    color: #ffac3a;
+}
+
+.user-profile-desc ul{
+    list-style: none;
+}
+
+.user-profile-desc li{
+    margin-bottom: 34px;
+}
+
+.user-profile-desc li h4{
+    text-transform: uppercase;  
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.post-footer i{
+    margin-left: 20px;
+}
+
+#danger{
+    background-color: red;
+}
+
+#danger:hover{
+    background-color: transparent;
+    color: red;
+}
+
+#neutral{
+    background-color:transparent;
+    border-color: #e9e9e9;
+    color: #d6d4d4;
+}
+
+#neutral:hover{
+    background-color: transparent;
+    color: black;
+}
+
+
 .w3_agile_login {
     float: right;
     margin-top: 9px;
@@ -829,6 +877,8 @@ header {
     margin: 20px 0;
     line-height: 26px;
 }
+
+input.agileits.w3layouts,
 a.agileits.w3layouts {
     font-weight: 600;
      color: #FFF;
@@ -854,6 +904,7 @@ a.agileits.w3layouts {
    color: #FFF;
 }
 
+input.agileits.w3layouts:hover,
 a.agileits.w3layouts:hover {
     border: 1px solid #FFAC3A;
 	color: #FFAC3A;
