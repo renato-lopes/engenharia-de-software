@@ -27,8 +27,19 @@
 					<ul>
 						<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">{{question.user}}</a></li>
 						<li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a href="#">{{question.last_modification_date|date:"d/m/Y H:i"}}</a></li>
+						<div class="vote pull-right">
+							<div class="increment up">
+								<span class="glyphicon glyphicon-thumbs-up"></span>
+								<span class="count">0</span>
+							</div>
+							<div class="increment down">
+								<span class="glyphicon glyphicon-thumbs-down"></span>
+								  <span class="count">0</p>
+							</div>
+						</div>
 					</ul>
-                    <p>{{question.description}}</p>
+					<p>{{question.description}}</p>
+					
                     {% if question.user == loged_user %}
 						<div class="post-footer pull-right">
 						<i class="fa fa-edit"></i>
@@ -59,8 +70,19 @@
 								<ul>
 									<li>{{answer.last_modification_date|date:"d/m/Y H:i"}} <i>|</i></li>
 									<li><a href="#">{{answer.user.first_name}} {{answer.user.last_name}}</a></li>
+									<div class="vote">
+										<div class="increment up">
+											<span class="glyphicon glyphicon-thumbs-up"></span>
+											<span class="count">0</span>
+										</div>
+										<div class="increment down">
+											<span class="glyphicon glyphicon-thumbs-down"></span>
+											  <span class="count">0</p>
+										</div>
+									</div>
 								</ul>
-                                <p>{{answer.description}}</p>
+								<p>{{answer.description}}</p>
+								
                                 {% if answer.user == loged_user %}
                                 <div class="post__footer-responses text-right mr-3">
                                     <small><i class="fa fa-edit"></i>

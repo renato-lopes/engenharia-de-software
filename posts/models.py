@@ -8,6 +8,8 @@ class Question(models.Model):
 	creation_date = models.DateTimeField(auto_now=False, auto_now_add=True)
 	last_modification_date = models.DateTimeField(auto_now=True, auto_now_add=False)
 	user = models.ForeignKey(User , on_delete=models.CASCADE)
+	upvote = models.IntegerField()
+	downvote = models.IntegerField()
 
 class Answer(models.Model):
 	description = models.TextField()
@@ -15,6 +17,8 @@ class Answer(models.Model):
 	last_modification_date = models.DateTimeField(auto_now=True, auto_now_add=False)
 	user = models.ForeignKey(User , on_delete=models.CASCADE)
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
+	upvote = models.IntegerField()
+	downvote = models.IntegerField()
 
 class Tag(models.Model):
 	name = models.CharField(max_length=512)

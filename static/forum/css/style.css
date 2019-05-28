@@ -54,6 +54,37 @@ label{
     margin-bottom: 20px;
 }
 
+.vote{
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 170px; 
+    height: 28px;
+}
+
+.increment{
+    position: relative;
+    font-size: 1.4em;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+.up{
+    color: #4ac364; 
+}
+
+.up:hover{
+    color: #246131; 
+}
+
+.down{
+    color: red;
+}
+
+.down:hover{
+    color: rgb(141, 0, 0);
+}
+
 #wtout-border{
     border:none;
 }
@@ -1641,7 +1672,7 @@ h3.agileits-icons-title {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-	color: #777;
+	/* color: #777; */
 } 
 .bs-glyphicons .glyphicon-class {
     display: block;
@@ -2111,7 +2142,8 @@ h2.typoh2{
 	font-size:14px;
 	color:#999;
 	line-height:1.8em;
-	margin:0;
+    margin:0;
+    display: inline-block;
 }
 .comments-grid:nth-child(2){
 	margin:2em 0;
