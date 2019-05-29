@@ -46,8 +46,8 @@
 								<div class="w3agile-middle">
 										<ul>
 											<li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{ question.creation_date|date:"d/m/Y H:i" }}</a></li>
-											<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
-											<li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+											<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{ question.upvote.count }} Upvotes</a></li>
+											<li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{ question.downvote.count }} Downvotes</a></li>
 										</ul>
 									</div>	
 							<a class="agileits w3layouts" href="{% url 'posts:post' question.id %}">Continuar Lendo <span class="glyphicon agileits w3layouts glyphicon-arrow-right" aria-hidden="true"></span></a>

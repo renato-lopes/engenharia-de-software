@@ -44,8 +44,8 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-calendar"
                                             aria-hidden="true"></i>{{ post.creation_date|date:"d/m/Y H:i" }}</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{ post.upvote.count }} Upvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{ post.downvote.count }} Downvotes</a></li>
 
                             </ul>
                         </div>
