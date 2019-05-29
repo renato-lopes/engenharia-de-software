@@ -1,45 +1,74 @@
 <!-- Template Base -->
-{% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
-
-    <!-- Font Awesome -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Halant:400,700" rel="stylesheet">
-    <link href="{% static 'forum/css/base.css' %}" rel="stylesheet" type="text/css">
-    {% block css %} {% endblock %}
-
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
     <title>Fórum QA </title>
     {% endif %}
+    <link href="{% static 'forum/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" /><!-- fontawesome -->
+    <link href="{% static 'forum/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" /><!-- Bootstrap stylesheet -->
+    <link href="{% static 'forum/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'forum/css/flexslider.css' %}" type="text/css" media="screen" property="" />
+    <!-- stylesheet -->
+    <!-- meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //meta tags -->
+    <!--fonts-->
+    <link
+        href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--//fonts-->
+    <script type="text/javascript" src="{% static 'forum/js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'forum/js/main.js' %}"></script>
+    {% block css %} {% endblock %}
+
+    <!-- Required-js -->
+    <!-- main slider-banner -->
+    <script src="{% static 'forum/js/skdslider.min.js' %}"></script>
+    <link href="{% static 'forum/css/skdslider.css' %}" rel="stylesheet">
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
+
+            jQuery('#responsive').change(function () {
+                $('#responsive_wrapper').width(jQuery(this).val());
+            });
+
+        });
+    </script>
+    <!-- //main slider-banner -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="{% static 'forum/js/move-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'forum/js/easing.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
 </head>
 
 <body>
-    
-   {% block content %} {% endblock %}
+    {%  include "forum/header.html" %}
 
-    <!-- Jquery  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
-    
-   <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-   
-   {% block js %} {% endblock %}
+    {% block content %} {% endblock %}
+
+    {%  include "forum/footer.html" %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'forum/js/bootstrap.js' %}"></script>
+    {% block js %} {% endblock %}
 </body>
 
 </html>

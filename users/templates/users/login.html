@@ -6,59 +6,62 @@
 {% endblock %}
 
 {% block content %}
-<div class='container'>
-    {%  include "forum/header.html" %}
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 text-center">
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
-                <img src="{% static 'forum/img/logo_md.png' %}" class="card-img-top"
-                    alt="logo">
-                <div class="card-body">
-                        {% if user.is_authenticated %}
-                            <h6 class="card-subtitle mb-2 text-muted">Você está logado como {{ user.username }}.</h6>
-                            <a class="btn btn-outline-danger btn-block mb-3" href="{% url 'users:logout' %}">LOGOUT</a>
-                        {% endif %}
-                    <form action="{% url 'users:login' %}" method="post">
-                        {% csrf_token %}
-                        <table class="login-table w-100">
-                            <tr>
-                                <td class="w-100">Nome de usuário:</td>
-                                <td class="w-100">{{ form.username }}</td>
-                            </tr>
-                            <tr>
-                                <td>Senha:</td>
-                                <td>{{ form.password }}</td>
-                            </tr>
-                        </table>
 
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="{% url 'forum:index' %}">Início</a></li>
+				<li class="active">Login</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
 
-                        <div class="form-group mt-4">
-                            <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
-                                <span class="font-weight-bold">
-                                    LOGIN
-                                </span>
-                            </button>
+	<!-- contact -->
+	<div class="container">
+		<!-- mail -->
+	<div class="banner-bottom">
+			<div class="agileits_heading_section">
+				<h3 class="wthree_head">Faça Login</h3>
+				<p class="agileinfo_para">Nam tempus lobortis sem non ornare in aliquet egestas, nisi mi vestibulum.</p>
+			</div>
+			<div class="w3ls_portfolio_grids w3_agile_mail_grids">
+                {% if user.is_authenticated %}
+                    <h6 class="card-subtitle mb-2 text-muted">Você está logado como {{ user.username }}.</h6>
+                    <a class="btn btn-outline-danger btn-block mb-3" href="{% url 'users:logout' %}">LOGOUT</a>
+                {% endif %}
+				<form action="{% url 'users:login' %}" method="post">
+                    {% csrf_token %}
+					<div class="col-md-6 w3_agile_mail_grid center-login">
+						<span class="input input--ichiro">
+							<!-- <input class="input__field input__field--ichiro" type="text" id="input-25" placeholder=" " required="" /> -->
+                            <label for="id_username">
+								Nome de Usuário
+							</label>
+                            {{ form.username }}
+						</span>
+						<span class="input input--ichiro">
+							<!-- <input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="" /> -->
+                            <label for="id_password">
+                                Senha
+							</label>
+                            {{ form.password }}
+                            
+						</span>
+						<input type="submit" value="Login">
+					</div>
+					<div class="clearfix"> </div>
+                </form>
+                <p class="text-center">
+                        <small class="text-muted">Não tem uma conta?</small>
+                        <small><a href="{% url 'users:register' %}">Cadastre-se</a></small>
+                    </p>
+			</div>
+		
+	</div>
+<!-- //mail -->
 
-                        </div>
-                        <!-- <a href="{% url 'users:password_reset' %}" class="text-muted mb-3 card-link"><strong>Esqueceu
-                                a senha?</strong></a> -->
-                    </form>
-                </div>
-            </div>
-            <p class="text-center">
-                <small class="text-muted">Não tem uma conta?</small>
-                <small><a href="{% url 'users:register' %}">Cadastre-se</a></small>
-            </p>
-        </div>
-        <div class="col-md-4"></div>
-
-    </div>
-</div>
-{% endblock content %}
+	</div>
+	<!-- //contact -->
+{% endblock  %}

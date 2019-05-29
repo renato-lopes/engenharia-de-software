@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.generic import RedirectView
 
 from users.models import ForumUser as User
 
@@ -80,6 +81,37 @@ def post(request,id_post):
         answer.save()
         # return redirect("/post/"+str(question.id))
         return render(request, 'posts/post.html', context)
+        
+
+class PostLikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        obj = get_object_or_404(Question, pk=kwargs['id_post']) #questao clicada pelo usuario        
+        url_ = obj.get_absolute_url()
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.upvote.all():
+                obj.upvote.remove(user)
+            else:
+                if user in obj.downvote.all():
+                    obj.downvote.remove(user)
+                obj.upvote.add(user)
+        return url_
+
+
+class PostDislikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        obj = get_object_or_404(Question, pk=kwargs['id_post']) #questao clicada pelo usuario        
+        url_ = obj.get_absolute_url()
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.downvote.all():
+                obj.downvote.remove(user)
+            else:
+                if user in obj.upvote.all():
+                    obj.upvote.remove(user)
+                obj.downvote.add(user)
+        return url_
+
 
 def edit_post(request, post_id):
     question = get_object_or_404(Question, pk=post_id)

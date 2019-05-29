@@ -1,0 +1,120 @@
+<div class="team">
+        <div class="w3_agile_team_grid">
+            <div class="agileits_heading_section">
+                <h3 class="wthree_head">
+                   Atividades
+                </h3>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</div>
+
+{% if questions %}
+<div class="team">
+        <div class="w3_agile_team_grid">
+            <div class="agileits_heading_section">
+                <p class="agileinfo_para">
+                    {% if edit %}
+                        <h4>Últimas perguntas feitas por você</h4>
+                        {% else %}
+                        <h4>Últimas perguntas feitas por {{username}}</h4>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        {% for question in questions %}
+            <div class="wthree-top-6">
+                <div class="w3agile-bottom">
+                    <div class="col-md-3 w3agile-left">
+                        {% for tag in question.tags %}
+                        <h5>{{tag.name}}</h5>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-9 w3agile-right">
+                        <h3><a href="{% url 'posts:post' question.id %}">{{ question.title }}</a></h3>
+                        <p>{{ post.description }}</p>
+                        <a class="agileits w3layouts" href="{% url 'posts:post' question.id %}">Continuar Lendo <span
+                                class="glyphicon agileits w3layouts glyphicon-arrow-right"
+                                aria-hidden="true"></span></a>
+                        <div class="w3agile-middle">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>{{question.creation_date|date:"d/m/Y H:i"}}</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if answers %}
+<div class="team">
+        <div class="w3_agile_team_grid">
+            <div class="agileits_heading_section">
+                
+                <p class="agileinfo_para">
+                    {% if edit %}
+                        <h4>Últimas respostas enviadas por você</h4>
+                    {% else %}
+                        <h4>Últimas respostas enviadas por {{username}}</h4>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        {% for answer in answers %}
+            <div class="wthree-top-6">
+                <div class="w3agile-bottom">
+                    <div class="col-md-3 w3agile-left">
+                        {% for tag in answer.question.tags %}
+                        <h5>{{tag.name}}</h5>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-9 w3agile-right">
+                        <h3><a href="{% url 'posts:post' answer.question.id %}">{{ answer.question.title }}</a></h3>
+                        <p>{{ answer.description }}</p>
+                        <a class="agileits w3layouts" href="{% url 'posts:post' answer.question.id %}">Continuar Lendo <span
+                                class="glyphicon agileits w3layouts glyphicon-arrow-right"
+                                aria-hidden="true"></span></a>
+                        <div class="w3agile-middle">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>{{answer.creation_date|date:"d/m/Y H:i"}}</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if not questions and not answers %}
+<div class="team">
+        <div class="w3_agile_team_grid">
+            <div class="agileits_heading_section">
+                
+                <p class="agileinfo_para">
+                    <h4>Nada a ser exibido aqui :(</h4>
+                </p>
+            </div>
+            {% if edit %}
+                <p><a href="{% url 'posts:create_post' %}">Faça uma pergunta!</a></p>
+            {% endif %}
+            <div class="clearfix"> </div>
+        </div>
+</div>
+{% endif %}

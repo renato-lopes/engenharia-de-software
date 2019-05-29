@@ -6,39 +6,93 @@
 {% endblock %}
 
 {% block content %}
-<div class='container '>
-    {%  include "forum/header.html" %}
-    <h3 class="pb-4 mb-4 border-bottom" align="center">
-        {{tag}}
-    </h3>
-    <div class='container-fluid'>
-        <div class='row'>
-            {% for question in questions %}
-            <div class="no-gutters border rounded m-1 mb-4 shadow-sm col-md-5 col-sm-5">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <!-- <strong class="d-inline-block mb-2 text-primary">World</strong> -->
-                    <h3 class="mb-1">{{ question.title }}</h3>
-                    <time class="post__header-time">{{question.creation_date|date:"d/m/Y H:i"}}</time> 
-                    <p class="card-text mb-auto">{{ question.description }}</p>
-                    <a href="../../post/{{question.id}}" class="stretched-link">Continuar Lendo</a>
-                </div>
-            </div>
-            {% endfor %}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+        <div class="container">
+          <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="index.html">Início</a></li>
+            <li class="active">Tags</li>
+          </ol>
         </div>
-    </div>
+      </div>
+      <!-- //breadcrumbs -->
+      <div class="container">
+        <div class="banner-btm-agile">
+        <!-- //btm-wthree-left -->
+          <div class="col-md-9 btm-wthree-left">
+      <!-- features -->
+      <div class="banner-bottom-abt">
+        <div class="agileits_heading_section">
+            <h3 class="wthree_head">{{tag}}</h3>
+            <p class="agileinfo_para">
+             Perguntas com a tag <strong>{{tag}}</strong>
+            </p>
+          </div>
+          
+          {% for question in questions %}
+          <div class="wthree-top-6">
+              <div class="w3agile-bottom">
+                  <div class="col-md-3 w3agile-left">
+                      {% for tag in question.tags %}
+                      <h5>{{tag.name}}</h5>
+                      {% endfor %}
+                  </div>
+                  <div class="col-md-9 w3agile-right">
+                      <h3><a href="../../post/{{question.id}}">{{ question.title }}</a></h3>
+                      <p>{{ question.description }}</p>
+                      <div class="w3agile-middle">
+                          <ul>
+                              <li><a href="#"><i class="fa fa-calendar"
+                                          aria-hidden="true"></i>{{ question.creation_date|date:"d/m/Y H:i" }}</a></li>
+                              <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
+                              <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
 
-
-<!-- <nav class="blog-pagination">
-    <a class="btn btn-outline-primary" href="#">Older</a>
-    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-</nav> -->
-
-</div>
-  
-</div>
-
-</div>
-
+                          </ul>
+                      </div>
+                      <a class="agileits w3layouts" href="../../post/{{question.id}}">Continuar Lendo <span
+                              class="glyphicon agileits w3layouts glyphicon-arrow-right"
+                              aria-hidden="true"></span></a>
+                      
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          {% endfor %}
+      
+      </div>
+      <!-- features -->
+          </div>
+          <!-- //btm-wthree-left -->
+            <!-- btm-wthree-right -->
+          <div class="col-md-3 w3agile_blog_left">
+            <div class="wthreesearch">
+                  <form action="#" method="post">
+                    <input type="search" name="Search" placeholder="Search here" required="">
+                    <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </form>
+                
+            </div>
+            
+            <div class="agileinfo_calender">
+            <h3>CONNECT SOCIALLY</h3>
+            <div class="w3ls-social-icons-1">
+              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
+            </div>
+            </div>
+      
+          </div>
+          <!-- //btm-wthree-right -->
+          <div class="clearfix"></div>
+        </div>
+      </div>
 
 
 {% block js %}

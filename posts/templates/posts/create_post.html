@@ -3,33 +3,47 @@
 <!-- Carrega arquivos estáticos (css, imagens, js) -->
 
 {% block css %}
-<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'posts/css/tag.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class='container'>
-    {%  include "forum/header.html" %}
-    <div class="row">
-        <div class="col-md-8 mx-auto mb-5">
-            <div class="card mt-5 animated fadeIn mr-1 ml-1  text-center">
-                <div class="card-body shadow">
-                    <h1> Nova Pergunta</h1>
-                    <form action="{% url 'posts:create_post' %}" method="post" id="form-create-data">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control " name="title" id="title" placeholder="Título"
-                                    aria-label="Title" aria-describedby="basic-addon1" required>
-                            </div>
-                        </div>
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="{% url 'forum:index' %}">Início</a></li>
+				<li class="active">Perguntar</li>
+			</ol>
+		</div>
+</div>
+<!-- //breadcrumbs -->
 
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div id="tag-wrapper">
+	<!-- contact -->
+	<div class="container">
+		<!-- mail -->
+	<div class="banner-bottom">
+			<div class="agileits_heading_section">
+				<h3 class="wthree_head">Nova Pergunta</h3>
+				<p class="agileinfo_para">Ajudaremos você a encontrar sua resposta.</p>
+			</div>
+			<div class="w3ls_portfolio_grids w3_agile_mail_grids">
+				<form action="{% url 'posts:create_post' %}" method="post">
+                    {% csrf_token %}
+					<div class="col-md-6 w3_agile_mail_grid center-login">
+						<span class="input input--ichiro">
+							<!-- <input class="input__field input__field--ichiro" type="text" id="input-25" placeholder=" " required="" /> -->
+                            <label for="id_title">
+								Título
+							</label>
+                            <input type="text" id="id_title" class="form-control " name="title" id="title" placeholder="Título"
+                            aria-label="Title" aria-describedby="basic-addon1" required>
+						</span>
+						<span class="input input--ichiro">
+							 <div id="tag-wrapper">
                                     <ul class="tags-input">
                                         <li class="tags-new">
-                                            <input type="text" class="form-control" name="tags-tf"
-                                                placeholder="Insira Tags" placeholder="Título" aria-label="Tags"
+                                            <input type="text" id="id_tags" class="form-control" name="tags-tf"
+                                                placeholder="Insira Tags" aria-label="Tags"
                                                 aria-describedby="basic-addon1">
                                             <input type="hidden" name="tags" id="tags">
                                             <small id="emailHelp" class="form-text text-muted ">Use , para adicionar uma
@@ -37,28 +51,20 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea class="form-control" rows="15" name="description" id="description"
+                            
+                        </span>
+                        <span class="input input--ichiro">
+                                <textarea class="form-control" id="id_description" rows="15" name="description" id="description"
                                 placeholder="Descrição da pergunta" required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" id="submit" class="btn btn-dark form-control mb-4">
-                                <span class="font-weight-bold">
-                                    ENVIAR PERGUNTA
-                                </span>
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
+                           </span>
+						<input type="submit" value="Enviar Pergunta">
+					</div>
+					<div class="clearfix"> </div>
+                </form>
+                
+			</div>
+		
+	</div>
 </div>
 
 {% block js %}

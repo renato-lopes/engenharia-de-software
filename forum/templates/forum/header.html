@@ -1,40 +1,67 @@
 {% load static %} <!-- Carrega arquivos estáticos (css, imagens, js) -->
-<header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-4 pt-1">
-              <button type="button" class="btn btn-light">
-                <a href="{% url 'posts:create_post' %}" class="text-muted">Faça uma pergunta</a>
-              </button>
-          </div>
-          <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="{% url 'forum:index' %}">
-              <img src="{% static 'forum/img/logo_top.png' %}" class="card-img-top"alt="logo">
-            </a>
-          </div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
-            <a class="text-muted" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-            </a>
-            {% if user.is_authenticated %}
-            <a href="{% url 'users:profile' %}"> {{ user.username }}</a>
-            <a class="btn btn-sm btn btn-outline-danger ml-3" href="{% url 'users:logout' %}">Logout</a>
-            {% else %}
-            <a class="btn btn-sm btn btn-light mr-3" href="{% url 'users:login' %}">Entrar</a>
-            <a class="btn btn-sm btn-outline-secondary" href="{% url 'users:register' %}">Registrar-se</a>
-            {% endif %}
-          </div>
-        </div>
-      </header>
-    
-      <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" href="{% url 'forum:index' %}">Home</a>
-          <a class="p-2 text-muted" href="{% url 'forum:all_posts' %}">Perguntas</a>
-          <a class="p-2 text-muted" href="{% url 'forum:all_tags' %}">Tags</a>
-          <a class="p-2 text-muted" href="{% url 'forum:users' %}">Usuários</a>
-          <!-- <a class="p-2 text-muted" href="#">Jobs</a> -->
-          <a class="p-2 text-muted" href="{% url 'forum:about' %}">Sobre</a>
-          <!-- <a class="p-2 text-muted" href="#">Contato</a> -->
-
-        </nav>
+<!-- header -->
+<header>
+  <div class="w3layouts-top-strip">
+    <div class="container">
+      <div class="logo">
+        <h1><a href="{% url 'forum:index' %}">Fórum Q&A</a></h1>
+        <p>Engenharia de Software</p>
       </div>
+      <div class="w3ls-social-icons w3l_tags">
+          <a href="{% url 'posts:create_post' %}" class="pull-left agileits w3layouts">Faça uma pergunta</a>
+          <ul class="tag pull-right">
+        {% if user.is_authenticated %}
+        <li><h3><a href="{% url 'users:profile' %}" id="wtout-border" class=" pull-right">Olá, {{ user.username }}!</a></h3></li>
+        <li><a class="pull-right" href="{% url 'users:logout' %}">Logout</a></li>
+        {% else %}
+       <li><a class="pull-right" href="{% url 'users:login' %}">Entrar</a></li>
+       <li><a class="pull-right" href="{% url 'users:register' %}">Registrar-se</a></li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- navigation -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+      </div>
+      
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- <li><a class="active" href="{% url 'forum:index' %}">Início</a></li> -->
+          <li><a href="{% url 'forum:index' %}">Início</a></li>
+          <li><a href="{% url 'forum:all_posts' %}">Perguntas</a></li>
+          <li><a href="{% url 'forum:all_tags' %}">Tags</a></li>
+          <li><a href="{% url 'forum:users' %}">Usuários</a></li>
+          <li><a href="{% url 'forum:about' %}">Sobre</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      <div class="w3_agile_login">
+            <div class="cd-main-header">
+              <a class="cd-search-trigger" href="#cd-search"> <span></span></a>
+              <!-- cd-header-buttons -->
+            </div>
+            <div id="cd-search" class="cd-search">
+              <form action="#" method="post">
+                <input name="Search" type="search" placeholder="Pesquisar...">
+              </form>
+            </div>
+          </div>
+          <div class="clearfix"> </div>
+
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+  <!-- //navigation -->
+</header>
+<!-- //header -->
+

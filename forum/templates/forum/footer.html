@@ -1,0 +1,45 @@
+{% load static %}
+<!-- Carrega arquivos estáticos (css, imagens, js) -->
+    <!-- footer -->
+	<div class="footer-agile-info">
+            <div class="container">
+                <div class="col-md-4 w3layouts-footer">
+                    <h3>Informações</h3>
+                        <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>Av. Antônio Carlos, 6627, Pampulha - Belo Horizonte - MG - CEP 31270-901 </p>
+                        <p><span><i class="fa fa-globe" aria-hidden="true"></i></span><a href="https://github.com/renato-junior/engenharia-de-software">Repositório Github</a></p>
+                </div>
+                <div class="col-md-4 wthree-footer">
+                    <img class="img-responsive" src="https://vanadiumlab.com.br/wp-content/uploads/2017/01/LOGO-UFMG.png" alt="">
+                </div>
+                <div class="col-md-4 w3-agile">
+                   <img class="img-responsive" src="https://homepages.dcc.ufmg.br/~doug/images/dcc.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="agileinfo">
+                    <p>© 2019 Fórum Q&A . Design by <a href="http://w3layouts.com/">W3layouts</a>. Modified by <a href="{% url 'forum:about' %}">Us </a></p>
+                </div>
+            </div>
+        </div>
+    <!-- //copyright -->
+    <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                    var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear' 
+                    };
+                */
+                                    
+                $().UItoTop({ easingType: 'easeOutQuart' });
+                                    
+                });
+        </script>
+    <!-- //here ends scrolling icon -->

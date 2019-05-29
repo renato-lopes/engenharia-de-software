@@ -6,107 +6,100 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
 
-    {%  include "forum/header.html" %}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="{% url 'forum:index' %}">Início</a></li>
+				<li class="active">Usuários</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+	<div class="container">
+		<div class="banner-btm-agile">
+		<!-- //btm-wthree-left -->
+			<div class="col-md-9 btm-wthree-left">
+	<!-- features -->
+	<div class="banner-bottom-abt">
+			<!-- featured-services -->
+	<div class="fea-tp">
+			<h3 class="wthree_head">Usuários</h3>
+				<p class="agileinfo_para">Todos os usuários cadastrados.</p>
+			<div class="w3ls_service_grids">
 
-    <div class="container">
-    <div class="row">
-      {% for user in users %}
-      <div class="col-md-3 mb-3 mt-3 text-center">
-        <img src="{% static 'users/img/default.png' %}" class="img-profile" alt="...">
-        <div class="media-body mt-3">
-          <h5 class="mt-0 "><a href="{% url 'users:view_profile' username=user.username %}">{{ user.username }}</a></h5>
-          <p>{{ user.first_name }} {{ user.last_name }}</p>
+        {% for user in users %}
+				<div class="col-md-6 w3_agile_services_grid">
+					<div class="agile_services_grid">
+						<div class="hover06 column">
+							<div>
+								<figure><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt=" " class="img-responsive" /></figure>
+							</div>
+						</div>
+						<div class="agile_services_grid_pos">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+					</div>
+					<h4><a href="{% url 'users:view_profile' username=user.username %}" class="text-decoration-none">{{ user.username }}</a></h4>
+					<p><strong>{{ user.first_name }} {{ user.last_name }}</strong> <br>
+            {{ user.description }}</p>
         </div>
-      </div>
-      {% if forloop.counter|divisibleby:4 %}
-      </div><div class="row">
-      {% endif %}
-      {% endfor %}
-      </div>
-      </div>
-    <!-- <ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
-      {% for user in users %}
-      <li class="list-group-item media my-4 mr-5 ">
-        <img src="{% static 'users/img/default.png' %}" class="mr-3 img-profile" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0 ">{{ user.username }}</h5>
-          {{ user.first_name }} {{ user.last_name }}
-        </div>
-      </li>
-      {% if forloop.counter|divisibleby:4 %}
-      </ul><ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
-      {% endif %}
-      {% endfor %}
-    </ul> -->
-    <!-- <ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
-      <li class="list-group-item media my-4 mr-5 ">
-        <img src="https://image.flaticon.com/icons/svg/145/145843.svg" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0 ">Tinky Winky </h5>
-          Superdomo Tubbytrônico
-        </div>
-      </li>
-      <li class="list-group-item media my-4 mr-5">
-        <img src="https://image.flaticon.com/icons/svg/145/145846.svg" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Dipsy</h5>
-          Superdomo Tubbytrônico
-        </div>
-      </li>
-      <li class="list-group-item media my-4 mr-5">
-        <img src="https://image.flaticon.com/icons/svg/145/145847.svg" class="mr-3" alt="...">
-        <div class="media-body">
-            <h5 class="mt-0">Laa-Laa</h5>
-            Superdomo Tubbytrônico
+        {% endfor %}
+
+				<div class="clearfix"> </div>
+			</div>
+
+	</div>
+<!-- //featured-services -->
+
+	</div>
+<!-- features -->
+			</div>
+			<!-- //btm-wthree-left -->
+			<!-- btm-wthree-right -->
+      <div class="col-md-3 w3agile_blog_left">
+          <div class="wthreesearch">
+              <form action="#" method="post">
+                  <input type="search" name="Search" placeholder="Search here" required="">
+                  <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+              </form>
+
           </div>
-      </li>
-      <li class="list-group-item media my-4 mr-5">
-              <img src="https://image.flaticon.com/icons/svg/145/145849.svg" class="mr-3" alt="...">
-              <div class="media-body">
-                  <h5 class="mt-0">Daa Daa</h5>
-                  Superdomo Tubbytrônico
-                </div>
-            </li>
-    </ul>
-    <ul class="list-group list-unstyled list-group-horizontal w-100 p-3">
-          <li class="list-group-item media my-4 mr-5">
-            <img src="https://image.flaticon.com/icons/svg/145/145842.svg" class="mr-3" alt="...">
-            <div class="media-body">
-              <h5 class="mt-0">Noo Noo</h5>
-              Superdomo Tubbytrônico
-            </div>
-          </li>
-          <li class="list-group-item media my-4 mr-5">
-            <img src="https://image.flaticon.com/icons/svg/145/145850.svg" class="mr-3" alt="...">
-            <div class="media-body">
-              <h5 class="mt-0">Sun Baby</h5>
-              Superdomo Tubbytrônico
-            </div>
-          </li>
-      
-          <li class="list-group-item media my-4 mr-5">
-            <img src="https://image.flaticon.com/icons/svg/145/145844.svg" class="mr-3" alt="...">
-            <div class="media-body">
-              <h5 class="mt-0">Po</h5>
-              Superdomo Tubbytrônico
-            </div>
-          </li>
 
-          <li class="list-group-item media my-4 mr-5">
-                  <img src="https://image.flaticon.com/icons/svg/145/145845.svg" class="mr-3" alt="...">
-                  <div class="media-body">
-                    <h5 class="mt-0">Ping</h5>
-                    Superdomo Tubbytrônico
-                  </div>
-                </li>
-        </ul> -->
-  
-  <footer class="blog-footer">
-    <p>
-      <a href="#">Back to top</a>
-    </p>
-  </footer>
+          <div class="agileinfo_calender">
+              <h3>Sobre</h3>
+              <div class="w3ls-social-icons-1">
+                  <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                  <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
+              </div>
+          </div>
+
+          <div class="w3l_tags">
+              <h3>Tags</h3>
+              <ul class="tag">
+                  <li><a href="singlepage.html">Fashion</a></li>
+                  <li><a href="singlepage.html">Photography</a></li>
+                  <li><a href="singlepage.html">Artist</a></li>
+                  <li><a href="singlepage.html">Music</a></li>
+                  <li><a href="singlepage.html">Shop</a></li>
+                  <li><a href="singlepage.html">Corporate</a></li>
+                  <li><a href="singlepage.html">Personal</a></li>
+                  <li><a href="singlepage.html">Restaurant</a></li>
+                  <li><a href="singlepage.html">Business</a></li>
+              </ul>
+          </div>
+      </div>
+      <!-- //btm-wthree-right -->
+      <div class="clearfix"></div>
+  </div>
 </div>
-{% endblock content %}
+
+{% endblock%}

@@ -3,128 +3,61 @@
 <!-- Carrega arquivos estáticos (css, imagens, js) -->
 
 {% block css %}
-<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css">
-
 {% endblock %}
 
 {% block content %}
-<div class='container'>
-    {%  include "forum/header.html" %}
-   
-    <main class="container row">
-            <!-- Sidebar	 -->
-            <aside class="sidebar columns medium-4 medium-push-8">
-                <div class="widget">
-                    <header class="widget__header">
-                        <span class="widget__header-title">Post Tags</span>
-                    </header>
-                    <div class="widget__tags">
-                        {% for tag in tags %}
-                            <a class="tag">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-                <!-- <div class="widget">
-                    <header class="widget__header">
-                        <span class="widget__header-title">Outras Perguntas</span>
-                        <a href="#" class="widget__header-link">Ver Mais</a>
-                    </header>
-                    <ol class="widget__list">
-                        <li>Temporibus impedit harum illo.</li>
-                        <li>Consectetur adipisicing elit. Quia sequi qui magnam.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>				
-                    </ol>
-                </div> -->
-            </aside>
-            
-            <!-- Content	 -->
-            <!-- Start Question-->
-            <section class="content columns medium-8 medium-pull-4">
-                <article class="post">
-                    <header class="post__header">
-                        <div class="media-object">
-                            <div class="media-object-section">
-                                <a href="#" class="post__header-profile">
-                                    <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167750.svg" alt="" />
-                                </a>
-                            </div>
-                            <div class="media-object-section">
-                                <a class="post__header-profile-name">{{question.user}}</a>
-                                <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
-                            </div>									
-                        </div>									
-                        <h3 class="post__header-title">{{question.title}}</h3>
-                    </header>
-                    <div class="post__content mt-4">
-                        <p>
-                            {{question.description}}
-                        </p>
-                    </div>
-                </article>
-            <!-- End Question-->
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="{% url 'forum:index' %}">Início</a></li>
+            <li>Perguntas</li>
+            <li class="active">Excluir Pergunta</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
 
-            
-            <form class="answer-form mt-5" id="form-confirm-delete" action="{% url 'posts:delete_post' question.id %}" method="post">
+<!-- contact -->
+<div class="container">
+    <!-- mail -->
+    <div class="banner-bottom">
+            <div class="col-md-10 ">
+        <div class="agileits_heading_section">
+            <h3 class="wthree_head">Excluir Pergunta</h3>
+            <p class="agileinfo_para">Deseja excluir a pergunta?</p>
+        </div>
+        <div class="events w3">
+            <div class="events-main">
+                <div class="events-top">
+                    <form action="{% url 'posts:delete_post' question.id %}" method="post">
                         {% csrf_token %}
-                            
-                            <div class="submit" >
-                                
-                                <!-- <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" name="confirm" id="confirm" >
-                                    <label class="custom-control-label" for="confirm">Excluir resposta</label>
-                                </div> -->
-                                <div>
-                                <input type="hidden" name='hidden_confirm' id='hidden_confirm' value='on'>
+                        <div class="col-md-6  w3ls fea-left">
+                            <div class="w3agile_special_deals_grid_left_grid">
+                               <img src="{% static 'forum/img/question.jpg' %}" class="img-responsive" alt="" />
                             </div>
-                                
-                              <p class="user-message">
-                                  <small id="emailHelp" class="form-text text-muted ">
-                                        Deseja excluir a pergunta?
-                                    </small>
-                                </p> 
-                            <div>
-                              <a href="{% url 'posts:post' question.id %}">
-                              <input value="Cancelar" class="button cancel m-1" />
-                              </a>
-                            </div>
-                            <div>
-                              <input type="submit" value="Confirmar" class="button delete m-1" />
-                            </div>
-                            </div>
-                        </form>
-                        
-                    
-            <!-- Start Answers-->    
-                    {% for answer in answers %}
-                    <article class="post mt-5">
-                        <header class="post__header">
-                            <div class="media-object">
-                                <div class="media-object-section">
-                                    <a href="#" class="post__header-profile">
-                                        <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167752.svg" alt="" />
-                                    </a>
-                                </div>
-                                <div class="media-object-section">
-                                    <a class="post__header-profile-name">{{answer.user}}</a>
-                                    <time class="post__header-time">{{answer.last_modification_date|date:"d/m/Y H:i"}}</time>                   
-                                </div>                                  
-                            </div>                                  
-                            
-                        </header>
-                        <div class="post__content mt-4">
-                            <p>{{answer.description}}
-                            </p>
                         </div>
+                        <div class="col-md-6 wthree fea-right">
+                            <h3>{{question.title}}</h3>
+                            <p>{{question.description}}</p>
+                            <input type="submit" class="agileits w3layouts" id="danger" value="Confirmar" />
+                            <a href="{% url 'posts:post' question.id %}"  id="neutral" class="agileits w3layouts">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                    <div class="clearfix"> </div>
 
-                    </article>
-                    {% endfor %}
-            <!-- End Answers-->
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="clearfix"> </div>
 
-            
-                </section>
 
-        </main>
+
+
+    </div>
 </div>
 
 {% block js %}
