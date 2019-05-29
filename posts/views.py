@@ -113,6 +113,38 @@ class PostDislikeToggle(RedirectView):
         return url_
 
 
+class AnswerLikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        obj = get_object_or_404(Answer, pk=kwargs['id_post']) #questao clicada pelo usuario   
+        obj2 = get_object_or_404(Question, pk=obj.get_question().id)      
+        url_ = obj2.get_absolute_url()  
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.upvote.all():
+                obj.upvote.remove(user)
+            else:
+                if user in obj.downvote.all():
+                    obj.downvote.remove(user)
+                obj.upvote.add(user)
+        return url_
+
+
+class AnswerDislikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        obj = get_object_or_404(Answer, pk=kwargs['id_post']) #questao clicada pelo usuario  
+        obj2 = get_object_or_404(Question, pk=obj.get_question().id)      
+        url_ = obj2.get_absolute_url()  
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.downvote.all():
+                obj.downvote.remove(user)
+            else:
+                if user in obj.upvote.all():
+                    obj.upvote.remove(user)
+                obj.downvote.add(user)
+        return url_
+
+
 def edit_post(request, post_id):
     question = get_object_or_404(Question, pk=post_id)
     

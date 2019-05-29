@@ -14,7 +14,10 @@ class Question(models.Model):
 	downvote = models.ManyToManyField(User, related_name="downvote", blank=True)
 
 	def get_absolute_url(self):
-		return reverse("posts:post")
+		return reverse("posts:post", kwargs={"id_post": self.id})
+
+	def get_like_url(self, post_id):
+		return reverse("posts:like_toggle")
 
 class Answer(models.Model):
 	description = models.TextField()
@@ -24,6 +27,11 @@ class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 	upvote = models.ManyToManyField(User, related_name="a_upvote", blank=True)
 	downvote = models.ManyToManyField(User, related_name="a_downvote", blank=True)
+
+	def get_question(self):
+		return self.question
+
+
 
 class Tag(models.Model):
 	name = models.CharField(max_length=512)

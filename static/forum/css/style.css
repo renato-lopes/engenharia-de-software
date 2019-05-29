@@ -11,8 +11,16 @@ body{
 	font-family: 'Roboto Condensed', sans-serif;
 }
 a{
-	text-decoration:none;
+    text-decoration:none;
+    z-index: 9999;
+    color: inherit;
 }
+
+a:hover{
+    text-decoration:none;
+    color: inherit;
+}
+
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -67,6 +75,7 @@ label{
     text-align: center;
     display: inline-block;
     margin-right: 20px; 
+    text-decoration:none;
 }
 
 .up{

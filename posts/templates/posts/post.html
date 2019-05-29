@@ -29,11 +29,11 @@
 						<li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a href="#">{{question.last_modification_date|date:"d/m/Y H:i"}}</a></li>
 						<div class="vote pull-right">
 							<div class="increment up">
-								<span class="glyphicon glyphicon-thumbs-up"></span>
+								<a class="glyphicon glyphicon-thumbs-up" href="{% url 'posts:like_toggle' question.id %}"></a>
 								<span class="count">{{question.upvote.count}}</span>
 							</div>
 							<div class="increment down">
-								<span class="glyphicon glyphicon-thumbs-down"></span>
+								<a class="glyphicon glyphicon-thumbs-down" href="{% url 'posts:dislike_toggle' question.id %}"></a>
 								  <span class="count">{{question.downvote.count}}</p>
 							</div>
 						</div>
@@ -72,11 +72,13 @@
 									<li><a href="#">{{answer.user.first_name}} {{answer.user.last_name}}</a></li>
 									<div class="vote">
 										<div class="increment up">
-											<span class="glyphicon glyphicon-thumbs-up"></span>
-											<span class="count">{{answer.upvote.count}}</span>
+											<a class="glyphicon glyphicon-thumbs-up" href="{% url 'posts:a_like_toggle' answer.id %}"></a>
+											<span class="count">
+												{{answer.upvote.count}}
+											</span>
 										</div>
 										<div class="increment down">
-											<span class="glyphicon glyphicon-thumbs-down"></span>
+												<a class="glyphicon glyphicon-thumbs-down" href="{% url 'posts:a_dislike_toggle' answer.id %}"></a>
 											  <span class="count">{{answer.downvote.count}}</p>
 										</div>
 									</div>
