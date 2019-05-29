@@ -11,7 +11,9 @@ urlpatterns = [
     path('tag/<int:tag_id>/', views.tag, name='tag'),
     path('edit_answer/<int:answer_id>/', views.edit_answer, name='edit_answer'),
     path('delete_answer/<int:answer_id>/', views.delete_answer, name='delete_answer'),
-    path('tag/<int:tag_id>/', views.tag, name='tag')
+    path('tag/<int:tag_id>/', views.tag, name='tag'),
+    path('post/<int:id_post>/like', views.PostLikeToggle.as_view(), name='like-toggle'),
+    path('post/<int:id_post>/dislike', views.PostDislikeToggle.as_view(), name='dislike-toggle'),
 ]
 
 

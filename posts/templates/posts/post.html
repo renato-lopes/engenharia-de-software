@@ -30,11 +30,11 @@
 						<div class="vote pull-right">
 							<div class="increment up">
 								<span class="glyphicon glyphicon-thumbs-up"></span>
-								<span class="count">0</span>
+								<span class="count">{{question.upvote.count}}</span>
 							</div>
 							<div class="increment down">
 								<span class="glyphicon glyphicon-thumbs-down"></span>
-								  <span class="count">0</p>
+								  <span class="count">{{question.downvote.count}}</p>
 							</div>
 						</div>
 					</ul>
@@ -73,11 +73,11 @@
 									<div class="vote">
 										<div class="increment up">
 											<span class="glyphicon glyphicon-thumbs-up"></span>
-											<span class="count">0</span>
+											<span class="count">{{answer.upvote.count}}</span>
 										</div>
 										<div class="increment down">
 											<span class="glyphicon glyphicon-thumbs-down"></span>
-											  <span class="count">0</p>
+											  <span class="count">{{answer.downvote.count}}</p>
 										</div>
 									</div>
 								</ul>
