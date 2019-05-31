@@ -19,9 +19,6 @@ body, html {
     z-index: 9999;
 }
 /* wrapper after loading */
-.sb-load {
-    /*background:url('images/load.gif') center no-repeat rgba(0,0,0,.9);*/
-}
 /* vertical centering */
 .smoothbox-table {
     top:0;
