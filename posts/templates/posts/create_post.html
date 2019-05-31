@@ -27,7 +27,7 @@
 				<p class="agileinfo_para">Ajudaremos você a encontrar sua resposta.</p>
 			</div>
 			<div class="w3ls_portfolio_grids w3_agile_mail_grids">
-				<form action="{% url 'posts:create_post' %}" method="post">
+				<form action="{% url 'posts:create_post' %}" method="post" id="form-create-data">
                     {% csrf_token %}
 					<div class="col-md-6 w3_agile_mail_grid center-login">
 						<span class="input input--ichiro">
@@ -38,6 +38,7 @@
                             <input type="text" id="id_title" class="form-control " name="title" id="title" placeholder="Título"
                             aria-label="Title" aria-describedby="basic-addon1" required>
 						</span>
+
 						<span class="input input--ichiro">
 							 <div id="tag-wrapper">
                                     <ul class="tags-input">
@@ -52,7 +53,8 @@
                                     </ul>
                                 </div>
                             
-                        </span>
+						</span>
+						
                         <span class="input input--ichiro">
                                 <textarea class="form-control" id="id_description" rows="15" name="description" id="description"
                                 placeholder="Descrição da pergunta" required></textarea>
