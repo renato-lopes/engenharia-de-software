@@ -117,7 +117,6 @@ def edit_profile(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         description = request.POST['description']
-        photo = request.FILES['photo']
     except KeyError:
         return redirect('users:profile')
     else:
@@ -129,7 +128,10 @@ def edit_profile(request):
         user.first_name = first_name
         user.last_name = last_name
         user.description = description
-        user.photo = photo
+
+        if len(request.FILES) != 0:
+            photo = request.FILES['photo']
+            user.photo = photo
 
         new_pass = request.POST['password']
         if new_pass:
