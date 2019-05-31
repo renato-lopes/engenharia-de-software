@@ -3,9 +3,6 @@
 <!-- Carrega arquivos estáticos (css, imagens, js) -->
 
 {% block css %}
-<link href="{% static 'posts/css/posts.css' %}" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css">
-
 {% endblock %}
 
 {% block content %}
@@ -76,7 +73,7 @@
                                 <textarea name="description" id="description" placeholder="Digite sua resposta"
                                     required="">{{answer.description}}</textarea>
                                 <div class="w3_single_submit">
-                                    <input type="submit" value="Enviar Resposta">
+                                    <input type="submit" value="Editar Resposta">
                                 </div>
                             </form>
                             {% else %}

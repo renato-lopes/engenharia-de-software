@@ -216,7 +216,7 @@ def edit_answer(request,answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
     # question = Question.objects.get(id=answer.question.id)
     question = Question.read(answer.question.id)
-    question_tags = QuestionTag.search(question = post_id)
+    question_tags = QuestionTag.search(question = answer.question.id)
     tags = [Tag.read(qt.tag.id).name for qt in question_tags]
     
     
