@@ -105,7 +105,7 @@
                     {% if user.is_authenticated %}
 					<form action="{% url 'posts:post' question.id %}" method="post">
                         {% csrf_token %}
-						<textarea name="Message" placeholder="Digite sua resposta" required=""></textarea>
+						<textarea name="message" placeholder="Digite sua resposta" required=""></textarea>
 						<div class="w3_single_submit">
 							<input type="submit" value="Enviar Resposta" >
 						</div>
