@@ -41,8 +41,8 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-calendar"
                                             aria-hidden="true"></i>{{question.creation_date|date:"d/m/Y H:i"}}</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{ question.upvote.count }}</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{ question.downvote.count }}</a></li>
 
                             </ul>
                         </div>
@@ -88,8 +88,8 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-calendar"
                                             aria-hidden="true"></i>{{answer.creation_date|date:"d/m/Y H:i"}}</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
-                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{answer.upvote.count }}</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{ answer.downvote.count }}</a></li>
 
                             </ul>
                         </div>
