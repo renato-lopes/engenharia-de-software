@@ -22,41 +22,38 @@
 <div class="container">
     <!-- mail -->
     <div class="banner-bottom">
-            <div class="col-md-10 ">
-        <div class="agileits_heading_section">
-            <h3 class="wthree_head">Excluir Pergunta</h3>
-            <p class="agileinfo_para">Deseja excluir a pergunta?</p>
-        </div>
-        <div class="events w3">
-            <div class="events-main">
-                <div class="events-top">
-                    <form action="{% url 'posts:delete_post' question.id %}" method="post">
-                        {% csrf_token %}
-                        <div class="col-md-6  w3ls fea-left">
-                            <div class="w3agile_special_deals_grid_left_grid">
-                               <img src="{% static 'forum/img/question.jpg' %}" class="img-responsive" alt="" />
+        <div class="col-md-10 ">
+            <div class="agileits_heading_section">
+                <h3 class="wthree_head">Excluir Pergunta</h3>
+                <p class="agileinfo_para">Deseja excluir a pergunta?</p>
+            </div>
+            <div class="events w3">
+                <div class="events-main">
+                    <div class="events-top">
+                        <form action="{% url 'posts:delete_post' question.id %}" id="form-confirm-delete" method="post">
+                            {% csrf_token %}
+                            <div class="col-md-6  w3ls fea-left">
+                                <div class="w3agile_special_deals_grid_left_grid">
+                                    <img src="{% static 'forum/img/question.jpg' %}" class="img-responsive" alt="" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 wthree fea-right">
-                            <h3>{{question.title}}</h3>
-                            <p>{{question.description}}</p>
-                            <input type="submit" class="agileits w3layouts" id="danger" value="Confirmar" />
-                            <a href="{% url 'posts:post' question.id %}"  id="neutral" class="agileits w3layouts">
-                                Cancelar
-                            </a>
-                        </div>
-                    </form>
-                    <div class="clearfix"> </div>
+                            <div class="col-md-6 wthree fea-right">
+                                <h3>{{question.title}}</h3>
+                                <p>{{question.description}}</p>
+                                <input type="hidden" name='hidden_confirm' id='hidden_confirm' value='on'>
+                                <input type="submit" class="agileits w3layouts" id="danger" value="Confirmar" />
+                                <a href="{% url 'posts:post' question.id %}" id="neutral" class="agileits w3layouts">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </form>
+                        <div class="clearfix"> </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
         <div class="clearfix"> </div>
-
-
-
-
     </div>
 </div>
 
