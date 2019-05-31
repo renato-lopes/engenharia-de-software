@@ -20,7 +20,7 @@ body, html {
 }
 /* wrapper after loading */
 .sb-load {
-    background:url('images/load.gif') center no-repeat rgba(0,0,0,.9);
+    /*background:url('images/load.gif') center no-repeat rgba(0,0,0,.9);*/
 }
 /* vertical centering */
 .smoothbox-table {
