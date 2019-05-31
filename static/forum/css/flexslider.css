@@ -55,7 +55,6 @@ html[xmlns] .slides {display: block;}
 	width: 40px;
     height: 40px;
     margin: 0;
-    background:url(../images/arrows.png) no-repeat 0px 0px;
     position: absolute;
     z-index: 10;
     cursor: pointer;
@@ -67,7 +66,6 @@ html[xmlns] .slides {display: block;}
 	opacity: 0.8;
 }
 .flex-direction-nav .flex-next {
-	background:url(../images/arrows.png) no-repeat -40px 0px ;
     right:1%;
 }
 .flex-direction-nav .flex-prev {
