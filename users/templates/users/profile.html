@@ -31,72 +31,74 @@
                             </div>
                             <div class="agileits_w3layouts_team_grids">
                                 <div class="col-md-6 w3l_stats_bottom_grid_left">
-                                    <img src="{{ photo.url }}"
-                                        alt=" " class="img-responsive" />
+                                    <img src="{{ photo.url }}" alt=" " class="img-responsive" />
                                 </div>
                                 <div class="col-md-6 w3l_stats_bottom_grid_right user-profile-desc">
-                                <ul>
-                                    <li>
-                                        <h4>Nome de Usuário</h4>
-                                        <p>{{ username }}</p>
-                                    </li>
-                                    <li>
-                                        <h4>Nome</h4>                                    
-                                        <p>{{ first_name }} {{ last_name }}</p>
-                                    </li>
-                                    <li>
-                                        <h4>E-mail</h4>
-                                        <p>{{ email }}</p>
-                                    </li>
-                                    <li>
-                                        <h4>Sobre</h4>
-                                        <p>{{ description }} </p>
-                                    </li>
-                                </ul>
+                                    <ul>
+                                        <li>
+                                            <h4>Nome de Usuário</h4>
+                                            <p>{{ username }}</p>
+                                        </li>
+                                        <li>
+                                            <h4>Nome</h4>
+                                            <p>{{ first_name }} {{ last_name }}</p>
+                                        </li>
+                                        <li>
+                                            <h4>E-mail</h4>
+                                            <p>{{ email }}</p>
+                                        </li>
+                                        <li>
+                                            <h4>Sobre</h4>
+                                            <p>{{ description }} </p>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="list-edit" role="tabpanel">{%  include "users/edit_profile.html" %}</div>
-                    <div class="tab-pane fade" id="list-activities" role="tabpanel">{%  include "users/activities.html" %}</div>
+                    <div class="tab-pane fade" id="list-edit" role="tabpanel">{%  include "users/edit_profile.html" %}
+                    </div>
+                    <div class="tab-pane fade" id="list-activities" role="tabpanel">
+                        {%  include "users/activities.html" %}</div>
                 </div>
                 <!-- //end tab -->
-
-            </div>
-        </div>
-        		<!-- btm-wthree-right -->
-			<div class="col-md-3 w3agile_blog_left">
-                <h3>Opções</h3>
-                <div class="wthreesearch">
-                </div>
-                
-                <div class="row">
+                <!-- btm-wthree-right -->
+                <div class="col-md-3 w3agile_blog_left">
+                    <div class="wthreesearch">
+                    </div>
+                    <div class="wthreesearch">
+                        </div>
+                    <h3>Opções</h3>
+                    <div class="wthreesearch">
+                    </div>
+                    <div class="row">
                         <div class="col-4">
-                          <ul class="nav nav-pills nav-stacked" id="list-tab" role="tablist">
-                            <li role="presentation" class="active">
-                                <a class=" tab-pane" id="list-profile-list" data-toggle="pill" 
-                                href="#list-profile" role="tab" aria-controls="profile">Perfil</a>
-                            </li>
-                            <li role="presentation">
-                                <a class=" tab-pane" id="list-activities-list" data-toggle="pill" 
-                                href="#list-activities" role="tab" aria-controls="activities">Atividades</a>
-                            </li>
-                            {% if edit %}
-                            <li role="presentation">
-                                <a class=" tab-pane" id="list-edit-list" data-toggle="pill" 
-                                href="#list-edit" role="tab" aria-controls="edit">Editar Perfil</a>
-                            </li>
-                            {% endif %}
-                        </ul>
+                            <ul class="nav nav-pills nav-stacked" id="list-tab" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a class=" tab-pane" id="list-profile-list" data-toggle="pill" href="#list-profile"
+                                        role="tab" aria-controls="profile">Perfil</a>
+                                </li>
+                                <li role="presentation">
+                                    <a class=" tab-pane" id="list-activities-list" data-toggle="pill"
+                                        href="#list-activities" role="tab" aria-controls="activities">Atividades</a>
+                                </li>
+                                {% if edit %}
+                                <li role="presentation">
+                                    <a class=" tab-pane" id="list-edit-list" data-toggle="pill" href="#list-edit"
+                                        role="tab" aria-controls="edit">Editar Perfil</a>
+                                </li>
+                                {% endif %}
+                            </ul>
                         </div>
                     </div>
-               
-                
-                
+
+                </div>
             </div>
-            <!-- //btm-wthree-right -->
-            <div class="clearfix"></div>
+        </div>
+
+        <!-- //btm-wthree-right -->
+        <div class="clearfix"></div>
     </div>
 </div>
 {% endblock %}
