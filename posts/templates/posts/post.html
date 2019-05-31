@@ -63,7 +63,7 @@
                         {% for answer in answers %}
 						<div class="comments-grid">
 							<div class="comments-grid-left">
-								<img src="https://image.flaticon.com/icons/svg/61/61205.svg" alt=" " class="img-responsive" />
+								<img src="{{ answer.user.photo.url }}" alt=" " class="img-responsive photo-answer" />
 							</div>
 							<div class="comments-grid-right">
 								<h4><a href="{% url 'users:view_profile' answer.user.username %}">{{answer.user.username}}</a></h4>
