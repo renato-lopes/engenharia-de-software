@@ -33,18 +33,8 @@
 
     <!-- Required-js -->
     <!-- main slider-banner -->
-    <script src="{% static 'forum/js/skdslider.min.js' %}"></script>
     <link href="{% static 'forum/css/skdslider.css' %}" rel="stylesheet">
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
-
-            jQuery('#responsive').change(function () {
-                $('#responsive_wrapper').width(jQuery(this).val());
-            });
-
-        });
-    </script>
+    
     <!-- //main slider-banner -->
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="{% static 'forum/js/move-top.js' %}"></script>
