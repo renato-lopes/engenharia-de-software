@@ -9,71 +9,93 @@
 {% endblock %}
 
 {% block content %}
-<div class='container'>
-    {%  include "forum/header.html" %}
-   
-    <main class="container row">
-            <!-- Sidebar	 -->
-            <aside class="sidebar columns medium-4 medium-push-8">
-                <div class="widget">
-                    <header class="widget__header">
-                        <span class="widget__header-title">Post Tags</span>
-                    </header>
-                    <div class="widget__tags">
-                        {% for tag in tags %}
-                            <a class="tag">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </aside>
-            
-            <!-- Content	 -->
-            <section class="content columns medium-8 medium-pull-4">
-                <h3> Editar resposta </h3>
-                <article class="post">
-                    <header class="post__header">
-                        <div class="media-object">
-                            <div class="media-object-section">
-                                <a href="#" class="post__header-profile">
-                                    <img class="post__header-profile-image" src="https://image.flaticon.com/icons/svg/167/167750.svg" alt="" />
-                                </a>
-                            </div>
-                            <div class="media-object-section">
-                                <a class="post__header-profile-name">{{question.user}}</a>
-                                <time class="post__header-time">{{question.last_modification_date|date:"d/m/Y H:i"}}</time>					
-                            </div>									
-                        </div>									
-                        <h3 class="post__header-title">{{question.title}}</h3>
-                    </header>
-                    <div class="post__content mt-4">
-                        <p>
-                            {{question.description}}
-                        </p>
-                    </div>
-                    <footer class="post__footer">
-                        <div class="post__footer-likes"></div>				
-                        <div class="post__footer-responses text-right mr-3">
-                            <small><i class="fa fa-reply"></i>
-                                <a href="#ans" class="text-muted"> Responder</a>
-                            </small>    
-                            
-                        </div>				
-                    </footer>
-                </article>
-                    
-                    <hr class="mt-5 mb-5">
-                    <form class="answer-form mt-5" id="ans" action="{% url 'posts:edit_answer' answer.id %}" method="post">
-                    {% csrf_token %}
-                            <div class="message">
-                              <textarea name="description" id="description" placeholder="Sua Resposta">{{answer.description}}</textarea>
-                            </div>
-                            <div class="submit">
-                              <input type="submit" value="Concluir" class="button" />
-                            </div>
-                    </form>
-                </section>
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="{% url 'forum:index' %}">Início</a></li>
+            <li class="active">Editar</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
 
-        </main>
+<div class="container">
+    <!-- mail -->
+    <div class="banner-bottom">
+        <div class="agileits_heading_section">
+            <h3 class="wthree_head">Editar Resposta</h3>
+        </div>
+        <div class="banner-btm-agile">
+            <!-- //btm-wthree-left -->
+            <div class="col-md-9 btm-wthree-left">
+                <div class="single-left">
+                    <div class="single-left1">
+                        <h3>{{question.title}}</h3>
+                        <ul>
+                            <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a
+                                    href="#">{{question.user}}</a></li>
+                            <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a
+                                    href="#">{{question.last_modification_date|date:"d/m/Y H:i"}}</a></li>
+                            <div class="vote pull-right">
+                                <div class="increment up">
+                                    <a class="glyphicon glyphicon-thumbs-up"
+                                        href="{% url 'posts:like_toggle' question.id %}"></a>
+                                    <span class="count">{{question.upvote.count}}</span>
+                                </div>
+                                <div class="increment down">
+                                    <a class="glyphicon glyphicon-thumbs-down"
+                                        href="{% url 'posts:dislike_toggle' question.id %}"></a>
+                                    <span class="count">{{question.downvote.count}}</p>
+                                </div>
+                            </div>
+                        </ul>
+                        <p>{{question.description}}</p>
+
+                        {% if question.user == loged_user %}
+                        <div class="post-footer pull-right">
+                            <i class="fa fa-edit"></i>
+                            <a href="{% url 'posts:edit_post' question.id %}" class="text-muted"> Editar</a>
+
+                            <i class="fa fa-trash"></i>
+                            <a href="{% url 'posts:delete_post' question.id %}" class="text-muted"> Excluir</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                        {% endif %}
+                        <!-- <small><i class="fa fa-reply ml-3"></i>
+                                            <a href="#ans" class="text-muted"> Responder</a>
+                                 </small>     -->
+                    </div>
+
+                    <hr>
+                    <div class="comments">
+                        <div class="leave-coment-form">
+                            {% if user.is_authenticated %}
+                            <form action="{% url 'posts:edit_answer' answer.id %}" id="ans" method="post">
+                                {% csrf_token %}
+                                <textarea name="description" id="description" placeholder="Digite sua resposta"
+                                    required="">{{answer.description}}</textarea>
+                                <div class="w3_single_submit">
+                                    <input type="submit" value="Enviar Resposta">
+                                </div>
+                            </form>
+                            {% else %}
+                            <p class="user-message">
+                                <small id="emailHelp" class="form-text text-muted ">
+                                    Você precisa estar logado para responder a esta pergunta.<br>
+                                    Faça <a href="{% url 'users:login' %}">login</a> ou <a
+                                        href="{% url 'users:register' %}">registre-se</a> agora mesmo!
+                                </small>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 {% block js %}
