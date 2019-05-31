@@ -89,17 +89,24 @@
 			<div class="w3l_tags">
 					<h3>Tags</h3>
 					<ul class="tag">
-						<li><a href="singlepage.html">Fashion</a></li>
-						<li><a href="singlepage.html">Photography</a></li>
-						<li><a href="singlepage.html">Artist</a></li>
-						<li><a href="singlepage.html">Music</a></li>
-						<li><a href="singlepage.html">Shop</a></li>
-						<li><a href="singlepage.html">Corporate</a></li>
-						<li><a href="singlepage.html">Personal</a></li>
-						<li><a href="singlepage.html">Restaurant</a></li>
-						<li><a href="singlepage.html">Business</a></li>
+							{% for post in questions %}
+								{% for tag in post.tags %}
+										<li><a href="{% url 'posts:tag' tag.id %}">{{ tag.name }}</a></li>
+								{% endfor %}
+							{% endfor %}
 					</ul>
 				</div>
+				<div class="w3l_categories">
+						<h3>Grupo</h3>
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Breno Martins - Computação</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Deiziane Silva - Computação</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Gabriel Oliveira - Engenharia</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Pedro Maciel - Engenharia</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Renato Junior - Computação</a></li>
+						
+						</ul>
+					</div>
 			</div>
 			<!-- //btm-wthree-right -->
 			<div class="clearfix"></div>

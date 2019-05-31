@@ -29,7 +29,17 @@ def users(request):
     }
 
     users = User.objects.all().order_by("username")
+    questions = Question.objects.all().order_by("-creation_date")
 
+    # Add post tags
+    for question in questions:
+        question_tags = QuestionTag.objects.filter(question=question)
+        tags = []
+        for el in question_tags:
+            tags.append(el.tag)
+        question.tags = tags
+
+    context['posts'] = questions
     context['users'] = users
 
     return render(request, 'forum/users.html', context)
@@ -68,4 +78,17 @@ def about(request):
     context = {
         'title': 'Sobre'
     }
+
+    questions = Question.objects.all().order_by("-creation_date")
+
+    # Add post tags
+    for question in questions:
+        question_tags = QuestionTag.objects.filter(question=question)
+        tags = []
+        for el in question_tags:
+            tags.append(el.tag)
+        question.tags = tags
+
+    context['posts'] = questions
+    
     return render(request, 'forum/about.html', context)

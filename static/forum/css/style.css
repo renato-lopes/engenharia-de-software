@@ -2103,7 +2103,7 @@ h2.typoh2{
 	color:#fff;
 }
 .comments-grids{
-	margin:3em 0 0;
+	margin:3em 0 6em;
 }
 .comments-grid-left{
 	float:left;
@@ -2179,7 +2179,7 @@ h2.typoh2{
 	min-height:200px;
 	resize:none;
 	width:100% !important;
-	margin:1em 0 0.8em;
+	margin:5em 0 0.8em;
 }
 .w3_single_submit{
 	text-align:right;
