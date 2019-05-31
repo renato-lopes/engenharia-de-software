@@ -7,9 +7,15 @@
             <p class="agileinfo_para">Dados Pessoais</p>
         </div>
         <div class="w3ls_portfolio_grids w3_agile_mail_grids">
-            <form action="{% url 'users:edit_profile' %}" method="post">
+            <form action="{% url 'users:edit_profile' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="col-md-12 w3_agile_mail_grid">
+                    <span class="input input--ichiro">
+                        <label for="id_photo">
+							Foto
+						</label>
+                        <input type="file" id="id_photo" class="form-control" name="photo">
+                    </span>
                     <span class="input input--ichiro">
                         <label for="id_first-name">
 							Nome

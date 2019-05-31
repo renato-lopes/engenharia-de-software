@@ -3,6 +3,8 @@ from .models import ForumUser as User
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from posts.models import Question, Answer
+from django.conf import settings
+
 # Create your views here.
 def register(request):
     context = {
@@ -49,8 +51,10 @@ def profile(request):
     description = user.description
     first_name = user.first_name
     last_name = user.last_name
+    photo = user.photo
     context['username'] = username
     context['email'] = email
+    context['photo'] = photo
     if description:
         context['description'] = description
     if first_name:
@@ -82,8 +86,10 @@ def view_profile(request, username):
     description = user.description
     first_name = user.first_name
     last_name = user.last_name
+    photo = user.photo
     context['username'] = username
     context['email'] = email
+    context['photo'] = photo
     if description:
         context['description'] = description
     if first_name:
@@ -111,6 +117,7 @@ def edit_profile(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         description = request.POST['description']
+        photo = request.FILES['photo']
     except KeyError:
         return redirect('users:profile')
     else:
@@ -122,6 +129,7 @@ def edit_profile(request):
         user.first_name = first_name
         user.last_name = last_name
         user.description = description
+        user.photo = photo
 
         new_pass = request.POST['password']
         if new_pass:

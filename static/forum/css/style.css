@@ -94,6 +94,11 @@ label{
     color: rgb(141, 0, 0);
 }
 
+.photo{
+    width: 350px;
+    height: 250px;
+}
+
 #wtout-border{
     border:none;
 }
