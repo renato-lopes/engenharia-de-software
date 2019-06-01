@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='forumuser',
             name='photo',
-            field=models.ImageField(default='http://download.seaicons.com/download/i93733/custom-icon-design/silky-line-user/custom-icon-design-silky-line-user-user-2.ico', upload_to='images/'),
+            field=models.ImageField(default='images/user.ico', upload_to='images/'),
         ),
     ]
