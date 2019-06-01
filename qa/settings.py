@@ -1,3 +1,6 @@
+
+import django_heroku
+
 """
 Django settings for qa project.
 
@@ -25,7 +28,7 @@ SECRET_KEY = 'v(9m+t$jpu@25g76@(j6z6a5mc4(pn84(51-j8f9ta7*&vtz=h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["engenharia-de-software.herokuapp.com"]
 
 
 # Application definition
@@ -76,12 +79,12 @@ WSGI_APPLICATION = 'qa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -132,3 +135,8 @@ LOGIN_URL = '/login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+django_heroku.settings(locals())
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
