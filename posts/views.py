@@ -65,12 +65,10 @@ def post(request,id_post):
             context['error_message'] = "Você não está logado"
             return render(request, 'posts/post.html', context)
         user = User.objects.get(username=username)
-        answer = Answer(description=description, user=user, question=question)
-        answer.save()
+        answer = Answer.create(description=description, user=user, question=question)
         # return redirect("/post/"+str(question.id))
         return render(request, 'posts/post.html', context)
         
-
 class PostLikeToggle(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         obj = get_object_or_404(Question, pk=kwargs['id_post']) #questao clicada pelo usuario        
@@ -85,7 +83,6 @@ class PostLikeToggle(RedirectView):
                 obj.upvote.add(user)
         return url_
 
-
 class PostDislikeToggle(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         obj = get_object_or_404(Question, pk=kwargs['id_post']) #questao clicada pelo usuario        
@@ -99,7 +96,6 @@ class PostDislikeToggle(RedirectView):
                     obj.upvote.remove(user)
                 obj.downvote.add(user)
         return url_
-
 
 class AnswerLikeToggle(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
@@ -116,7 +112,6 @@ class AnswerLikeToggle(RedirectView):
                 obj.upvote.add(user)
         return url_
 
-
 class AnswerDislikeToggle(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         obj = get_object_or_404(Answer, pk=kwargs['id_post']) #questao clicada pelo usuario  
@@ -131,7 +126,6 @@ class AnswerDislikeToggle(RedirectView):
                     obj.upvote.remove(user)
                 obj.downvote.add(user)
         return url_
-
 
 def edit_post(request, post_id):
     question = Question.read(post_id)
@@ -163,7 +157,6 @@ def edit_post(request, post_id):
     else:
         Question.update(id=post_id, title=title, description=description, tags=tags)
         return redirect("/post/"+str(question.id))
-
 
 def delete_post(request, post_id):
     question = Question.read(post_id)
@@ -213,8 +206,10 @@ def tag(request,tag_id):
     return render(request, 'tags/tag.html', context)
 
 def edit_answer(request,answer_id):
-    answer = get_object_or_404(Answer, pk=answer_id)
-    # question = Question.objects.get(id=answer.question.id)
+    answer = Answer.read(answer_id)
+    if (answer == None):
+        return HttpResponseNotFound('<h1>Resposta '+str(post_id)+' não encontrada</h1>')
+
     question = Question.read(answer.question.id)
     question_tags = QuestionTag.search(question = answer.question.id)
     tags = [Tag.read(qt.tag.id).name for qt in question_tags]
@@ -239,14 +234,14 @@ def edit_answer(request,answer_id):
     except (KeyError):
         return render(request, 'answers/edit_answer.html', context)
     else:
-        answer.description = description
-        answer.save()
+        Answer.update(answer_id, description)
         return redirect("/post/"+str(question.id))
-        
 
 def delete_answer(request,answer_id):
-    answer = get_object_or_404(Answer, pk=answer_id)
-    # question = Question.objects.get(id=answer.question.id)
+    answer = Answer.read(answer_id)
+    if (answer == None):
+        return HttpResponseNotFound('<h1>Resposta '+str(post_id)+' não encontrada</h1>')
+
     question = Question.read(answer.question.id)
     question_tags = QuestionTag.search(question = answer.question.id)
     tags = [Tag.read(qt.tag.id).name for qt in question_tags]
@@ -270,5 +265,5 @@ def delete_answer(request,answer_id):
     except (KeyError):
         return render(request, 'answers/delete_answer.html', context)
     else:
-        answer.delete()
+        Answer.remove(answer_id)
         return redirect("/post/"+str(question.id))

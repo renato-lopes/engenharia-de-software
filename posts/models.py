@@ -60,6 +60,35 @@ class Answer(models.Model):
 	upvote = models.ManyToManyField(AuthUser, related_name="a_upvote", blank=True)
 	downvote = models.ManyToManyField(AuthUser, related_name="a_downvote", blank=True)
 
+	def create(description, user, question):
+		answer = Answer(description=description, user=user, question=question)
+		answer.save()
+		return answer
+
+	def search(**kwargs):
+		result = Answer.objects.filter(**kwargs)
+		answers = []
+		for el in result:
+			answers.append(Answer.get(el.id))
+		return answers
+
+	def read(id):
+		try:
+			answer = Answer.objects.get(id= id)
+		except:
+			answer = None
+		return answer
+
+	def update(id, description):
+		answer = Answer.read(id)
+		answer.description = description
+		answer.save()
+		return answer
+
+	def remove(id):
+		answer = Answer.read(id)
+		answer.delete()
+
 	def get_question(self):
 		return self.question
 
