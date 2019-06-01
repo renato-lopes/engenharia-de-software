@@ -27,7 +27,7 @@
 				<h3 class="wthree_head">Editar Pergunta</h3>
 			</div>
 			<div class="w3ls_portfolio_grids w3_agile_mail_grids">
-				<form action="{% url 'posts:edit_post' question.id %}" method="post">
+				<form action="{% url 'posts:edit_post' question.id %}" method="post" id="form-create-data">
                     {% csrf_token %}
 					<div class="col-md-6 w3_agile_mail_grid center-login">
 						<span class="input input--ichiro">
