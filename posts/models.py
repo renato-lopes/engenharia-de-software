@@ -23,7 +23,7 @@ class Question(models.Model):
 		result = Question.objects.filter(**kwargs)
 		questions = []
 		for el in result:
-			questions.append(Question.get(el.id))
+			questions.append(Question.objects.get(id=el.id))
 		return questions
 
 	def read(id):
@@ -69,7 +69,7 @@ class Answer(models.Model):
 		result = Answer.objects.filter(**kwargs)
 		answers = []
 		for el in result:
-			answers.append(Answer.get(el.id))
+			answers.append(Answer.objects.get(id=el.id))
 		return answers
 
 	def read(id):
@@ -111,7 +111,7 @@ class Tag(models.Model):
 		tags = []
 		result = Tag.objects.filter(**kwargs)
 		for el in result:
-			tags.append(Tag.objects.get(id= el.id))
+			tags.append(Tag.objects.get(id=el.id))
 		return tags
 
 	def update(name):
