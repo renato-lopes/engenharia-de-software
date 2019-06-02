@@ -6,4 +6,4 @@ deploy:
   app: engenharia-de-software
   on:
     repo: renato-junior/engenharia-de-software
-script: "pwd"
+script: "python manage.py test"
