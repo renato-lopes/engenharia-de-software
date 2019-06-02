@@ -6,4 +6,12 @@ deploy:
   app: engenharia-de-software
   on:
     repo: renato-junior/engenharia-de-software
-script: "python manage.py test"
+install:
+  - pip install -r requirements.txt
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
+  - python engenharia-de-software/manage.py migrate --noinput
+env:
+  - DJ_DEBUG=False
+  - DATABASE_URL=postgres://postgres@localhost/travisdb
+script: "python engenharia-de-software/manage.py test"
