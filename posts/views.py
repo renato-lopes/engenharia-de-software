@@ -208,7 +208,7 @@ def tag(request,tag_id):
 def edit_answer(request,answer_id):
     answer = Answer.read(answer_id)
     if (answer == None):
-        return HttpResponseNotFound('<h1>Resposta '+str(post_id)+' não encontrada</h1>')
+        return HttpResponseNotFound('<h1>Resposta '+str(answer_id)+' não encontrada</h1>')
 
     question = Question.read(answer.question.id)
     question_tags = QuestionTag.search(question = answer.question.id)
@@ -240,7 +240,7 @@ def edit_answer(request,answer_id):
 def delete_answer(request,answer_id):
     answer = Answer.read(answer_id)
     if (answer == None):
-        return HttpResponseNotFound('<h1>Resposta '+str(post_id)+' não encontrada</h1>')
+        return HttpResponseNotFound('<h1>Resposta '+str(answer_id)+' não encontrada</h1>')
 
     question = Question.read(answer.question.id)
     question_tags = QuestionTag.search(question = answer.question.id)
