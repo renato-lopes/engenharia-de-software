@@ -44,6 +44,7 @@ class AnswerTestCase(TestCase):
     
     def tearDown(self):
         self.user.delete()
+        self.answer.delete()
         self.question.delete()
     
     def test_create_answer(self):
