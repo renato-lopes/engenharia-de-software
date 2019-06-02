@@ -12,6 +12,5 @@ before_script:
   - psql -c "CREATE DATABASE travisdb;" -U postgres
   - python engenharia-de-software/manage.py migrate --noinput
 env:
-  - DJ_DEBUG=False
-  - DATABASE_URL=postgres://postgres@localhost/travisdb
+  - DJ_DEBUG=False DATABASE_URL=postgres://postgres@localhost/travisdb
 script: "python engenharia-de-software/manage.py test"
