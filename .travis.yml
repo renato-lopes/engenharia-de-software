@@ -13,4 +13,4 @@ before_script:
   - python manage.py migrate --noinput
 env:
   - DJ_DEBUG=False DATABASE_URL=postgres://postgres@localhost/travisdb
-script: "python manage.py test"
+script: "coverage run --source=. python manage.py test -v 2"
