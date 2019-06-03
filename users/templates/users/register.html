@@ -23,10 +23,12 @@
             <p class="agileinfo_para">É grátis e leva apenas um minuto.</p>
         </div>
         <div class="w3ls_portfolio_grids w3_agile_mail_grids">
-            {% if success is True %}<p><strong>Usuário {{ username }} criado com sucesso!</strong> <a
+            <div class="register_message">
+            {% if success is True %}<p class='bg-success'><strong>Usuário {{ username }} criado com sucesso!</strong> <a
                     href="{% url 'users:login' %}">Fazer login.</a></p> {% endif %}
-            {% if fail is True %}<p><strong>O nome de usuário {{ username }} já está em uso. Por favor, escolha outro.
+            {% if fail is True %}<p class='bg-danger'><strong>O nome de usuário {{ username }} já está em uso. Por favor, escolha outro.
                 </strong></p>{% endif %}
+            </div>
             <form action="{% url 'users:register' %}" method="post">
                 {% csrf_token %}
                 <div class="col-md-6 w3_agile_mail_grid center-login">
