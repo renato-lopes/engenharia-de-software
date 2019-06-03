@@ -11,7 +11,7 @@
 <div class="breadcrumbs">
   <div class="container">
     <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-      <li><a href="index.html">Início</a></li>
+      <li><a href="{% url 'forum:index' %}">Início</a></li>
       <li class="active">Tags</li>
     </ol>
   </div>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-xs-8 agile_classes_grid1_left">
-            <h4><a href="../tag/{{tag.id}}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a></h4>
+            <h4><a href="{% url 'posts:tag' tag_id=tag.id %}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a></h4>
             <p>Tag #0{{tag.id}}</p>
           </div>
           <div class="clearfix"> </div>

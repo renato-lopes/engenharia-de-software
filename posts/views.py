@@ -191,7 +191,7 @@ def delete_post(request, post_id):
         return redirect("/all-posts")
 
 def tag(request,tag_id):
-    tag = Tag.read(post_id)
+    tag = Tag.read(tag_id)
     if (tag == None):
         return HttpResponseNotFound('<h1>Tag '+str(tag_id)+' não encontrada</h1>')
     question_tags = QuestionTag.search(tag=tag_id)
