@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-xs-8 agile_classes_grid1_left">
-            <h4><a href="../tag/{{tag.id}}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a></h4>
+            <h4><a href="{% url 'posts:tag' tag_id=tag.id %}" class="text-monospace text-decoration-none text-muted">{{tag.name}}</a></h4>
             <p>Tag #0{{tag.id}}</p>
           </div>
           <div class="clearfix"> </div>
