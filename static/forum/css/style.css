@@ -105,6 +105,16 @@ label{
     border-radius: 50%;
 }
 
+.register_message{
+    margin: 10px auto;
+    width: 550px;
+    text-align: center;
+}
+
+.register_message p{
+    padding: 10px 0;
+}
+
 #wtout-border{
     border:none;
 }

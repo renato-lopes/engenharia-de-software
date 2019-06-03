@@ -10,7 +10,7 @@
 <div class="breadcrumbs">
         <div class="container">
           <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-            <li><a href="index.html">Início</a></li>
+            <li><a href="{% url 'forum:index' %}">Início</a></li>
             <li class="active">Tags</li>
           </ol>
         </div>
@@ -44,8 +44,8 @@
                           <ul>
                               <li><a href="#"><i class="fa fa-calendar"
                                           aria-hidden="true"></i>{{ question.creation_date|date:"d/m/Y H:i" }}</a></li>
-                              <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 Upvotes</a></li>
-                              <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>0 Downvotes</a></li>
+                              <li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{question.upvote.count}} Upvotes</a></li>
+                              <li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{question.downvote.count}} Downvotes</a></li>
 
                           </ul>
                       </div>
